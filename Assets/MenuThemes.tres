@@ -1,0 +1,82 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bd4anyrq4cuqn"]
+
+[ext_resource type="FontFile" uid="uid://dkmwg4h3jd0i6" path="res://Assets/Alphakind.otf" id="1_5qmpy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alts4"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.11858145, 0.11858138, 0.11858133, 0.5882353)
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wl0a7"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.5265633, 0.26368043, 0.06389039, 0.5882353)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qmpy"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.47522998, 0.1843932, 0.007388985, 0.5882353)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4ipt"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.098877184, 0.03017666, 0.0033209315, 0.84313726)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[resource]
+default_font = ExtResource("1_5qmpy")
+default_font_size = 16
+Button/colors/font_color = Color(0.6156863, 0.39607844, 0, 1)
+Button/colors/font_focus_color = Color(0.6156863, 0.39607844, 0, 1)
+Button/colors/font_hover_color = Color(0.6156863, 0.39607844, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0.6156863, 0.39607844, 0, 1)
+Button/colors/font_outline_color = Color(0.078431375, 0.050980393, 0.023529412, 1)
+Button/colors/font_pressed_color = Color(0.6156863, 0.39607844, 0, 1)
+Button/constants/outline_size = 5
+Button/styles/focus = SubResource("StyleBoxFlat_alts4")
+Button/styles/hover = SubResource("StyleBoxFlat_wl0a7")
+Button/styles/normal = SubResource("StyleBoxFlat_5qmpy")
+Button/styles/pressed = SubResource("StyleBoxFlat_e4ipt")
+Label/colors/font_color = Color(0.61389595, 0.3968642, 0, 1)
+Label/colors/font_outline_color = Color(0.08038125, 0.049387112, 0.021836916, 1)
+Label/constants/outline_size = 5

@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://7mkbc0gggnlo"]
+
+[ext_resource type="Theme" uid="uid://bd4anyrq4cuqn" path="res://Assets/MenuThemes.tres" id="1_duf5v"]
+[ext_resource type="Script" uid="uid://coad4ge0vgie7" path="res://Menus/MenuHandler.gd" id="1_fusld"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duf5v"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.02745098, 0.015686275, 0.011764706, 0.6431373)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="ConfirmQuit" type="PanelContainer" node_paths=PackedStringArray("FirstFocus", "GoBackButton", "QuitGameButton")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.5
+offset_top = -27.0
+offset_right = 111.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_duf5v")
+theme_override_styles/panel = SubResource("StyleBoxFlat_duf5v")
+script = ExtResource("1_fusld")
+FirstFocus = NodePath("VBoxContainer/HBoxContainer/quit")
+GoBackButton = NodePath("VBoxContainer/HBoxContainer/Cancel")
+QuitGameButton = NodePath("VBoxContainer/HBoxContainer/quit")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Are You Sure?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Cancel" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Canel Quit"
+
+[node name="quit" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Confrim Quit"

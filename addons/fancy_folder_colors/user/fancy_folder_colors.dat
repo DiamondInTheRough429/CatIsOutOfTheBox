@@ -1,0 +1,14 @@
+[DAT]
+
+PTH={
+"res://Assets/": Color(0.17424317, 0.73125, 0.018281233, 1),
+"res://GameHandler/LevelHandler/": Color(0.6421875, 0.054184582, 0.054184582, 1),
+"res://GameHandler/Observable/": Color(0.030830069, 0.7046875, 0.15507239, 1),
+"res://GameHandler/Observable/Player": Color(0.25151804, 0.0076220785, 0.3484375, 1),
+"res://GameHandler/Observable/Player/": Color(0.63592035, 0.03821288, 0.8734375, 1),
+"res://GameHandler/Observer/": Color(0.8734375, 0.86038715, 0.03821288, 1),
+"res://GameHandler/Player": Color(0.25425693, 0.016552733, 0.35312498, 1),
+"res://GameHandler/SaveFile/": Color(0.7714249, 0.30189455, 0.8328125, 1),
+"res://GameHandler/Settings/": Color(0.049658205, 0.12016257, 0.5296875, 1),
+"res://Menus/": Color(0.16562499, 0.23187508, 0.828125, 1)
+}

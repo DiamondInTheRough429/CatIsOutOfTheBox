@@ -1,0 +1,20 @@
+Collision Layers
+	1 - Observable
+	2 - Observing
+	3 - Player
+	4 - Wall
+
+Screens
+	Main Menu
+	Settings
+	Level Select
+
+Z index
+Background -10
+Level -5
+Tiles  0
+Player 5
+Obserever 10
+
+Outline Color Hex: 140d06
+Font Color Hex: 9d6500
