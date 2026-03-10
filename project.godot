@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SaveHandler="*res://GameHandler/SaveFile/SaveHandler.gd"
 SettingsHandler="*res://GameHandler/Settings/SettingsHandler.gd"
+LevelLoadHandler="*res://GameHandler/LevelLoadHandler.gd"
 
 [display]
 
@@ -136,7 +137,7 @@ UI_TabSwitchRight={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://Assets/Translations/Langue.en.translation")
+locale/translations=PackedStringArray("res://Assets/Translations/Langue.en.translation", "res://Assets/Translations/Langue.uwu.translation")
 
 [layer_names]
 

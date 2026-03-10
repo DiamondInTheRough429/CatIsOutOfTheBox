@@ -100,6 +100,7 @@ func PrepColision() -> void:
 	
 	set_collision_mask_value(2, true) #Can See Observer
 	
+	print("Yippee")
 	#wall check
 	if WallCheck != null:
 		WallCheck.collision_mask = 0

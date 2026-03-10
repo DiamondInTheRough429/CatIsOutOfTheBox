@@ -1,11 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://buvo6k3q5bmq1"]
+[gd_scene load_steps=6 format=3 uid="uid://buvo6k3q5bmq1"]
 
 [ext_resource type="Theme" uid="uid://bd4anyrq4cuqn" path="res://Assets/MenuThemes.tres" id="1_a04sk"]
 [ext_resource type="Script" uid="uid://coad4ge0vgie7" path="res://Menus/MenuHandler.gd" id="1_adj0a"]
 [ext_resource type="PackedScene" uid="uid://7mkbc0gggnlo" path="res://Menus/Confirm Quit/ConfirmQuit.tscn" id="3_ieaex"]
 [ext_resource type="PackedScene" uid="uid://ct0wch6n4unnr" path="res://Menus/Settings/Settings.tscn" id="4_geipl"]
 
-[node name="MainMenuScreen" type="Control"]
+[sub_resource type="GDScript" id="GDScript_geipl"]
+resource_name = "TestMenu"
+script/source = "extends Control
+
+@export var LoadButton:Button
+@export var LoadSceneUID:String
+
+func _ready() -> void:
+	LoadButton.pressed.connect(Fo)
+
+func Fo()->void:
+	get_tree().change_scene_to_file.call_deferred(LoadSceneUID)
+"
+
+[node name="MainMenuScreen" type="Control" node_paths=PackedStringArray("LoadButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +27,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_a04sk")
+script = SubResource("GDScript_geipl")
+LoadButton = NodePath("VBoxContainer2/Continue")
+LoadSceneUID = "uid://gk3h3tbvfskl"
 
 [node name="Label" type="Label" parent="."]
 z_index = -1

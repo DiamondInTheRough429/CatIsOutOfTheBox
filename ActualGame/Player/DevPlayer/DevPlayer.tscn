@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdjrdvvpwv0w0"]
+
+[ext_resource type="Script" uid="uid://bppwffi1d7d1v" path="res://GameHandler/Observable/Player/PlayerHandler.gd" id="1_saakk"]
+[ext_resource type="SpriteFrames" uid="uid://cxw5wyv0n6gss" path="res://ActualGame/Player/DevPlayer/DevSpriteFrames.tres" id="2_parxw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_parxw"]
+size = Vector2(16, 16)
+
+[node name="DevPlayer" type="Area2D" node_paths=PackedStringArray("WallCheck", "Sprite")]
+script = ExtResource("1_saakk")
+WallCheck = NodePath("wallcheck")
+Sprite = NodePath("AnimatedSprite2D")
+metadata/_custom_type_script = "uid://bppwffi1d7d1v"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_parxw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_parxw")
+animation = &"MoveDown"
+autoplay = "default"
+
+[node name="wallcheck" type="RayCast2D" parent="."]
+target_position = Vector2(0, 32)

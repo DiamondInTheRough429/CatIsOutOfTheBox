@@ -1,6 +1,6 @@
 extends Node
 ##Used to handle loading and Reseting of level
-class_name LeveloadHandler
+class_name LeveloadHandler_Script
 
 ##Call when reseting level
 signal ResetingLevel
