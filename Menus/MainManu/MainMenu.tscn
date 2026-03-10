@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://buvo6k3q5bmq1"]
+[gd_scene load_steps=5 format=3 uid="uid://buvo6k3q5bmq1"]
 
 [ext_resource type="Theme" uid="uid://bd4anyrq4cuqn" path="res://Assets/MenuThemes.tres" id="1_a04sk"]
 [ext_resource type="Script" uid="uid://coad4ge0vgie7" path="res://Menus/MenuHandler.gd" id="1_adj0a"]
+[ext_resource type="PackedScene" uid="uid://7mkbc0gggnlo" path="res://Menus/Confirm Quit/ConfirmQuit.tscn" id="3_ieaex"]
+[ext_resource type="PackedScene" uid="uid://ct0wch6n4unnr" path="res://Menus/Settings/Settings.tscn" id="4_geipl"]
 
 [node name="MainMenuScreen" type="Control"]
 layout_mode = 3
@@ -12,7 +14,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_a04sk")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="." node_paths=PackedStringArray("FirstFocus")]
+[node name="Label" type="Label" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 40.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "GAME_TITLE"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." node_paths=PackedStringArray("FirstFocus", "ButtonToMenu")]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 70.0
@@ -26,32 +38,69 @@ GrabFirst = true
 InPos = Vector2(10, 70)
 OutPos = Vector2(-150, 70)
 FirstFocus = NodePath("Continue")
+ButtonToMenu = {
+NodePath("Quit"): NodePath("../ConfirmQuit"),
+NodePath("Settings"): NodePath("../Settings")
+}
 
 [node name="Continue" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
-text = "Continue 0-0"
+text = "CONTINUE"
 
 [node name="Level Select2" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
-text = "Level Select"
+text = "LEVEL_SELECT"
 
 [node name="Settings" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
-text = "Settings
-"
+text = "SETTINGS"
 
 [node name="Quit" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Continue")
-text = "Quit Game"
+text = "QUIT"
 
-[node name="Label" type="Label" parent="."]
-z_index = -1
+[node name="ConfirmQuit" parent="." instance=ExtResource("3_ieaex")]
+visible = false
 layout_mode = 0
-offset_right = 640.0
-offset_bottom = 40.0
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 32
-text = "Cat Out Of The Box"
-horizontal_alignment = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 180.0
+offset_right = 253.0
+offset_bottom = 259.00003
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Settings" parent="." node_paths=PackedStringArray("TabToFirstFocus", "ButtonToMenu") instance=ExtResource("4_geipl")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 330.0
+offset_top = -160.0
+offset_right = 810.00024
+offset_bottom = 160.0
+grow_horizontal = 1
+grow_vertical = 1
+TabToFirstFocus = {
+0: NodePath("VIDEO/OptionButton"),
+1: NodePath("AUDIO/Master"),
+2: NodePath("CONTROLS/Button"),
+3: NodePath("CUSTOMIZATION/Button")
+}
+InPos = Vector2(80, 0)
+OutPos = Vector2(650, 0)
+ButtonToMenu = {
+NodePath("AUDIO/Button"): null,
+NodePath("VIDEO/Button"): null,
+NodePath("CONTROLS/Button"): null,
+NodePath("CUSTOMIZATION/Button"): null
+}

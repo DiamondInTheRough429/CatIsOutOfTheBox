@@ -1,0 +1,25 @@
+key,en
+GAME_TITLE,Cat's Out Of The Box
+-MENUS-,-Menus-
+CONTINUE,Continue
+LEVEL_SELECT,Level Select
+SETTINGS,Settings
+QUIT,Quit Game
+ARE_SURE,Are You Sure?
+CANCEL_QUIT,Cancel Quit
+CONFIRM_QUIT,Confirm Quit
+GO_BACK,Go Back
+-SETTINGS-,-Settings-
+VIDEO,Video
+RESOLUTION,Resolution
+FULLSCREEN,Fullscreen
+VSYNC,Vsync
+AUDIO,Audio
+MASTER_VOL,Master Volume
+MUSIC_VOL,Music Volume
+SOUND_EFFECT_VOL,Sound Effect Volume
+CONTROLS,Controls
+CUSTOMIZATION,Customization
+-GAME_TERMS-,-Game Terminology-
+WORLD_EXPERIMENT,Experiment
+LEVEL_BOX,Box

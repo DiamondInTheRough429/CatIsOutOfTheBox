@@ -25,15 +25,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -111.5
-offset_top = -27.0
-offset_right = 111.5
-offset_bottom = 27.0
+offset_left = -126.5
+offset_top = -39.5
+offset_right = 126.5
+offset_bottom = 39.50003
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_duf5v")
 theme_override_styles/panel = SubResource("StyleBoxFlat_duf5v")
 script = ExtResource("1_fusld")
+InPos = Vector2(193.5, 120.5)
+OutPos = Vector2(193.5, 340)
 FirstFocus = NodePath("VBoxContainer/HBoxContainer/quit")
 GoBackButton = NodePath("VBoxContainer/HBoxContainer/Cancel")
 QuitGameButton = NodePath("VBoxContainer/HBoxContainer/quit")
@@ -44,7 +46,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Are You Sure?"
+text = "ARE_SURE"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -53,8 +55,8 @@ alignment = 1
 
 [node name="Cancel" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Canel Quit"
+text = "CANCEL_QUIT"
 
 [node name="quit" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Confrim Quit"
+text = "CONFIRM_QUIT"

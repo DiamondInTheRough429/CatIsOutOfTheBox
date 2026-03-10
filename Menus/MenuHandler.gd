@@ -14,6 +14,8 @@ class_name MenuHandler
 @export var PreviousMenu:Control
 
 @export_category("Possible Buttons")
+##Buttons and thier menus
+@export var ButtonToMenu:Dictionary[Button, Control]
 ##Button to go back to previous menu
 @export var GoBackButton:Button
 ##Button to go to level select menu
@@ -38,6 +40,12 @@ func _ready() -> void:
 		MainMenuButton.pressed.connect(GoToSceneMenu.bind(MainMenuUID))
 	if QuitGameButton != null:
 		QuitGameButton.pressed.connect(QuitGame)
+	for Butt in ButtonToMenu:
+		var PotentialMenu = ButtonToMenu.get(Butt)
+		if PotentialMenu != null:
+			Butt.pressed.connect(GoToMenu.bind(PotentialMenu))
+		else:
+			Butt.pressed.connect(GoToMenu)
 
 ##Used to move Menu in and out
 func MoveInOut(In:bool = true) -> void:
@@ -54,13 +62,17 @@ func MoveInOut(In:bool = true) -> void:
 			FirstFocus.grab_focus()
 	#Hide if off screen
 	else:
+		await MoveTween.finished
 		hide()
 
 ##Go to menu
 func GoToMenu(NewMenu:MenuHandler = PreviousMenu) -> void:
-	MoveInOut(false)
-	NewMenu.PreviousMenu = self
-	NewMenu.MoveInOut()
+	if NewMenu != null:
+		MoveInOut(false)
+		NewMenu.PreviousMenu = self
+		NewMenu.MoveInOut()
+	else:
+		push_warning("YOU MISSED A MENU AT %s LOOSER" %self)
 
 ##Go To Scene Menu
 func GoToSceneMenu(UID:String) -> void:
