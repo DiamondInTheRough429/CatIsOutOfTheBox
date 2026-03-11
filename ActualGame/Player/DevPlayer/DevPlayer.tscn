@@ -1,14 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdjrdvvpwv0w0"]
+[gd_scene load_steps=10 format=3 uid="uid://cdjrdvvpwv0w0"]
 
 [ext_resource type="Script" uid="uid://bppwffi1d7d1v" path="res://GameHandler/Observable/Player/PlayerHandler.gd" id="1_saakk"]
 [ext_resource type="SpriteFrames" uid="uid://cxw5wyv0n6gss" path="res://ActualGame/Player/DevPlayer/DevSpriteFrames.tres" id="2_parxw"]
+[ext_resource type="PackedScene" uid="uid://bf8jkspsloxh2" path="res://Menus/In Game Menus/PlayerPause/Player Pause Screen.tscn" id="3_co56n"]
+[ext_resource type="PackedScene" uid="uid://cgsyccwykrwah" path="res://Menus/In Game Menus/Player Reach End/Level End Screen.tscn" id="4_1vmlv"]
+[ext_resource type="PackedScene" uid="uid://bw3g5l58csn17" path="res://Menus/In Game Menus/Player Died/Player Died Screen.tscn" id="5_pwk1t"]
+[ext_resource type="PackedScene" uid="uid://7mkbc0gggnlo" path="res://Menus/Confirm Quit/ConfirmQuit.tscn" id="6_1vmlv"]
+[ext_resource type="Script" uid="uid://dc1pxwkyxn3xw" path="res://Menus/In Game Menus/InGameMenuHandler.gd" id="7_pwk1t"]
+[ext_resource type="PackedScene" uid="uid://ct0wch6n4unnr" path="res://Menus/Settings/Settings.tscn" id="8_f8va8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_parxw"]
 size = Vector2(16, 16)
 
-[node name="DevPlayer" type="Area2D" node_paths=PackedStringArray("WallCheck", "Sprite")]
+[node name="DevPlayer" type="Area2D" node_paths=PackedStringArray("Camera", "WallCheck", "PauseScreen", "PlayerDiesScreen", "LevelEndScreen", "Sprite")]
 script = ExtResource("1_saakk")
+Camera = NodePath("Camera2D")
 WallCheck = NodePath("wallcheck")
+PauseScreen = NodePath("CanvasLayer/PlayerPauseScreen")
+PlayerDiesScreen = NodePath("CanvasLayer/PlayerDiedScreen")
+LevelEndScreen = NodePath("CanvasLayer/LevelEndScreen")
 Sprite = NodePath("AnimatedSprite2D")
 metadata/_custom_type_script = "uid://bppwffi1d7d1v"
 
@@ -22,3 +32,54 @@ autoplay = "default"
 
 [node name="wallcheck" type="RayCast2D" parent="."]
 target_position = Vector2(0, 32)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerPauseScreen" parent="CanvasLayer" node_paths=PackedStringArray("Player", "ButtonToMenu") instance=ExtResource("3_co56n")]
+visible = false
+offset_left = -150.0
+offset_right = -150.0
+Player = NodePath("../..")
+CurrentMenu = true
+InPos = Vector2(10, 0)
+OutPos = Vector2(-150, 0)
+ButtonToMenu = {
+NodePath("VBoxContainer/Quit"): NodePath("../ConfirmQuit"),
+NodePath("VBoxContainer/SEttings"): NodePath("../Settings")
+}
+
+[node name="LevelEndScreen" parent="CanvasLayer" node_paths=PackedStringArray("Player") instance=ExtResource("4_1vmlv")]
+visible = false
+offset_top = -300.0
+offset_bottom = -300.0
+Player = NodePath("../..")
+OutPos = Vector2(0, -300)
+
+[node name="PlayerDiedScreen" parent="CanvasLayer" node_paths=PackedStringArray("Player") instance=ExtResource("5_pwk1t")]
+visible = false
+offset_top = -250.0
+offset_bottom = -250.0
+Player = NodePath("../..")
+OutPos = Vector2(0, -250)
+
+[node name="ConfirmQuit" parent="CanvasLayer" node_paths=PackedStringArray("Player") instance=ExtResource("6_1vmlv")]
+visible = false
+script = ExtResource("7_pwk1t")
+Player = NodePath("../..")
+
+[node name="Settings" parent="CanvasLayer" node_paths=PackedStringArray("TabToFirstFocus", "ButtonToMenu") instance=ExtResource("8_f8va8")]
+visible = false
+TabToFirstFocus = {
+0: NodePath("VIDEO/OptionButton"),
+1: NodePath("AUDIO/Master"),
+2: NodePath("CONTROLS/Button"),
+3: NodePath("CUSTOMIZATION/Button")
+}
+ButtonToMenu = {
+NodePath("AUDIO/Button"): null,
+NodePath("VIDEO/Button"): null,
+NodePath("CONTROLS/Button"): null,
+NodePath("CUSTOMIZATION/Button"): null
+}

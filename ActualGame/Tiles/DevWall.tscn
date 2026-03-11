@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://oivgasjt2ai4"]
+[gd_scene load_steps=3 format=3 uid="uid://oivgasjt2ai4"]
+
+[ext_resource type="Script" uid="uid://2lgg6tdgttjc" path="res://GameHandler/Observable/Tiles/WallTile.gd" id="1_n7d1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gnwqn"]
 size = Vector2(32, 32)
 
 [node name="Devall" type="Area2D"]
 collision_layer = 8
+script = ExtResource("1_n7d1x")
+metadata/_custom_type_script = "uid://2lgg6tdgttjc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gnwqn")

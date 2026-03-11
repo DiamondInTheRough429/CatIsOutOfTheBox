@@ -1,0 +1,204 @@
+[gd_scene load_steps=13 format=3 uid="uid://cgsyccwykrwah"]
+
+[ext_resource type="Theme" uid="uid://bd4anyrq4cuqn" path="res://Assets/MenuThemes.tres" id="1_lfkgs"]
+[ext_resource type="Script" uid="uid://c6t8yixxool1j" path="res://Menus/In Game Menus/Player Reach End/LevelEndMenuHandler.gd" id="2_lfkgs"]
+[ext_resource type="Texture2D" uid="uid://d1q2hlekteu6n" path="res://Assets/Stars/StarEmpty.png" id="3_lcbjp"]
+[ext_resource type="Texture2D" uid="uid://bjvsrlfvninq5" path="res://Assets/Stars/FilledStar.png" id="4_xu4am"]
+[ext_resource type="Texture2D" uid="uid://cncfd78j68nsj" path="res://Assets/Stars/StarSkull.png" id="5_nie8g"]
+[ext_resource type="Texture2D" uid="uid://55m4palf5hnu" path="res://Assets/Stars/Star3.png" id="6_vmkel"]
+[ext_resource type="Texture2D" uid="uid://cji5g6kbpo8ir" path="res://Assets/Stars/StarEmptyClock.png" id="7_ogo7j"]
+[ext_resource type="Texture2D" uid="uid://v4rv7n4vjqt0" path="res://Assets/Stars/StarTimeFilled.png" id="8_k8mkb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfkgs"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.42745098, 0.20784314, 0.07058824, 0.54901963)
+border_width_left = 5
+border_width_top = 10
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.84313726, 0.6862745, 0.17254902, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yube2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_nie8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vmkel")
+}],
+"loop": false,
+"name": &"Complete",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_nie8g")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nf71t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lcbjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xu4am")
+}],
+"loop": false,
+"name": &"Complete",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lcbjp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fbnuk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ogo7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k8mkb")
+}],
+"loop": false,
+"name": &"Complete",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ogo7j")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LevelEndScreen" type="Control" node_paths=PackedStringArray("NextLevelButton", "LevelEndLabel", "CompleteStar", "DeathlessStar", "TimeStar", "ResetButton", "FirstFocus", "LevelSelectButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lfkgs")
+script = ExtResource("2_lfkgs")
+NextLevelButton = NodePath("PanelContainer/VBoxContainer/VBoxContainer2/Next Level")
+LevelEndLabel = NodePath("PanelContainer/VBoxContainer/Dynamic")
+CompleteStar = NodePath("PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/Star Holde2/Completed")
+DeathlessStar = NodePath("PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/Star Holde/Deathless")
+TimeStar = NodePath("PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/Star Holde3/Time")
+ResetButton = NodePath("PanelContainer/VBoxContainer/VBoxContainer2/HBoxContainer/Reset")
+FirstFocus = NodePath("PanelContainer/VBoxContainer/VBoxContainer2/Next Level")
+LevelSelectButton = NodePath("PanelContainer/VBoxContainer/VBoxContainer2/HBoxContainer/LevelSelect")
+metadata/_custom_type_script = "uid://dc1pxwkyxn3xw"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(298, 146)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -73.0
+offset_right = 149.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfkgs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = -6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "LEVEL_END_START"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Star Holde" type="Control" parent="PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Deathless" type="AnimatedSprite2D" parent="PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/Star Holde"]
+position = Vector2(0, -85)
+sprite_frames = SubResource("SpriteFrames_yube2")
+animation = &"Complete"
+autoplay = "default"
+
+[node name="Star Holde2" type="Control" parent="PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Completed" type="AnimatedSprite2D" parent="PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/Star Holde2"]
+position = Vector2(0, -90)
+sprite_frames = SubResource("SpriteFrames_nf71t")
+autoplay = "default"
+
+[node name="Star Holde3" type="Control" parent="PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Time" type="AnimatedSprite2D" parent="PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/Star Holde3"]
+position = Vector2(0, -85)
+sprite_frames = SubResource("SpriteFrames_fbnuk")
+animation = &"Complete"
+autoplay = "default"
+
+[node name="Dynamic" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "LEVEL_END_DYNAMIC"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Next Level" type="Button" parent="PanelContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "NEXT_LEVEL"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelSelect" type="Button" parent="PanelContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LEVEL_SELECT"
+
+[node name="Reset" type="Button" parent="PanelContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RESET_LEVEL"

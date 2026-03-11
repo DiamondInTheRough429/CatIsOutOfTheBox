@@ -2,6 +2,10 @@ extends Observable
 ##Handles player
 class_name PlayerHandler
 
+##Camera that belongs to the player
+@export var Camera:Camera2D
+##Level Player is in
+@export var Level:LevelHandler
 #region Moving Var
 ##Posible directions for moving
 enum Directions{Up, Down, Left, Right, None}
@@ -17,11 +21,19 @@ var FastMovement:bool = false
 #endregion
 #endregion
 
+#region UI
+var CurrentMenu:MenuHandler
+@export var PauseScreen:InGameMenuHandler
+@export var PlayerDiesScreen:InGameMenuHandler
+@export var LevelEndScreen:LevelEndMenuHandler
+#endregion
+
 ##Tells if has died in this level
 var HasDied:bool = false
 
 func _ready() -> void:
 	z_index = 5
+	CurrentMenu = PauseScreen
 
 func _physics_process(_delta: float) -> void:
 	if FastMovement == true:
@@ -38,6 +50,13 @@ func _physics_process(_delta: float) -> void:
 
 #region Input functions
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and CurrentMenu == PauseScreen and PauseScreen.CurrentMenu:
+		CanMove = !CanMove
+		await PauseScreen.MoveInOut(!CanMove)
+		PauseScreen.CurrentMenu = true
+		CurrentMenu = PauseScreen
+	if event.is_action_pressed("DEV_Kill"):
+		KillPlayer()
 	#region Moving Input
 	if event.is_action_pressed("PM_Up") or event.is_action("PM_Up") and event.is_echo():
 		Move(Directions.Up)
@@ -100,16 +119,29 @@ func PrepColision() -> void:
 	
 	set_collision_mask_value(2, true) #Can See Observer
 	
-	print("Yippee")
 	#wall check
 	if WallCheck != null:
 		WallCheck.collision_mask = 0
 		WallCheck.collide_with_areas = true
 		WallCheck.set_collision_mask_value(4, true)
 
+func ConnectLevel(NewLevel:LevelHandler = Level) -> void:
+	Level = NewLevel
+	if Level != null:
+		Level.LevelEnds.connect(LevelEnd)
+		PauseScreen.ConnectLevel(Level)
+		PlayerDiesScreen.ConnectLevel(Level)
+		LevelEndScreen.ConnectLevel(Level)
+
 ##Handles Killing Payer
 func KillPlayer() -> void:
 	HasDied = true
+	CanMove = false
+	PlayerDiesScreen.MoveInOut()
 
 func RESET() -> void:
-	pass
+	CurrentMenu = PauseScreen
+
+func LevelEnd() -> void:
+	CanMove = false
+	LevelEndScreen.MoveInOut()

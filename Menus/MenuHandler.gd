@@ -4,14 +4,18 @@ class_name MenuHandler
 
 ##This Menu Grabs first
 @export var GrabFirst:bool = false
-##Position When moving in
-@export var InPos:Vector2
-##Position when moving out
-@export var OutPos:Vector2
+##Used to tell if current menu
+@export var CurrentMenu:bool = false
 ##Control node that is first focused
 @export var FirstFocus:Control
 ##Previous menu for going back to
 @export var PreviousMenu:Control
+
+@export_category("Move In Out Vars")
+##Position When moving in
+@export var InPos:Vector2
+##Position when moving out
+@export var OutPos:Vector2
 
 @export_category("Possible Buttons")
 ##Buttons and thier menus
@@ -30,7 +34,9 @@ var MainMenuUID:String = "uid://buvo6k3q5bmq1"
 @export var QuitGameButton:Button
 
 func _ready() -> void:
+	#connect menhu logic
 	if GrabFirst:
+		CurrentMenu = true
 		FirstFocus.grab_focus()
 	if GoBackButton != null:
 		GoBackButton.pressed.connect(GoToMenu)
@@ -64,6 +70,7 @@ func MoveInOut(In:bool = true) -> void:
 	else:
 		await MoveTween.finished
 		hide()
+	CurrentMenu = In
 
 ##Go to menu
 func GoToMenu(NewMenu:MenuHandler = PreviousMenu) -> void:

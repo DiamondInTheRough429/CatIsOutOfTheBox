@@ -52,9 +52,9 @@ theme_override_constants/separation = 20
 alignment = 1
 script = ExtResource("1_adj0a")
 GrabFirst = true
+FirstFocus = NodePath("Continue")
 InPos = Vector2(10, 70)
 OutPos = Vector2(-150, 70)
-FirstFocus = NodePath("Continue")
 ButtonToMenu = {
 NodePath("Quit"): NodePath("../ConfirmQuit"),
 NodePath("Settings"): NodePath("../Settings")
