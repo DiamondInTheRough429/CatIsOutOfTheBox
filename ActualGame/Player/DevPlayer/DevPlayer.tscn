@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdjrdvvpwv0w0"]
+[gd_scene load_steps=12 format=3 uid="uid://cdjrdvvpwv0w0"]
 
 [ext_resource type="Script" uid="uid://bppwffi1d7d1v" path="res://GameHandler/Observable/Player/PlayerHandler.gd" id="1_saakk"]
+[ext_resource type="Shader" uid="uid://casy5vk58bldw" path="res://Assets/Outline.gdshader" id="2_4vsv7"]
 [ext_resource type="SpriteFrames" uid="uid://cxw5wyv0n6gss" path="res://ActualGame/Player/DevPlayer/DevSpriteFrames.tres" id="2_parxw"]
 [ext_resource type="PackedScene" uid="uid://bf8jkspsloxh2" path="res://Menus/In Game Menus/PlayerPause/Player Pause Screen.tscn" id="3_co56n"]
 [ext_resource type="PackedScene" uid="uid://cgsyccwykrwah" path="res://Menus/In Game Menus/Player Reach End/Level End Screen.tscn" id="4_1vmlv"]
@@ -8,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://7mkbc0gggnlo" path="res://Menus/Confirm Quit/ConfirmQuit.tscn" id="6_1vmlv"]
 [ext_resource type="Script" uid="uid://dc1pxwkyxn3xw" path="res://Menus/In Game Menus/InGameMenuHandler.gd" id="7_pwk1t"]
 [ext_resource type="PackedScene" uid="uid://ct0wch6n4unnr" path="res://Menus/Settings/Settings.tscn" id="8_f8va8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t6b2a"]
+shader = ExtResource("2_4vsv7")
+shader_parameter/OutlineColor = Color(0.7764706, 0.8745098, 0.23137255, 0.8666667)
+shader_parameter/CornerPixel = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_parxw"]
 size = Vector2(16, 16)
@@ -20,6 +26,7 @@ PauseScreen = NodePath("CanvasLayer/PlayerPauseScreen")
 PlayerDiesScreen = NodePath("CanvasLayer/PlayerDiedScreen")
 LevelEndScreen = NodePath("CanvasLayer/LevelEndScreen")
 Sprite = NodePath("AnimatedSprite2D")
+ObservedMat = SubResource("ShaderMaterial_t6b2a")
 metadata/_custom_type_script = "uid://bppwffi1d7d1v"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

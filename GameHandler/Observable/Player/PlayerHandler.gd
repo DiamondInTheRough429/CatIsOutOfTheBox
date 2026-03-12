@@ -12,7 +12,9 @@ enum Directions{Up, Down, Left, Right, None}
 ##Tells if currently moving
 var CurrentlyMoving:bool = false
 ##Tells if can move
-var CanMove:bool = true
+var CanMove:bool = true : set=CanMoveSetter
+##Emit when play cant move
+signal PlayerFrozen(Frozen:bool)
 ##Tells if player can move fast
 var FastMovement:bool = false
 #region Wall Checking var
@@ -133,6 +135,10 @@ func ConnectLevel(NewLevel:LevelHandler = Level) -> void:
 		PlayerDiesScreen.ConnectLevel(Level)
 		LevelEndScreen.ConnectLevel(Level)
 
+func CanMoveSetter(Set:bool) -> void:
+	CanMove = Set
+	PlayerFrozen.emit(!CanMove)
+
 ##Handles Killing Payer
 func KillPlayer() -> void:
 	HasDied = true
@@ -141,6 +147,7 @@ func KillPlayer() -> void:
 
 func RESET() -> void:
 	CurrentMenu = PauseScreen
+	PauseScreen.CurrentMenu = true
 
 func LevelEnd() -> void:
 	CanMove = false

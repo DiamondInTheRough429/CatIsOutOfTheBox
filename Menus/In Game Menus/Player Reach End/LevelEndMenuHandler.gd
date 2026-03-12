@@ -11,6 +11,7 @@ class_name LevelEndMenuHandler
 func ConnectLevel(NewLevel:LevelHandler = Level) -> void:
 	super.ConnectLevel(NewLevel)
 	if Level != null:
+		Level.LevelEnds.connect(MatchStars)
 		NextLevelButton.pressed.connect(Level.GoNextLevel)
 		if LevelEndLabel != null:
 			var FormatNumber:String = "%03d" %Level.LevelSaveResource.Level
@@ -19,4 +20,9 @@ func ConnectLevel(NewLevel:LevelHandler = Level) -> void:
 
 func MatchStars() -> void:
 	if Level != null:
-		pass
+		var CompletePlay:String = "Complete" if Level.LevelSaveResource.Complete else "default"
+		CompleteStar.play(CompletePlay)
+		var DeathlessPlay:String = "Complete" if Level.LevelSaveResource.CompleteDeathless else "default"
+		DeathlessStar.play(DeathlessPlay)
+		var TimePlay:String = "Complete" if Level.LevelSaveResource.CompleteInTime else "default"
+		TimeStar.play(TimePlay)

@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://kshmupadoyu4"]
+
+[ext_resource type="Script" uid="uid://bpc3eas5htdeq" path="res://GameHandler/Observable/Observable.gd" id="1_h6fs4"]
+[ext_resource type="Shader" uid="uid://casy5vk58bldw" path="res://Assets/Outline.gdshader" id="2_vsre1"]
+[ext_resource type="Texture2D" uid="uid://bk72ylgaalcr6" path="res://Assets/Dev Testing/OrbBlue.png" id="2_xrwe5"]
+[ext_resource type="Texture2D" uid="uid://b0t82hsb13e2h" path="res://Assets/Dev Testing/OrbBGR.png" id="3_h6fs4"]
+[ext_resource type="Texture2D" uid="uid://ue68l8bw8553" path="res://Assets/Dev Testing/OrbGRB.png" id="4_vsre1"]
+[ext_resource type="Texture2D" uid="uid://da675dtk83sal" path="res://Assets/Dev Testing/OrbRGB.png" id="5_sqdt0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sqdt0"]
+shader = ExtResource("2_vsre1")
+shader_parameter/OutlineColor = Color(0.7765, 0.8745, 0.2314, 0.8667)
+shader_parameter/CornerPixel = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dscw5"]
+size = Vector2(16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u3sk2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xrwe5")
+}],
+"loop": true,
+"name": &"Observered",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xrwe5")
+}],
+"loop": true,
+"name": &"WasObservered",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_h6fs4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vsre1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sqdt0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ObserveTotorialTile" type="Area2D" node_paths=PackedStringArray("Sprite")]
+script = ExtResource("1_h6fs4")
+Sprite = NodePath("AnimatedSprite2D")
+ObservedMat = SubResource("ShaderMaterial_sqdt0")
+metadata/_custom_type_script = "uid://bpc3eas5htdeq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dscw5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u3sk2")
+animation = &"Observered"
+autoplay = "default"

@@ -6,10 +6,16 @@ enum WhenObserved{Never, Currently, Was}
 
 ##Sprite of Observable
 @export var Sprite:AnimatedSprite2D
-##Current status of when observed
-@export var Observed:WhenObserved = WhenObserved.Never
 ##Tells if starting with collision off
 @export var StartCollisionOff:bool = false
+##Current status of when observed
+@export var Observed:WhenObserved = WhenObserved.Never : 
+	set(value):
+		Observed = value
+		ObservedChanged.emit(Observed)
+		ObservedVisualUpdate()
+##Material Used for when observed
+@export var ObservedMat:ShaderMaterial
 
 signal ObservedChanged(Change:WhenObserved)
 
@@ -31,6 +37,27 @@ func ToggleCollsion(Toggle:bool = true, On:bool = true, VisibilityMatch:bool = f
 	monitoring = On
 	visible = On if VisibilityMatch else visible
 #endregion
+
+##Update visuals of Observable
+func ObservedVisualUpdate() -> void:
+	
+	match Observed:
+		WhenObserved.Never:
+			if Sprite != null:
+				if Sprite.sprite_frames.has_animation("default"):
+					Sprite.play("default")
+				Sprite.material = null
+		WhenObserved.Currently:
+			if Sprite != null:
+				if Sprite.sprite_frames.has_animation("Observered"):
+					Sprite.play("Observered")
+				if ObservedMat != null:
+					Sprite.material = ObservedMat
+		WhenObserved.Was:
+			if Sprite != null:
+				if Sprite.sprite_frames.has_animation("WasObservered"):
+					Sprite.play("WasObservered")
+				Sprite.material = null
 
 ##Reset with level
 func RESET() -> void:

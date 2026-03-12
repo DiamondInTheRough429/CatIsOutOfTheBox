@@ -8,7 +8,11 @@ class_name LevelSaveInfo
 ##Level Name
 @export var LevelName:StringName = "Placeholder"
 ##Level Scene UID
-@export var LevelUID:StringName = "uid://Placholder"
+@export var LevelUID:StringName
+##Next Levels UID
+@export var NextLevelUID:StringName
+##Time in seconds need to beat level and get star
+@export var TimeStarLimit:float = 10
 ##Completed
 var Complete:bool = false
 ##Completed Deathless
@@ -24,4 +28,4 @@ func EndLevel(Finished:bool = true, Deathless:bool = false, InTime:bool = false)
 	if !CompleteInTime:
 		CompleteInTime = InTime
 	
-	SaveHandler.SetLevelComplete(World, Level, self)
+	SaveHandler.SetLevelInfo(World, Level, self)

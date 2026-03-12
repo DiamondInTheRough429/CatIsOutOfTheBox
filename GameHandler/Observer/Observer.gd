@@ -6,6 +6,8 @@ class_name Observer
 
 func _ready() -> void:
 	z_index = 10
+	area_entered.connect(AreaEntered)
+	area_exited.connect(AreaExited)
 
 #region Collsion Functions
 ##Prepare Colision
@@ -24,6 +26,16 @@ func ToggleCollsion(Toggle:bool = true, On:bool = true, VisibilityMatch:bool = t
 	monitoring = On
 	visible = On if VisibilityMatch else visible
 #endregion
+
+##Handle Area entering
+func AreaEntered(area:Area2D):
+	if area is Observable:
+		area.Observed = Observable.WhenObserved.Currently
+	
+##Handle Area exiting
+func AreaExited(area:Area2D):
+	if area is Observable:
+		area.Observed = Observable.WhenObserved.Was
 
 ##Reset with level
 func RESET() -> void:

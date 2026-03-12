@@ -20,10 +20,13 @@ func MoveInOut(In:bool = true) -> void:
 func ConnectLevel(NewLevel:LevelHandler = Level) -> void:
 	Level = NewLevel
 	if Level != null:
-		ResetButton.pressed.connect(Level.Reset)
-		ResetButton.pressed.connect(MoveInOut.bind(false))
+		ResetButton.pressed.connect(ResetButtonPressed)
 
 func ContinuePressed() -> void:
 	Player.CanMove = !Player.CanMove
 	await MoveInOut(!Player.CanMove)
 	CurrentMenu = true
+
+func ResetButtonPressed() -> void:
+	await MoveInOut(false)
+	Level.Reset()

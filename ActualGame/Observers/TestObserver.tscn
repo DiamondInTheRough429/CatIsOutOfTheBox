@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://vpx201xhf8ob"]
+
+[ext_resource type="Script" uid="uid://dycvrnukhgwgv" path="res://GameHandler/Observer/Observer.gd" id="1_fwevw"]
+[ext_resource type="Texture2D" uid="uid://2jh11l1x70vl" path="res://Assets/ObservingTestrans.png" id="2_l3f07"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydi82"]
+size = Vector2(640, 64)
+
+[node name="TestObserver" type="Area2D"]
+position = Vector2(16, 16)
+rotation = 1.5707964
+script = ExtResource("1_fwevw")
+metadata/_custom_type_script = "uid://dycvrnukhgwgv"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ydi82")
+
+[node name="ObservingTestrans" type="Sprite2D" parent="."]
+texture = ExtResource("2_l3f07")

@@ -23,11 +23,13 @@ func Save() -> void:
 func Load() -> void:
 	SaveFile.load(SaveLocation)
 
-##Set level to complete
-func SetLevelComplete(World:int, Level:int, SaveInfo:LevelSaveInfo) -> void:
+##Set The Level info for a worlds Level
+func SetLevelInfo(World:int, Level:int, SaveInfo:LevelSaveInfo) -> void:
 	SaveFile.set_value(str(World),  str(Level), SaveInfo)
 	Save()
 
-##Check status of level
-func CheckLevelComplete(World:int, Level:int) -> LevelSaveInfo:
-	return SaveFile.get_value(str(World), str(Level), null)
+##Check Level info for a worlds Level
+func GetLevelInfo(World:int, Level:int) -> LevelSaveInfo:
+	if SaveFile.has_section_key(str(World), str(Level)):
+		return SaveFile.get_value(str(World), str(Level), null)
+	return null

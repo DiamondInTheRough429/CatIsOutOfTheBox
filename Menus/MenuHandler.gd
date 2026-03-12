@@ -62,6 +62,7 @@ func MoveInOut(In:bool = true) -> void:
 	var MoveTween:Tween = create_tween()
 	var CorrectPos:Vector2 = InPos if In else OutPos
 	MoveTween.tween_property(self, "position", CorrectPos, .2)
+	CurrentMenu = In
 	#Grab focus when enter screen
 	if In:
 		if FirstFocus != null:
@@ -70,7 +71,7 @@ func MoveInOut(In:bool = true) -> void:
 	else:
 		await MoveTween.finished
 		hide()
-	CurrentMenu = In
+	
 
 ##Go to menu
 func GoToMenu(NewMenu:MenuHandler = PreviousMenu) -> void:
