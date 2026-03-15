@@ -6,7 +6,9 @@ class_name LevelHandler
 @export var World:int = 0
 ##Back up Level # if save resource doesn't exist
 @export var Level:int = -1
-##Resource handling World and level int, Saving, Complete status, and UID storage
+##Resource handling World and level int, and UID storage
+@export var LevelInfoResource:LevelInfo
+##Resource handling World and level int, Saving, Complete status
 @export var LevelSaveResource:LevelSaveInfo
 ##Background of this level
 @export var Background:TileMapLayer
@@ -164,5 +166,6 @@ func EndLevel() -> void:
 	LevelSaveResource.EndLevel(true, !Player.HasDied, StarTimer.time_left > 0)
 	LevelEnds.emit()
 
+##Move To the next level
 func GoNextLevel() -> void:
 	get_tree().change_scene_to_file.call_deferred(LevelSaveResource.NextLevelUID)

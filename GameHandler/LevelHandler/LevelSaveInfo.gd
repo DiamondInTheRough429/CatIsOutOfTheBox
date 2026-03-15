@@ -1,4 +1,5 @@
 extends Resource
+##Info for level save info
 class_name LevelSaveInfo
 
 ##World
@@ -7,12 +8,6 @@ class_name LevelSaveInfo
 @export var Level:int = 0
 ##Level Name
 @export var LevelName:StringName = "Placeholder"
-##Level Scene UID
-@export var LevelUID:StringName
-##Next Levels UID
-@export var NextLevelUID:StringName
-##Time in seconds need to beat level and get star
-@export var TimeStarLimit:float = 10
 ##Completed
 var Complete:bool = false
 ##Completed Deathless
