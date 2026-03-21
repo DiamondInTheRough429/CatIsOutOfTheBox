@@ -17,3 +17,9 @@ func AreaEnter(Area:Area2D) -> void:
 func AreaExit(Area:Area2D) -> void:
 	if Area is PlayerHandler:
 		PlayerExited.emit(Area)
+
+func PlayerEnter(_Player:PlayerHandler) -> void:
+	pass
+	
+func PlayerExit(_Player:PlayerHandler) -> void:
+	pass
