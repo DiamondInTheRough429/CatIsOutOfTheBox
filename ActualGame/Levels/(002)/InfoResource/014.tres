@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://GameHandler/LevelHandler/LevelInfo.gd" id="1_5ri7k"]
+
+[resource]
+script = ExtResource("1_5ri7k")
+World = 2
+Level = 14

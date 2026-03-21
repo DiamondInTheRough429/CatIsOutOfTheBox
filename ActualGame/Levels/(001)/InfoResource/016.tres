@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=2 format=3 uid="uid://dlamborqc26un"]
+
+[ext_resource type="Script" uid="uid://bibbt5260vm2b" path="res://GameHandler/LevelHandler/LevelInfo.gd" id="1_2ol68"]
+
+[resource]
+script = ExtResource("1_2ol68")
+World = 1
+Level = 16
+metadata/_custom_type_script = "uid://bibbt5260vm2b"
