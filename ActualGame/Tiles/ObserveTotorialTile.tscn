@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://kshmupadoyu4"]
 
-[ext_resource type="Script" uid="uid://bpc3eas5htdeq" path="res://GameHandler/Observable/Observable.gd" id="1_h6fs4"]
+[ext_resource type="Script" uid="uid://baiduw128rruf" path="res://GameHandler/Observable/Tiles/TileHandler.gd" id="1_h6fs4"]
 [ext_resource type="Shader" uid="uid://casy5vk58bldw" path="res://Assets/Outline.gdshader" id="2_vsre1"]
 [ext_resource type="Texture2D" uid="uid://bk72ylgaalcr6" path="res://Assets/Dev Testing/OrbBlue.png" id="2_xrwe5"]
 [ext_resource type="Texture2D" uid="uid://b0t82hsb13e2h" path="res://Assets/Dev Testing/OrbBGR.png" id="3_h6fs4"]
@@ -52,7 +52,7 @@ animations = [{
 script = ExtResource("1_h6fs4")
 Sprite = NodePath("AnimatedSprite2D")
 ObservedMat = SubResource("ShaderMaterial_sqdt0")
-metadata/_custom_type_script = "uid://bpc3eas5htdeq"
+metadata/_custom_type_script = "uid://baiduw128rruf"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dscw5")

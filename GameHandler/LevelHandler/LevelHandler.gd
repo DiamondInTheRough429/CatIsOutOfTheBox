@@ -44,6 +44,8 @@ func _ready() -> void:
 		Level = LevelSaveResource.Level
 	var GotLevelRes:LevelSaveInfo = SaveHandler.GetLevelInfo(World, Level)
 	LevelSaveResource = GotLevelRes if GotLevelRes != null else LevelSaveResource
+	if LevelInfoResource == null:
+		LevelInfoResource = LevelInfo.new()
 	if Background != null:
 		Background.z_index = -10
 	z_index = -5
@@ -62,7 +64,7 @@ func _ready() -> void:
 		add_child(NewT)
 		StarTimer = NewT
 	StarTimer.one_shot = true
-	StarTimer.start(LevelSaveResource.TimeStarLimit)
+	StarTimer.start(LevelInfoResource.TimeStarLimit)
 	LevelReady.emit.call_deferred()
 
 func _input(event: InputEvent) -> void:
@@ -159,7 +161,7 @@ func ReadyLevel() -> void:
 			Reseting.ToggleCollsion(false, !Reseting.StartCollisionOff)
 		if "CanMove" in Reseting:
 			Reseting.CanMove = true
-	StarTimer.start(LevelSaveResource.TimeStarLimit)
+	StarTimer.start(LevelInfoResource.TimeStarLimit)
 
 ##Run when Level Ends
 func EndLevel() -> void:
@@ -168,4 +170,4 @@ func EndLevel() -> void:
 
 ##Move To the next level
 func GoNextLevel() -> void:
-	get_tree().change_scene_to_file.call_deferred(LevelSaveResource.NextLevelUID)
+	get_tree().change_scene_to_file.call_deferred(LevelInfoResource.NextLevelUID)

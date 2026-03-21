@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq4yayd8ik5xd"]
+
+[ext_resource type="Script" uid="uid://baiduw128rruf" path="res://GameHandler/Observable/Tiles/TileHandler.gd" id="1_me8to"]
+[ext_resource type="Texture2D" uid="uid://cuysrcr2w8xok" path="res://Assets/TileSets/DevTest/ClawMarks.png" id="2_a8ot0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sg033"]
+size = Vector2(16, 16)
+
+[node name="ClawTile" type="Area2D"]
+script = ExtResource("1_me8to")
+metadata/_custom_type_script = "uid://baiduw128rruf"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sg033")
+
+[node name="ClawMarks" type="Sprite2D" parent="."]
+texture = ExtResource("2_a8ot0")
