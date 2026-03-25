@@ -30,7 +30,8 @@ var CurrentlyVsynced:bool = false : set = SetVsync
 #endregion
 
 #region Costumes
-
+enum Cosmetics{DEFAULT_COSMETIC, GOJO_COSMETIC, JELLIE_COSMETIC, SNAKE_COSMETIC, ROBOTCAT_COSMETIC, RAT_COSMETIC, CATCAT_COSMETIC, DEVART_COSMETIC}
+var CurrentCosmetic:Cosmetics = Cosmetics.DEFAULT_COSMETIC : set = SetCurrentCosmetic
 #endregion
 
 #region SettingsLogic
@@ -62,6 +63,9 @@ func LoadSettingConf()->void:
 	MasterVolume = SettingsConfig.get_value("Audio", "MasterVolume", 1)
 	MusicVolume = SettingsConfig.get_value("Audio", "MusicVolume", 1)
 	SoundEffectVolume = SettingsConfig.get_value("Audio", "SoundEffectVolume", 1)
+	#endregion
+	#region Cosmetics
+	CurrentCosmetic = SettingsConfig.get_value("Cosmetic", "Current", Cosmetics.DEFAULT_COSMETIC)
 	#endregion
 	SaveSettingConf()
 
@@ -122,4 +126,11 @@ func SetSoundEffectVol(NewVal:float) -> void:
 	SaveSettingConf()
 	SoundEffectVolume = NewVal
 	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("SoundEffects"), SoundEffectVolume)
+#endregion
+
+#region Cosmetics
+func SetCurrentCosmetic(NewCurrent:Cosmetics) -> void:
+	CurrentCosmetic = NewCurrent
+	SettingsConfig.set_value("Cosmetic", "Current", CurrentCosmetic)
+	SaveSettingConf()
 #endregion

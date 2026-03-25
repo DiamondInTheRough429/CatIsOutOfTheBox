@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://if4q4jd6e4c0" path="res://ActualGame/Levels/Level Pack Resource/Three.tres" id="6_18cyy"]
 [ext_resource type="PackedScene" uid="uid://dodl51mcwjuas" path="res://Menus/LevelSelect/WorldMenu.tscn" id="8_88156"]
 
-[node name="LevelSelect" type="TabContainer"]
+[node name="LevelSelect" type="TabContainer" node_paths=PackedStringArray("SelfTabCon")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,3 +20,5 @@ tab_alignment = 1
 script = ExtResource("1_b15eh")
 Worlds = Array[ExtResource("2_kt1qu")]([ExtResource("3_1k1nq"), ExtResource("4_88156"), ExtResource("5_3s2sg"), ExtResource("6_18cyy")])
 WorldMenus = ExtResource("8_88156")
+SelfTabCon = NodePath(".")
+CurrentMenu = true

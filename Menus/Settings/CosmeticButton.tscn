@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://beu6rsoqdyp0f"]
+
+[ext_resource type="Texture2D" uid="uid://djecamjwbw1c8" path="res://ICON2.svg" id="1_sqi1d"]
+[ext_resource type="Script" uid="uid://bm5qq054k111c" path="res://Menus/Settings/CosmeticButton.gd" id="1_xvu4l"]
+
+[node name="CosmeticButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Text"
+icon = ExtResource("1_sqi1d")
+icon_alignment = 1
+script = ExtResource("1_xvu4l")
+CosmeticOfButton = 2
+metadata/_custom_type_script = "uid://bm5qq054k111c"

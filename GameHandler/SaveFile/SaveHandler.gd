@@ -12,6 +12,7 @@ func Prep() -> void:
 	var prepDir:DirAccess = DirAccess.open("user://")
 	if !prepDir.file_exists(SaveLocation):
 		print("Making SaveFile")
+		SetCosmeticUnlocked(SettingsHandler.Cosmetics.DEFAULT_COSMETIC, true)
 		Save()
 	Load()
 
@@ -58,3 +59,15 @@ func GetWorldHighestComplete(World:int) -> int:
 	if SaveFile.has_section_key(str(World), "HighestComplete"):
 		return SaveFile.get_value(str(World), "HighestComplete", 0)
 	return 0
+
+func SetCosmeticUnlocked(Cosmetic:SettingsHandler.Cosmetics, Unlocked:bool) -> void:
+	SaveFile.set_value("Cosmetics", str(Cosmetic), Unlocked)
+	Save()
+
+func GetCosmeticUnlocked(Cosmetic:SettingsHandler.Cosmetics) -> bool:
+	if SaveFile.has_section_key("Cosmetics", str(Cosmetic)):
+		return SaveFile.get_value("Cosmetics", str(Cosmetic), false)
+	return false
+
+func GetContinued() -> void:
+	pass
