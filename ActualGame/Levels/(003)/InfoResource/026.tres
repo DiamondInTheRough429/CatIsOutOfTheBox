@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="LevelInfo" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=2 format=3 uid="uid://dbk0mtexnhgvp"]
 
-[ext_resource type="Script" path="res://GameHandler/LevelHandler/LevelInfo.gd" id="1_2nqke"]
+[ext_resource type="Script" uid="uid://bibbt5260vm2b" path="res://GameHandler/LevelHandler/LevelInfo.gd" id="1_2nqke"]
 
 [resource]
 script = ExtResource("1_2nqke")
 World = 3
 Level = 26
+LevelUID = &"uid://bhecyuxct0byx"
+NextLevelUID = &"uid://dxyq8i8bbsjga"

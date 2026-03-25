@@ -39,9 +39,6 @@ signal LevelEnds
 func _ready() -> void:
 	child_entered_tree.connect(ChildEnter)
 	child_exiting_tree.connect(ChildLeave)
-	if LevelSaveResource != null:
-		World = LevelSaveResource.World
-		Level = LevelSaveResource.Level
 	var GotLevelRes:LevelSaveInfo = SaveHandler.GetLevelInfo(World, Level)
 	LevelSaveResource = GotLevelRes if GotLevelRes != null else LevelSaveResource
 	if LevelInfoResource == null:

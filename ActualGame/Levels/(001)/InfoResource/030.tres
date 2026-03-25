@@ -6,5 +6,6 @@
 script = ExtResource("1_s30op")
 World = 1
 Level = 30
-LevelName = &"LEVELNAME1-30"
+LevelUID = &"uid://cnixchogyx747"
+NextLevelUID = &"uid://w2xsoyeop2ib"
 metadata/_custom_type_script = "uid://bibbt5260vm2b"

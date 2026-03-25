@@ -6,5 +6,5 @@
 script = ExtResource("1_kmkng")
 World = 1
 Level = 14
-LevelName = &"LEVELNAME1-14"
 LevelUID = &"uid://gcqw8v18oilx"
+NextLevelUID = &"uid://b3m72rmqj77ql"

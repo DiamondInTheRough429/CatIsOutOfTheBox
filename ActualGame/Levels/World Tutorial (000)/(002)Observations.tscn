@@ -1,15 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://ben6u462v3x5n"]
+[gd_scene load_steps=5 format=4 uid="uid://ben6u462v3x5n"]
 
 [ext_resource type="TileSet" uid="uid://dmdp0jyxbrl7f" path="res://Assets/TileSets/DevTest/DevTileSet.tres" id="1_p7apf"]
 [ext_resource type="Script" uid="uid://bb5r5ruwttbqc" path="res://GameHandler/LevelHandler/LevelHandler.gd" id="2_f6icc"]
-[ext_resource type="Script" uid="uid://bia8d22d3t20e" path="res://GameHandler/LevelHandler/LevelSaveInfo.gd" id="3_3bn7o"]
-
-[sub_resource type="Resource" id="Resource_p7apf"]
-script = ExtResource("3_3bn7o")
-Level = 2
-LevelName = &"Observations"
-LevelUID = &"uid://ben6u462v3x5n"
-metadata/_custom_type_script = "uid://bia8d22d3t20e"
+[ext_resource type="Resource" uid="uid://b6vn5pwyq207w" path="res://ActualGame/Levels/World Tutorial (000)/InfoResource/002Observation.tres" id="3_p7apf"]
 
 [sub_resource type="GDScript" id="GDScript_p7apf"]
 resource_name = "OverideTile"
@@ -34,7 +27,7 @@ tile_map_data = PackedByteArray("AAAAAAkAAgAAAAAAAQABAAkAAgAAAAAAAQACAAkAAgAAAAA
 tile_set = ExtResource("1_p7apf")
 script = ExtResource("2_f6icc")
 Level = 2
-LevelSaveResource = SubResource("Resource_p7apf")
+LevelInfoResource = ExtResource("3_p7apf")
 Background = NodePath("TileMapLayer")
 PlayerSpawn = Vector2i(2, 6)
 metadata/_custom_type_script = "uid://bb5r5ruwttbqc"

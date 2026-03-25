@@ -1,16 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://doltxd505sdqa"]
+[gd_scene load_steps=10 format=4 uid="uid://doltxd505sdqa"]
 
 [ext_resource type="TileSet" uid="uid://dmdp0jyxbrl7f" path="res://Assets/TileSets/DevTest/DevTileSet.tres" id="1_lwoy3"]
 [ext_resource type="Script" uid="uid://bb5r5ruwttbqc" path="res://GameHandler/LevelHandler/LevelHandler.gd" id="2_ypics"]
-[ext_resource type="Script" uid="uid://bia8d22d3t20e" path="res://GameHandler/LevelHandler/LevelSaveInfo.gd" id="3_6skgr"]
+[ext_resource type="Resource" uid="uid://bsqhmhg0a2725" path="res://ActualGame/Levels/World Tutorial (000)/InfoResource/003AliveAndDead.tres" id="3_i16pn"]
 [ext_resource type="Script" uid="uid://dcyqayqit2yeq" path="res://GameHandler/LevelHandler/TileConnectors/TileGroup.gd" id="4_ypics"]
 [ext_resource type="Shader" uid="uid://casy5vk58bldw" path="res://Assets/Outline.gdshader" id="5_6skgr"]
-
-[sub_resource type="Resource" id="Resource_87sbd"]
-script = ExtResource("3_6skgr")
-Level = 3
-LevelName = &"AliveAndDead"
-metadata/_custom_type_script = "uid://bia8d22d3t20e"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i16pn"]
 shader = ExtResource("5_6skgr")
@@ -37,7 +31,7 @@ tile_map_data = PackedByteArray("AAAAAAkAAgAAAAAAAQABAAkAAgAAAAAAAQACAAkAAgAAAAA
 tile_set = ExtResource("1_lwoy3")
 script = ExtResource("2_ypics")
 Level = 3
-LevelSaveResource = SubResource("Resource_87sbd")
+LevelInfoResource = ExtResource("3_i16pn")
 Background = NodePath("TileMapLayer")
 PlayerSpawn = Vector2i(2, 5)
 metadata/_custom_type_script = "uid://bb5r5ruwttbqc"

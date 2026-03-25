@@ -1,0 +1,147 @@
+[gd_scene load_steps=12 format=3 uid="uid://c5hbqxedwpst7"]
+
+[ext_resource type="Theme" uid="uid://bd4anyrq4cuqn" path="res://Assets/MenuThemes.tres" id="1_adxr6"]
+[ext_resource type="Script" uid="uid://bxvkrcos0bnmb" path="res://Menus/LevelSelect/LevelSelectButton.gd" id="2_6pakh"]
+[ext_resource type="Texture2D" uid="uid://cncfd78j68nsj" path="res://Assets/Stars/StarSkull.png" id="3_rnmgi"]
+[ext_resource type="Texture2D" uid="uid://55m4palf5hnu" path="res://Assets/Stars/Star3.png" id="4_egjqo"]
+[ext_resource type="Texture2D" uid="uid://d1q2hlekteu6n" path="res://Assets/Stars/StarEmpty.png" id="5_jgdws"]
+[ext_resource type="Texture2D" uid="uid://bjvsrlfvninq5" path="res://Assets/Stars/FilledStar.png" id="6_t7gxx"]
+[ext_resource type="Texture2D" uid="uid://cji5g6kbpo8ir" path="res://Assets/Stars/StarEmptyClock.png" id="7_6lr6y"]
+[ext_resource type="Texture2D" uid="uid://v4rv7n4vjqt0" path="res://Assets/Stars/StarTimeFilled.png" id="8_qe7x3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kvskf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rnmgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_egjqo")
+}],
+"loop": false,
+"name": &"Complete",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rnmgi")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m3v6d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jgdws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_t7gxx")
+}],
+"loop": false,
+"name": &"Complete",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jgdws")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w626j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_6lr6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qe7x3")
+}],
+"loop": false,
+"name": &"Complete",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_6lr6y")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LevelButton" type="Button" node_paths=PackedStringArray("LevelLabel", "CompleteStar", "DeathlessCompleteStar", "TimeCompleteStar")]
+custom_minimum_size = Vector2(120, 120)
+offset_right = 100.0
+offset_bottom = 100.0
+theme = ExtResource("1_adxr6")
+script = ExtResource("2_6pakh")
+LevelLabel = NodePath("VBoxContainer/Label")
+CompleteStar = NodePath("VBoxContainer/HBoxContainer/Star Holde2/Completed")
+DeathlessCompleteStar = NodePath("VBoxContainer/HBoxContainer/Star Holde/Deathless")
+TimeCompleteStar = NodePath("VBoxContainer/HBoxContainer/Star Holde3/Time")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 14
+text = "LEVEL_NAME_0-0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Star Holde" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Deathless" type="AnimatedSprite2D" parent="VBoxContainer/HBoxContainer/Star Holde"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_kvskf")
+animation = &"Complete"
+autoplay = "default"
+offset = Vector2(32, 32)
+
+[node name="Star Holde2" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Completed" type="AnimatedSprite2D" parent="VBoxContainer/HBoxContainer/Star Holde2"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_m3v6d")
+autoplay = "default"
+offset = Vector2(32, 32)
+
+[node name="Star Holde3" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Time" type="AnimatedSprite2D" parent="VBoxContainer/HBoxContainer/Star Holde3"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_w626j")
+animation = &"Complete"
+autoplay = "default"
+offset = Vector2(32, 32)

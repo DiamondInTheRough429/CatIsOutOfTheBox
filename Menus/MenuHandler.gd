@@ -25,7 +25,7 @@ class_name MenuHandler
 ##Button to go to level select menu
 @export var LevelSelectButton:Button
 ##UID of level Select menu
-var LevelSelectUID:String
+var LevelSelectUID:String ="uid://dt88rs0b17hv4"
 ##Button to go to Main menu
 @export var MainMenuButton:Button
 ##UID of Main Menu
@@ -71,7 +71,6 @@ func MoveInOut(In:bool = true) -> void:
 	else:
 		await MoveTween.finished
 		hide()
-	
 
 ##Go to menu
 func GoToMenu(NewMenu:MenuHandler = PreviousMenu) -> void:

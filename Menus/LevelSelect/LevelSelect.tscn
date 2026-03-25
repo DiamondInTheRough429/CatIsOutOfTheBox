@@ -1,9 +1,22 @@
-[gd_scene format=3 uid="uid://dt88rs0b17hv4"]
+[gd_scene load_steps=9 format=3 uid="uid://dt88rs0b17hv4"]
 
-[node name="LevelSelect" type="Control"]
-layout_mode = 3
+[ext_resource type="Theme" uid="uid://bd4anyrq4cuqn" path="res://Assets/MenuThemes.tres" id="1_1k1nq"]
+[ext_resource type="Script" uid="uid://d1evx1awtxlwi" path="res://Menus/LevelSelect/LevelSelectMenu.gd" id="1_b15eh"]
+[ext_resource type="Script" uid="uid://cn1knei75pnhl" path="res://ActualGame/Levels/Level Pack Resource/MadeLevelPack.gd" id="2_kt1qu"]
+[ext_resource type="Resource" uid="uid://dggwtvxq2a1bo" path="res://ActualGame/Levels/Level Pack Resource/Toutorial.tres" id="3_1k1nq"]
+[ext_resource type="Resource" uid="uid://bnjx2amusbdw4" path="res://ActualGame/Levels/Level Pack Resource/One.tres" id="4_88156"]
+[ext_resource type="Resource" uid="uid://c4ur8kf6wpii3" path="res://ActualGame/Levels/Level Pack Resource/Two.tres" id="5_3s2sg"]
+[ext_resource type="Resource" uid="uid://if4q4jd6e4c0" path="res://ActualGame/Levels/Level Pack Resource/Three.tres" id="6_18cyy"]
+[ext_resource type="PackedScene" uid="uid://dodl51mcwjuas" path="res://Menus/LevelSelect/WorldMenu.tscn" id="8_88156"]
+
+[node name="LevelSelect" type="TabContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_1k1nq")
+tab_alignment = 1
+script = ExtResource("1_b15eh")
+Worlds = Array[ExtResource("2_kt1qu")]([ExtResource("3_1k1nq"), ExtResource("4_88156"), ExtResource("5_3s2sg"), ExtResource("6_18cyy")])
+WorldMenus = ExtResource("8_88156")

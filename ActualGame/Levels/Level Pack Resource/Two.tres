@@ -1,12 +1,40 @@
-[gd_resource type="Resource" script_class="MadeLevelPack" load_steps=5 format=3 uid="uid://c4ur8kf6wpii3"]
+[gd_resource type="Resource" script_class="MadeLevelPack" load_steps=33 format=3 uid="uid://c4ur8kf6wpii3"]
 
 [ext_resource type="Script" uid="uid://bibbt5260vm2b" path="res://GameHandler/LevelHandler/LevelInfo.gd" id="1_2y42v"]
 [ext_resource type="Resource" uid="uid://xeylhy6ypfo3" path="res://ActualGame/Levels/(002)/InfoResource/001.tres" id="2_42dap"]
 [ext_resource type="Script" uid="uid://cn1knei75pnhl" path="res://ActualGame/Levels/Level Pack Resource/MadeLevelPack.gd" id="2_s2fwp"]
 [ext_resource type="Resource" uid="uid://53j7oo8uo3t7" path="res://ActualGame/Levels/(002)/InfoResource/002.tres" id="3_dp1kq"]
+[ext_resource type="Resource" uid="uid://bcgxdu4l3trm0" path="res://ActualGame/Levels/(002)/InfoResource/003.tres" id="4_dp1kq"]
+[ext_resource type="Resource" uid="uid://c4okgn4cg8prj" path="res://ActualGame/Levels/(002)/InfoResource/004.tres" id="5_1lc7v"]
+[ext_resource type="Resource" uid="uid://dsxkoc4ts7bdf" path="res://ActualGame/Levels/(002)/InfoResource/005.tres" id="6_n2eix"]
+[ext_resource type="Resource" uid="uid://bp5c3qhwqme6y" path="res://ActualGame/Levels/(002)/InfoResource/006.tres" id="7_g5wb7"]
+[ext_resource type="Resource" uid="uid://buj743v056ngk" path="res://ActualGame/Levels/(002)/InfoResource/007.tres" id="8_r2of6"]
+[ext_resource type="Resource" uid="uid://du6110xj1xm04" path="res://ActualGame/Levels/(002)/InfoResource/008.tres" id="9_ewcqt"]
+[ext_resource type="Resource" uid="uid://bk38klot6gvrr" path="res://ActualGame/Levels/(002)/InfoResource/009.tres" id="10_48w2x"]
+[ext_resource type="Resource" uid="uid://bvlmwn0yue7ss" path="res://ActualGame/Levels/(002)/InfoResource/010.tres" id="11_i5xjq"]
+[ext_resource type="Resource" uid="uid://dasvrgnt2naql" path="res://ActualGame/Levels/(002)/InfoResource/011.tres" id="12_r2of6"]
+[ext_resource type="Resource" uid="uid://bd7lrw7sowkn" path="res://ActualGame/Levels/(002)/InfoResource/012.tres" id="13_ewcqt"]
+[ext_resource type="Resource" uid="uid://4fxd7jhupxkp" path="res://ActualGame/Levels/(002)/InfoResource/013.tres" id="14_p3pbq"]
+[ext_resource type="Resource" uid="uid://c5vxmsehsgxx0" path="res://ActualGame/Levels/(002)/InfoResource/014.tres" id="15_whp1m"]
+[ext_resource type="Resource" uid="uid://yga0v6habrgk" path="res://ActualGame/Levels/(002)/InfoResource/015.tres" id="16_s6ccb"]
+[ext_resource type="Resource" uid="uid://dh1kgayoru6nq" path="res://ActualGame/Levels/(002)/InfoResource/016.tres" id="17_uuomd"]
+[ext_resource type="Resource" uid="uid://cd8w36ypy8wwp" path="res://ActualGame/Levels/(002)/InfoResource/017.tres" id="18_evwuo"]
+[ext_resource type="Resource" uid="uid://cirbsdda4hoj4" path="res://ActualGame/Levels/(002)/InfoResource/018.tres" id="19_va11q"]
+[ext_resource type="Resource" uid="uid://dy2rghiwhxfg4" path="res://ActualGame/Levels/(002)/InfoResource/019.tres" id="20_qg57b"]
+[ext_resource type="Resource" uid="uid://qrtrkbj2da82" path="res://ActualGame/Levels/(002)/InfoResource/020.tres" id="21_5jfti"]
+[ext_resource type="Resource" uid="uid://ckgwh5g3cikft" path="res://ActualGame/Levels/(002)/InfoResource/021.tres" id="22_k7vwc"]
+[ext_resource type="Resource" uid="uid://b762gvoivm64w" path="res://ActualGame/Levels/(002)/InfoResource/022.tres" id="23_cfim7"]
+[ext_resource type="Resource" uid="uid://043bcjy3lvec" path="res://ActualGame/Levels/(002)/InfoResource/023.tres" id="24_0ff08"]
+[ext_resource type="Resource" uid="uid://cvwkw3en0kx2n" path="res://ActualGame/Levels/(002)/InfoResource/024.tres" id="25_k3mb4"]
+[ext_resource type="Resource" uid="uid://d3wfqq86m8hcn" path="res://ActualGame/Levels/(002)/InfoResource/025.tres" id="26_kjn6i"]
+[ext_resource type="Resource" uid="uid://cvatiiwvileut" path="res://ActualGame/Levels/(002)/InfoResource/026.tres" id="27_cr12u"]
+[ext_resource type="Resource" uid="uid://cn4ortwg0w8hf" path="res://ActualGame/Levels/(002)/InfoResource/027.tres" id="28_u846f"]
+[ext_resource type="Resource" path="res://ActualGame/Levels/(002)/InfoResource/028.tres" id="29_s01ub"]
+[ext_resource type="Resource" path="res://ActualGame/Levels/(002)/InfoResource/029.tres" id="30_fs1xh"]
+[ext_resource type="Resource" path="res://ActualGame/Levels/(002)/InfoResource/030.tres" id="31_eiley"]
 
 [resource]
 script = ExtResource("2_s2fwp")
 World = 2
-Levels = Array[ExtResource("1_2y42v")]([ExtResource("2_42dap"), ExtResource("3_dp1kq"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+Levels = Array[ExtResource("1_2y42v")]([ExtResource("2_42dap"), ExtResource("3_dp1kq"), ExtResource("4_dp1kq"), ExtResource("5_1lc7v"), ExtResource("6_n2eix"), ExtResource("7_g5wb7"), ExtResource("8_r2of6"), ExtResource("9_ewcqt"), ExtResource("10_48w2x"), ExtResource("11_i5xjq"), ExtResource("12_r2of6"), ExtResource("13_ewcqt"), ExtResource("14_p3pbq"), ExtResource("15_whp1m"), ExtResource("16_s6ccb"), ExtResource("17_uuomd"), ExtResource("18_evwuo"), ExtResource("19_va11q"), ExtResource("20_qg57b"), ExtResource("21_5jfti"), ExtResource("22_k7vwc"), ExtResource("23_cfim7"), ExtResource("24_0ff08"), ExtResource("25_k3mb4"), ExtResource("26_kjn6i"), ExtResource("27_cr12u"), ExtResource("28_u846f"), ExtResource("29_s01ub"), ExtResource("30_fs1xh"), ExtResource("31_eiley")])
 metadata/_custom_type_script = "uid://cn1knei75pnhl"

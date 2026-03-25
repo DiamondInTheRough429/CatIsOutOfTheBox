@@ -25,6 +25,8 @@ func Load() -> void:
 
 ##Set The Level info for a worlds Level
 func SetLevelInfo(World:int, Level:int, SaveInfo:LevelSaveInfo) -> void:
+	if GetWorldHighestComplete(World) <= Level and SaveInfo.Complete != false:
+		SetWorldHighestComplete(World, Level)
 	SaveFile.set_value(str(World),  str(Level), SaveInfo)
 	Save()
 
@@ -33,3 +35,26 @@ func GetLevelInfo(World:int, Level:int) -> LevelSaveInfo:
 	if SaveFile.has_section_key(str(World), str(Level)):
 		return SaveFile.get_value(str(World), str(Level), null)
 	return null
+
+func CalculateWorldStars(World:int) -> int:
+	var Levels:int = 3 if World == 0 else 30
+	var Stars:int = 0
+	for Level in Levels:
+		var CheckingInfo:LevelSaveInfo = GetLevelInfo(World, Level+1)
+		if CheckingInfo != null:
+			if CheckingInfo.Complete:
+				Stars += 1
+			if CheckingInfo.CompleteDeathless:
+				Stars += 1
+			if CheckingInfo.CompleteInTime:
+				Stars += 1
+	return Stars
+
+func SetWorldHighestComplete(World:int, Level:int)->void:
+	SaveFile.set_value(str(World),  "HighestComplete", Level)
+	Save()
+
+func GetWorldHighestComplete(World:int) -> int:
+	if SaveFile.has_section_key(str(World), "HighestComplete"):
+		return SaveFile.get_value(str(World), "HighestComplete", 0)
+	return 0

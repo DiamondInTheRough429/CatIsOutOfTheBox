@@ -15,7 +15,7 @@ func ConnectLevel(NewLevel:LevelHandler = Level) -> void:
 		NextLevelButton.pressed.connect(Level.GoNextLevel)
 		if LevelEndLabel != null:
 			var FormatNumber:String = "%03d" %Level.LevelSaveResource.Level
-			LevelEndLabel.text = tr("LEVEL_END_DYNAMIC").format({"Number" : FormatNumber, "Name" : tr(Level.LevelSaveResource.LevelName)})
+			LevelEndLabel.text = tr("LEVEL_END_DYNAMIC").format({"Number" : FormatNumber, "Name" : tr(Level.LevelInfoResource.GetName())})
 		MatchStars()
 
 func MatchStars() -> void:

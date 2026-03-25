@@ -6,3 +6,5 @@
 script = ExtResource("1_6trm0")
 World = 2
 Level = 17
+LevelUID = &"uid://bkrbagy1gilc7"
+NextLevelUID = &"uid://k2odc6aiucoo"

@@ -12,11 +12,13 @@ func _ready() -> void:
 func AreaEnter(Area:Area2D) -> void:
 	if Area is PlayerHandler:
 		PlayerEntered.emit(Area)
+		PlayerEnter(Area)
 
 ##check if exit is player
 func AreaExit(Area:Area2D) -> void:
 	if Area is PlayerHandler:
 		PlayerExited.emit(Area)
+		PlayerExit(Area)
 
 func PlayerEnter(_Player:PlayerHandler) -> void:
 	pass

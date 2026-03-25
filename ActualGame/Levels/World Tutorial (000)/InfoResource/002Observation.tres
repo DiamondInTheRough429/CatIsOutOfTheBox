@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_fd8q1")
 Level = 2
-LevelName = &"Observation"
+LevelUID = &"uid://ben6u462v3x5n"
+NextLevelUID = &"uid://doltxd505sdqa"
 metadata/_custom_type_script = "uid://bibbt5260vm2b"

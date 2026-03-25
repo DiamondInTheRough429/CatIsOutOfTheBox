@@ -6,8 +6,6 @@ class_name LevelSaveInfo
 @export var World:int = 0
 ##Level
 @export var Level:int = 0
-##Level Name
-@export var LevelName:StringName = "Placeholder"
 ##Completed
 var Complete:bool = false
 ##Completed Deathless

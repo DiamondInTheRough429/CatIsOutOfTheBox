@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_fginl")
 Level = 1
-LevelName = &"First Box"
+LevelUID = &"uid://c8miab8ty0qwf"
+NextLevelUID = &"uid://ben6u462v3x5n"
 metadata/_custom_type_script = "uid://bibbt5260vm2b"
