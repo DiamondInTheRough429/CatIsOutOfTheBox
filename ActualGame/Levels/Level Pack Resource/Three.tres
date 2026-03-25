@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MadeLevelPack" load_steps=3 format=3 uid="uid://if4q4jd6e4c0"]
+
+[ext_resource type="Script" uid="uid://bibbt5260vm2b" path="res://GameHandler/LevelHandler/LevelInfo.gd" id="1_fprks"]
+[ext_resource type="Script" uid="uid://cn1knei75pnhl" path="res://ActualGame/Levels/Level Pack Resource/MadeLevelPack.gd" id="2_mskd3"]
+
+[resource]
+script = ExtResource("2_mskd3")
+World = 3
+Levels = Array[ExtResource("1_fprks")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+metadata/_custom_type_script = "uid://cn1knei75pnhl"

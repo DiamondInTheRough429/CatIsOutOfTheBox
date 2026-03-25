@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=4]
+[gd_scene load_steps=6 format=4 uid="uid://dt7t6ufq7001t"]
 
-[ext_resource type="TileSet" path="res://Assets/TileSets/DevTest/DevTileSet.tres" id="1_t1rpt"]
-[ext_resource type="Script" path="res://GameHandler/LevelHandler/LevelHandler.gd" id="2_bxu0n"]
-[ext_resource type="Script" path="res://GameHandler/LevelHandler/LevelSaveInfo.gd" id="3_x6606"]
+[ext_resource type="TileSet" uid="uid://dmdp0jyxbrl7f" path="res://Assets/TileSets/DevTest/DevTileSet.tres" id="1_t1rpt"]
+[ext_resource type="Script" uid="uid://bb5r5ruwttbqc" path="res://GameHandler/LevelHandler/LevelHandler.gd" id="2_bxu0n"]
+[ext_resource type="Resource" path="res://ActualGame/Levels/(002)/InfoResource/027.tres" id="3_bxu0n"]
+[ext_resource type="Script" uid="uid://bia8d22d3t20e" path="res://GameHandler/LevelHandler/LevelSaveInfo.gd" id="3_x6606"]
 
 [sub_resource type="Resource" id="Resource_87sbd"]
 script = ExtResource("3_x6606")
@@ -10,10 +11,13 @@ Level = 1
 LevelName = &"First Box"
 metadata/_custom_type_script = "uid://bia8d22d3t20e"
 
-[node name="FirstBox" type="TileMapLayer" node_paths=PackedStringArray("Background")]
+[node name="002-027" type="TileMapLayer" node_paths=PackedStringArray("Background")]
 tile_map_data = PackedByteArray("AAAAAAkAAgAAAAAAAQABAAkAAgAAAAAAAQACAAkAAgAAAAAAAQADAAkAAgAAAAAAAQAEAAkAAgAAAAAAAQAFAAkAAgAAAAAAAQAGAAkAAgAAAAAAAQAHAAkAAgAAAAAAAQAIAAkAAgAAAAAAAQAJAAkAAgAAAAAAAQAKAAkAAgAAAAAAAQALAAkAAgAAAAAAAQAMAAkAAgAAAAAAAQANAAkAAgAAAAAAAQAOAAkAAgAAAAAAAQAPAAkAAgAAAAAAAQAQAAkAAgAAAAAAAQARAAkAAgAAAAAAAQASAAkAAgAAAAAAAQATAAkAAgAAAAAAAQATAAgAAgAAAAAAAQATAAcAAgAAAAAAAQATAAYAAgAAAAAAAQATAAUAAgAAAAAAAQATAAQAAgAAAAAAAQATAAMAAgAAAAAAAQATAAIAAgAAAAAAAQATAAEAAgAAAAAAAQATAAAAAgAAAAAAAQAAAAgAAgAAAAAAAQAAAAcAAgAAAAAAAQAAAAYAAgAAAAAAAQAAAAUAAgAAAAAAAQAAAAQAAgAAAAAAAQAAAAMAAgAAAAAAAQAAAAIAAgAAAAAAAQAAAAEAAgAAAAAAAQAAAAAAAgAAAAAAAQABAAAAAgAAAAAAAQACAAAAAgAAAAAAAQADAAAAAgAAAAAAAQAEAAAAAgAAAAAAAQAFAAAAAgAAAAAAAQAGAAAAAgAAAAAAAQAHAAAAAgAAAAAAAQAIAAAAAgAAAAAAAQAJAAAAAgAAAAAAAQAKAAAAAgAAAAAAAQALAAAAAgAAAAAAAQAMAAAAAgAAAAAAAQANAAAAAgAAAAAAAQAOAAAAAgAAAAAAAQAPAAAAAgAAAAAAAQAQAAAAAgAAAAAAAQARAAAAAgAAAAAAAQASAAAAAgAAAAAAAQARAAYAAwAAAAAAAQA=")
 tile_set = ExtResource("1_t1rpt")
 script = ExtResource("2_bxu0n")
+World = 2
+Level = 27
+LevelInfoResource = ExtResource("3_bxu0n")
 LevelSaveResource = SubResource("Resource_87sbd")
 Background = NodePath("TileMapLayer")
 PlayerSpawn = Vector2i(2, 6)

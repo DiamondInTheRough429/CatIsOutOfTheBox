@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://bg3udsfmwlmi7"]
+
+[ext_resource type="Script" uid="uid://baiduw128rruf" path="res://GameHandler/Observable/Tiles/TileHandler.gd" id="1_c8sac"]
+[ext_resource type="Texture2D" uid="uid://caq0xo8dt8x7b" path="res://Assets/TileSets/posn.png" id="2_m8n85"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkkhi"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2l2a"]
+atlas = ExtResource("2_m8n85")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtko5"]
+atlas = ExtResource("2_m8n85")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0f1j"]
+atlas = ExtResource("2_m8n85")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgg04"]
+atlas = ExtResource("2_m8n85")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_38hgi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2l2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtko5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0f1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgg04")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PosionTile" type="Area2D"]
+script = ExtResource("1_c8sac")
+metadata/_custom_type_script = "uid://baiduw128rruf"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tkkhi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_38hgi")
+frame = 3
+frame_progress = 0.355462

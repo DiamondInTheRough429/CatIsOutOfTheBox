@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MadeLevelPack" load_steps=5 format=3 uid="uid://c4ur8kf6wpii3"]
+
+[ext_resource type="Script" uid="uid://bibbt5260vm2b" path="res://GameHandler/LevelHandler/LevelInfo.gd" id="1_2y42v"]
+[ext_resource type="Resource" uid="uid://xeylhy6ypfo3" path="res://ActualGame/Levels/(002)/InfoResource/001.tres" id="2_42dap"]
+[ext_resource type="Script" uid="uid://cn1knei75pnhl" path="res://ActualGame/Levels/Level Pack Resource/MadeLevelPack.gd" id="2_s2fwp"]
+[ext_resource type="Resource" uid="uid://53j7oo8uo3t7" path="res://ActualGame/Levels/(002)/InfoResource/002.tres" id="3_dp1kq"]
+
+[resource]
+script = ExtResource("2_s2fwp")
+World = 2
+Levels = Array[ExtResource("1_2y42v")]([ExtResource("2_42dap"), ExtResource("3_dp1kq"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+metadata/_custom_type_script = "uid://cn1knei75pnhl"

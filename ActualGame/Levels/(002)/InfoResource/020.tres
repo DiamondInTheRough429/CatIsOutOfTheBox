@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="LevelInfo" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=2 format=3 uid="uid://qrtrkbj2da82"]
 
-[ext_resource type="Script" path="res://GameHandler/LevelHandler/LevelInfo.gd" id="1_rl1bn"]
+[ext_resource type="Script" uid="uid://bibbt5260vm2b" path="res://GameHandler/LevelHandler/LevelInfo.gd" id="1_rl1bn"]
 
 [resource]
 script = ExtResource("1_rl1bn")

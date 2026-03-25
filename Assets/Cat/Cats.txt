@@ -1,0 +1,24 @@
+Default.
+	Unlock-NA
+	Color- Calico
+1.
+	Unlock- Finish toutorial
+	Color- GoJo (https://youtube.com/shorts/1cNiizGsBlg)
+2.
+	Unlock- Finish World 1
+	Color- Jellie (https://hermitcraft.fandom.com/wiki/Jellie)
+3.
+	Unlock- All Stars World 1
+	Color- Snake
+4.
+	Unlock- Finish World 2
+	Color- Robot Cat
+5.
+	Unlock- All Stars World 2
+	Color- Rat
+6.
+	Unlock- Finish World 3
+	Color- CatCat
+7.
+	Unlock- All Stars World 3
+	Color- Dev Art

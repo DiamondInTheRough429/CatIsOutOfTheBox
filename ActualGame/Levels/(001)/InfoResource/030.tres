@@ -6,4 +6,5 @@
 script = ExtResource("1_s30op")
 World = 1
 Level = 30
+LevelName = &"LEVELNAME1-30"
 metadata/_custom_type_script = "uid://bibbt5260vm2b"

@@ -6,4 +6,5 @@
 script = ExtResource("1_pgyf4")
 World = 1
 Level = 18
+LevelName = &"LEVELNAME1-18"
 metadata/_custom_type_script = "uid://bibbt5260vm2b"
