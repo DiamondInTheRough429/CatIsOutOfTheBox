@@ -62,6 +62,7 @@ NodePath("Settings"): NodePath("../Settings")
 LevelSelectButton = NodePath("Level Select2")
 
 [node name="Continue" type="Button" parent="VBoxContainer2"]
+visible = false
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
 text = "CONTINUE"

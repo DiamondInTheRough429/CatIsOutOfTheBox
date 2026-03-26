@@ -1,14 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://beu6rsoqdyp0f"]
+[gd_scene load_steps=5 format=3 uid="uid://beu6rsoqdyp0f"]
 
-[ext_resource type="Texture2D" uid="uid://djecamjwbw1c8" path="res://ICON2.svg" id="1_sqi1d"]
 [ext_resource type="Script" uid="uid://bm5qq054k111c" path="res://Menus/Settings/CosmeticButton.gd" id="1_xvu4l"]
+[ext_resource type="Texture2D" uid="uid://dnhrc14rstspo" path="res://Assets/Cat/TestCat.png" id="3_0sedi"]
+[ext_resource type="Texture2D" uid="uid://diq43yyao2sqt" path="res://Assets/Lock.png" id="3_4rrtr"]
+[ext_resource type="Texture2D" uid="uid://dcid60cgb1tks" path="res://Assets/Cat/TestCatDead.png" id="3_bb18w"]
 
-[node name="CosmeticButton" type="Button"]
+[node name="CosmeticButton" type="Button" node_paths=PackedStringArray("CurrentLabel")]
+custom_minimum_size = Vector2(125, 125)
 offset_right = 8.0
 offset_bottom = 8.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 14
 text = "Text"
-icon = ExtResource("1_sqi1d")
+icon = ExtResource("3_0sedi")
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("1_xvu4l")
-CosmeticOfButton = 2
+CosmeticOfButton = 7
+LockedIcon = ExtResource("3_4rrtr")
+CurrentLabel = NodePath("Label")
+CosmeticToIcon = Dictionary[int, Texture2D]({
+0: ExtResource("3_bb18w"),
+1: ExtResource("3_bb18w"),
+2: ExtResource("3_bb18w"),
+3: ExtResource("3_bb18w"),
+4: ExtResource("3_bb18w"),
+5: ExtResource("3_bb18w"),
+6: ExtResource("3_bb18w"),
+7: ExtResource("3_0sedi")
+})
 metadata/_custom_type_script = "uid://bm5qq054k111c"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "CURRENT_COSMETIC"
+horizontal_alignment = 1
+vertical_alignment = 2

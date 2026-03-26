@@ -78,12 +78,18 @@ Player = NodePath("../..")
 
 [node name="Settings" parent="CanvasLayer" node_paths=PackedStringArray("TabToFirstFocus", "ButtonToMenu") instance=ExtResource("8_f8va8")]
 visible = false
+offset_left = -240.0
+offset_top = -160.0
+offset_right = 240.0
+offset_bottom = 160.0
 TabToFirstFocus = {
 0: NodePath("VIDEO/OptionButton"),
 1: NodePath("AUDIO/Master"),
 2: NodePath("CONTROLS/Button"),
 3: NodePath("CUSTOMIZATION/Button")
 }
+InPos = Vector2(80, 0)
+OutPos = Vector2(650, 0)
 ButtonToMenu = {
 NodePath("AUDIO/Button"): null,
 NodePath("VIDEO/Button"): null,

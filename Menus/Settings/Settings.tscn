@@ -1,7 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct0wch6n4unnr"]
+[gd_scene load_steps=5 format=3 uid="uid://ct0wch6n4unnr"]
 
 [ext_resource type="Theme" uid="uid://bd4anyrq4cuqn" path="res://Assets/MenuThemes.tres" id="1_h3e66"]
 [ext_resource type="Script" uid="uid://btva74qk61j1v" path="res://Menus/Settings/SettingsMenuHandler.gd" id="2_so1ga"]
+[ext_resource type="PackedScene" uid="uid://beu6rsoqdyp0f" path="res://Menus/Settings/CosmeticButton.tscn" id="3_rrefv"]
+
+[sub_resource type="GDScript" id="GDScript_rrefv"]
+resource_name = "Customize"
+script/source = "extends VBoxContainer
+
+@export var Buttons:Array[CosmeticButton]
+
+func _ready() -> void:
+	for Butt in Buttons:
+		Butt.pressed.connect(UpdateAll)
+
+func UpdateAll() -> void:
+	for Butt in Buttons:
+		Butt.UpdateLook.call_deferred()
+"
 
 [node name="Settings" type="TabContainer" node_paths=PackedStringArray("ResolutionButton", "FullScreenButton", "VsyncButton", "MasterVolumeSlider", "MusicVolumeSlider", "SoundEffectVolumeSlider", "SelfTabCon", "TabToFirstFocus", "FirstFocus", "ButtonToMenu")]
 custom_minimum_size = Vector2(480, 320)
@@ -27,7 +43,7 @@ TabToFirstFocus = {
 0: NodePath("VIDEO/OptionButton"),
 1: NodePath("AUDIO/Master"),
 2: NodePath("CONTROLS/Button"),
-3: NodePath("CUSTOMIZATION/Button")
+3: NodePath("CUSTOMIZATION/HBoxContainer/CosmeticButton")
 }
 FirstFocus = NodePath("VIDEO/OptionButton")
 ButtonToMenu = {
@@ -140,12 +156,83 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "GO_BACK"
 
-[node name="CUSTOMIZATION" type="VBoxContainer" parent="."]
+[node name="CUSTOMIZATION" type="VBoxContainer" parent="." node_paths=PackedStringArray("Buttons")]
 visible = false
 layout_mode = 2
+script = SubResource("GDScript_rrefv")
+Buttons = [NodePath("HBoxContainer/CosmeticButton"), NodePath("HBoxContainer/CosmeticButton2"), NodePath("HBoxContainer/CosmeticButton3"), NodePath("HBoxContainer/CosmeticButton4"), NodePath("HBoxContainer2/CosmeticButton"), NodePath("HBoxContainer2/CosmeticButton2"), NodePath("HBoxContainer2/CosmeticButton3"), NodePath("HBoxContainer2/CosmeticButton4")]
 metadata/_tab_index = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CUSTOMIZATION"]
+layout_mode = 2
+alignment = 1
+
+[node name="CosmeticButton" parent="CUSTOMIZATION/HBoxContainer" instance=ExtResource("3_rrefv")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../CosmeticButton4")
+focus_neighbor_right = NodePath("../CosmeticButton2")
+focus_neighbor_bottom = NodePath("../../HBoxContainer2/CosmeticButton")
+CosmeticOfButton = 0
+
+[node name="CosmeticButton2" parent="CUSTOMIZATION/HBoxContainer" instance=ExtResource("3_rrefv")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../CosmeticButton")
+focus_neighbor_right = NodePath("../CosmeticButton3")
+focus_neighbor_bottom = NodePath("../../HBoxContainer2/CosmeticButton2")
+CosmeticOfButton = 1
+
+[node name="CosmeticButton3" parent="CUSTOMIZATION/HBoxContainer" instance=ExtResource("3_rrefv")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../CosmeticButton2")
+focus_neighbor_right = NodePath("../CosmeticButton4")
+focus_neighbor_bottom = NodePath("../../HBoxContainer2/CosmeticButton3")
+CosmeticOfButton = 2
+
+[node name="CosmeticButton4" parent="CUSTOMIZATION/HBoxContainer" instance=ExtResource("3_rrefv")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../CosmeticButton3")
+focus_neighbor_right = NodePath("../CosmeticButton")
+focus_neighbor_bottom = NodePath("../../HBoxContainer2/CosmeticButton4")
+CosmeticOfButton = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CUSTOMIZATION"]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="CosmeticButton" parent="CUSTOMIZATION/HBoxContainer2" instance=ExtResource("3_rrefv")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../CosmeticButton4")
+focus_neighbor_top = NodePath("../../HBoxContainer/CosmeticButton")
+focus_neighbor_right = NodePath("../CosmeticButton2")
+focus_neighbor_bottom = NodePath("../../Button")
+CosmeticOfButton = 4
+
+[node name="CosmeticButton2" parent="CUSTOMIZATION/HBoxContainer2" instance=ExtResource("3_rrefv")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../CosmeticButton")
+focus_neighbor_top = NodePath("../../HBoxContainer/CosmeticButton2")
+focus_neighbor_right = NodePath("../CosmeticButton3")
+focus_neighbor_bottom = NodePath("../../Button")
+CosmeticOfButton = 5
+
+[node name="CosmeticButton3" parent="CUSTOMIZATION/HBoxContainer2" instance=ExtResource("3_rrefv")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../CosmeticButton2")
+focus_neighbor_top = NodePath("../../HBoxContainer/CosmeticButton3")
+focus_neighbor_right = NodePath("../CosmeticButton4")
+focus_neighbor_bottom = NodePath("../../Button")
+CosmeticOfButton = 6
+
+[node name="CosmeticButton4" parent="CUSTOMIZATION/HBoxContainer2" instance=ExtResource("3_rrefv")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../CosmeticButton3")
+focus_neighbor_top = NodePath("../../HBoxContainer/CosmeticButton4")
+focus_neighbor_right = NodePath("../CosmeticButton")
+focus_neighbor_bottom = NodePath("../../Button")
 
 [node name="Button" type="Button" parent="CUSTOMIZATION"]
 layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 0
 text = "GO_BACK"

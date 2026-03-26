@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://doltxd505sdqa"]
+[gd_scene load_steps=11 format=4 uid="uid://doltxd505sdqa"]
 
 [ext_resource type="TileSet" uid="uid://dmdp0jyxbrl7f" path="res://Assets/TileSets/DevTest/DevTileSet.tres" id="1_lwoy3"]
 [ext_resource type="Script" uid="uid://bb5r5ruwttbqc" path="res://GameHandler/LevelHandler/LevelHandler.gd" id="2_ypics"]
 [ext_resource type="Resource" uid="uid://bsqhmhg0a2725" path="res://ActualGame/Levels/World Tutorial (000)/InfoResource/003AliveAndDead.tres" id="3_i16pn"]
 [ext_resource type="Script" uid="uid://dcyqayqit2yeq" path="res://GameHandler/LevelHandler/TileConnectors/TileGroup.gd" id="4_ypics"]
 [ext_resource type="Shader" uid="uid://casy5vk58bldw" path="res://Assets/Outline.gdshader" id="5_6skgr"]
+[ext_resource type="Theme" uid="uid://bd4anyrq4cuqn" path="res://Assets/MenuThemes.tres" id="6_i16pn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i16pn"]
 shader = ExtResource("5_6skgr")
@@ -55,3 +56,16 @@ GroupPoss = Array[Vector2i]([Vector2i(9, 6), Vector2i(9, 7), Vector2i(9, 8)])
 GroupShader = SubResource("ShaderMaterial_6skgr")
 GroupObserveredShader = SubResource("ShaderMaterial_712qi")
 metadata/_custom_type_script = "uid://dcyqayqit2yeq"
+
+[node name="Label" type="RichTextLabel" parent="."]
+top_level = true
+z_index = 11
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 639.0
+offset_bottom = 94.0
+theme = ExtResource("6_i16pn")
+bbcode_enabled = true
+text = "TUTORIAL_2"
+fit_content = true
+horizontal_alignment = 1
