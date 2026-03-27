@@ -1,5 +1,5 @@
 extends Button
-class_name LevelSelectButton
+class_name LevelSelectingButton
 
 @export var LevelLabel:Label
 @export var CompleteStar:AnimatedSprite2D

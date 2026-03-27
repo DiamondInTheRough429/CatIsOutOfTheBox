@@ -1,25 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://buvo6k3q5bmq1"]
+[gd_scene load_steps=9 format=3 uid="uid://buvo6k3q5bmq1"]
 
 [ext_resource type="Theme" uid="uid://bd4anyrq4cuqn" path="res://Assets/MenuThemes.tres" id="1_a04sk"]
 [ext_resource type="Script" uid="uid://coad4ge0vgie7" path="res://Menus/MenuHandler.gd" id="1_adj0a"]
+[ext_resource type="Script" uid="uid://cn1knei75pnhl" path="res://ActualGame/Levels/Level Pack Resource/MadeLevelPack.gd" id="2_q5iig"]
+[ext_resource type="Resource" uid="uid://dggwtvxq2a1bo" path="res://ActualGame/Levels/Level Pack Resource/Toutorial.tres" id="3_bkoei"]
 [ext_resource type="PackedScene" uid="uid://7mkbc0gggnlo" path="res://Menus/Confirm Quit/ConfirmQuit.tscn" id="3_ieaex"]
+[ext_resource type="Resource" uid="uid://bnjx2amusbdw4" path="res://ActualGame/Levels/Level Pack Resource/One.tres" id="4_80yba"]
 [ext_resource type="PackedScene" uid="uid://ct0wch6n4unnr" path="res://Menus/Settings/Settings.tscn" id="4_geipl"]
 
 [sub_resource type="GDScript" id="GDScript_geipl"]
 resource_name = "TestMenu"
 script/source = "extends Control
 
-@export var LoadButton:Button
-@export var LoadSceneUID:String
+@export var ContinueButton:Button
+@export var Worlds:Array[MadeLevelPack]
+var ContinueWorld:int = 0
+var ContinueLevel:int  = 1
 
 func _ready() -> void:
-	LoadButton.pressed.connect(Fo)
+	ContinueButton.pressed.connect(ContinueGame)
+	var HighComplete:Vector2i = SaveHandler.HelpContinue()
+	ContinueWorld = HighComplete.x
+	ContinueLevel = HighComplete.y+1
+	ContinueButton.text = tr(\"CONTINUE\").format({\"WORLD\" : \"%03d\" %ContinueWorld, \"LEVEL\" : \"%03d\" %ContinueLevel})
 
-func Fo()->void:
-	get_tree().change_scene_to_file.call_deferred(LoadSceneUID)
+func ContinueGame()->void:
+	var ContinueInfo:LevelInfo = Worlds.get(ContinueWorld).Levels.get(ContinueLevel-1)
+	get_tree().change_scene_to_file.call_deferred(ContinueInfo.LevelUID)
 "
 
-[node name="MainMenuScreen" type="Control" node_paths=PackedStringArray("LoadButton")]
+[node name="MainMenuScreen" type="Control" node_paths=PackedStringArray("ContinueButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,8 +38,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_a04sk")
 script = SubResource("GDScript_geipl")
-LoadButton = NodePath("VBoxContainer2/Continue")
-LoadSceneUID = "uid://gk3h3tbvfskl"
+ContinueButton = NodePath("VBoxContainer2/Continue")
+Worlds = Array[ExtResource("2_q5iig")]([ExtResource("3_bkoei"), ExtResource("4_80yba")])
 
 [node name="Label" type="Label" parent="."]
 z_index = -1
@@ -42,19 +52,23 @@ text = "GAME_TITLE"
 horizontal_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." node_paths=PackedStringArray("FirstFocus", "ButtonToMenu", "LevelSelectButton")]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
 offset_left = 10.0
-offset_top = 70.0
+offset_top = -120.0
 offset_right = 129.0
-offset_bottom = 250.0
+offset_bottom = 140.0
+grow_vertical = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 20
 alignment = 1
 script = ExtResource("1_adj0a")
 GrabFirst = true
 FirstFocus = NodePath("Continue")
-InPos = Vector2(10, 70)
-OutPos = Vector2(-150, 70)
+InPos = Vector2(10, 40)
+OutPos = Vector2(-150, 40)
 ButtonToMenu = {
 NodePath("Quit"): NodePath("../ConfirmQuit"),
 NodePath("Settings"): NodePath("../Settings")
@@ -62,20 +76,23 @@ NodePath("Settings"): NodePath("../Settings")
 LevelSelectButton = NodePath("Level Select2")
 
 [node name="Continue" type="Button" parent="VBoxContainer2"]
-visible = false
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
 text = "CONTINUE"
 
 [node name="Level Select2" type="Button" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "LEVEL_SELECT"
 
 [node name="Settings" type="Button" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "SETTINGS"
 
 [node name="Quit" type="Button" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Continue")
 text = "QUIT"

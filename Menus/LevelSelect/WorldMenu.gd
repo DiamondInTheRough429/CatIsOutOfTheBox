@@ -20,7 +20,7 @@ func MatchWorld() -> void:
 
 func MakeButtons() -> void:
 	for Level:LevelInfo in WorldInfo.Levels:
-		var NewButton:LevelSelectButton = LevelButtonScene.instantiate()
+		var NewButton:LevelSelectingButton = LevelButtonScene.instantiate()
 		LevelButtonHolder.add_child(NewButton)
 		NewButton.SetInfo(Level)
 		if Level.Level > WorldInfo.HighestComplete+1:

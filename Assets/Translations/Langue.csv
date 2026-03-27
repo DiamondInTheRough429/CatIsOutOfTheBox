@@ -1,7 +1,9 @@
 key,en,uwu
 GAME_TITLE,Cat's Out Of The Box,LET ME OUT
 -MENUS-,-Menus-,
-CONTINUE,Continue,ContinUwU
+CONTINUE,"Continue
+ ({WORLD} - {LEVEL})","ContinUwU
+ ({WORLD} - {LEVEL})"
 LEVEL_SELECT,Level Select,LoVoL Select
 SETTINGS,Settings,
 QUIT,Quit Game,

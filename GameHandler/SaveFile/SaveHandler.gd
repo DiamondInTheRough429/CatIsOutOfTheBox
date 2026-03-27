@@ -69,5 +69,17 @@ func GetCosmeticUnlocked(Cosmetic:SettingsHandler.Cosmetics) -> bool:
 		return SaveFile.get_value("Cosmetics", str(Cosmetic), false)
 	return false
 
-func GetContinued() -> void:
-	pass
+func HelpContinue() -> Vector2i:
+	var HighestComplete:Vector2i = Vector2i(0,0)
+	for Sec:String in SaveFile.get_sections():
+		if SaveFile.has_section_key(Sec, "HighestComplete"):
+			var HighLevel:int = SaveFile.get_value(Sec, "HighestComplete")
+			var World:int = int(Sec)
+			if World == HighestComplete.x:
+				HighestComplete = Vector2i(World, HighLevel)
+			elif World > HighestComplete.x:
+				var NeededLevel:int = 3 if HighestComplete.x == 0 else 30
+				if HighestComplete.y == NeededLevel:
+					HighestComplete = Vector2i(World, HighLevel)
+	return HighestComplete
+			
