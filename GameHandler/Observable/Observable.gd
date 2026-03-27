@@ -14,6 +14,7 @@ enum WhenObserved{Never, Currently, Was}
 		Observed = value
 		ObservedChanged.emit(Observed)
 		ObservedVisualUpdate()
+@export var GroupMat:ShaderMaterial
 ##Material Used for when observed
 @export var ObservedMat:ShaderMaterial
 
@@ -31,9 +32,9 @@ func PrepColision() -> void:
 	set_collision_mask_value(3, true) #Can See Player
 
 ##Set if colision is on or off
-func ToggleCollsion(Toggle:bool = true, On:bool = true, VisibilityMatch:bool = false) -> void:
+func ToggleCollsion(Toggle:bool = true, On:bool = true, VisibilityMatch:bool = true) -> void:
 	On = !monitorable if Toggle else On
-	monitorable = On
+	set_deferred("monitorable", On)
 	monitoring = On
 	visible = On if VisibilityMatch else visible
 #endregion
@@ -46,7 +47,7 @@ func ObservedVisualUpdate() -> void:
 			if Sprite != null:
 				if Sprite.sprite_frames.has_animation("default"):
 					Sprite.play("default")
-				Sprite.material = null
+				Sprite.material = GroupMat
 		WhenObserved.Currently:
 			if Sprite != null:
 				if Sprite.sprite_frames.has_animation("Observered"):
@@ -57,7 +58,7 @@ func ObservedVisualUpdate() -> void:
 			if Sprite != null:
 				if Sprite.sprite_frames.has_animation("WasObservered"):
 					Sprite.play("WasObservered")
-				Sprite.material = null
+				Sprite.material = GroupMat
 
 ##Reset with level
 func RESET() -> void:

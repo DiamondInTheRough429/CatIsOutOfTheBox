@@ -19,6 +19,7 @@ func GetGroup() -> void:
 		if GotTile != null and GotTile is TileHanlder:
 			Group.append(GotTile)
 			GotTile.Sprite.material = GroupShader
+			GotTile.GroupMat = GroupShader
 			GotTile.ObservedChanged.connect(GroupChange)
 			GotTile.ObservedMat = GroupObserveredShader
 
@@ -34,6 +35,6 @@ func GroupChange(ChangeTo:Observable.WhenObserved) -> void:
 		GroupChanged.emit(ChangeTo)
 
 ##Set if colision is on or off
-func ToggleGroupCollsion(Toggle:bool = true, On:bool = true, VisibilityMatch:bool = false) -> void:
+func ToggleGroupCollsion(Toggle:bool = true, On:bool = true, VisibilityMatch:bool = true) -> void:
 	for Tile in  Group:
 		Tile.ToggleCollsion(Toggle, On, VisibilityMatch)

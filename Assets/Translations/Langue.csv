@@ -34,8 +34,12 @@ LEVEL_END_DYNAMIC,Box ({Number}) - {Name},
 TUTORIAL_1,"Welcome to the experiments!
 Try Moving Around with [img=64x64]{WASDMOVE}[/img], [img=64x64]{ARROWMOVE}[/img], [img]{DPADMOVE}[/img], or [img]{JOYMOVE}[/img]
 Make your way to the ending tile to get out of the box!",
-TUTORIAL_2,Placeholder,
-TUTORIAL_3,Placeholder,
+TUTORIAL_2,"You can observer what observation is here.
+Before being observed things are not determined (Left)
+When observed things become determined and are outlined (Middle)
+Afterwards things stay determined (Right)",
+TUTORIAL_3,"The purple stuff on the group is poison (Which is Deadly!)
+You can Scratch on the claw mark tile to effect the level",
 ,,
 -COSMETICS-,-Cosmetics-,
 NOT_UNLOCKED_COSMETIC,Not Unlcoked,

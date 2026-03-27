@@ -40,7 +40,12 @@ func _ready() -> void:
 	child_entered_tree.connect(ChildEnter)
 	child_exiting_tree.connect(ChildLeave)
 	var GotLevelRes:LevelSaveInfo = SaveHandler.GetLevelInfo(World, Level)
-	LevelSaveResource = GotLevelRes if GotLevelRes != null else LevelSaveResource
+	if GotLevelRes != null:
+		LevelSaveResource = GotLevelRes 
+	if LevelSaveResource == null:
+		LevelSaveResource = LevelSaveInfo.new()
+		LevelSaveResource.World = World
+		LevelSaveResource.Level = Level
 	if LevelInfoResource == null:
 		LevelInfoResource = LevelInfo.new()
 	if Background != null:

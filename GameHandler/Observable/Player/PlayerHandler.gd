@@ -141,9 +141,21 @@ func CanMoveSetter(Set:bool) -> void:
 
 ##Handles Killing Payer
 func KillPlayer() -> void:
+	Sprite.play("Dies")
+	await Sprite.animation_finished
 	HasDied = true
 	CanMove = false
 	PlayerDiesScreen.MoveInOut()
+
+func AnimatePlayer(Ani:String, Freeze:bool = true) -> bool:
+	if Sprite.sprite_frames.has_animation(Ani):
+		Sprite.play(Ani)
+		if Freeze:
+			CanMove = false
+			await Sprite.animation_finished
+			CanMove = true
+		return true
+	return false
 
 func RESET() -> void:
 	CurrentMenu = PauseScreen

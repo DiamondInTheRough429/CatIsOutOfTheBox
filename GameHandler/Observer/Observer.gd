@@ -8,6 +8,8 @@ func _ready() -> void:
 	z_index = 10
 	area_entered.connect(AreaEntered)
 	area_exited.connect(AreaExited)
+	if StartCollisionOff:
+		ToggleCollsion(false, false)
 
 #region Collsion Functions
 ##Prepare Colision
@@ -22,7 +24,7 @@ func PrepColision() -> void:
 ##Set if colision is on or off
 func ToggleCollsion(Toggle:bool = true, On:bool = true, VisibilityMatch:bool = true) -> void:
 	On = !monitorable if Toggle else On
-	monitorable = On
+	set_deferred("monitorable", On)
 	monitoring = On
 	visible = On if VisibilityMatch else visible
 #endregion

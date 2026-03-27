@@ -34,7 +34,6 @@ shape = SubResource("RectangleShape2D_parxw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_parxw")
-animation = &"MoveDown"
 autoplay = "default"
 
 [node name="wallcheck" type="RayCast2D" parent="."]

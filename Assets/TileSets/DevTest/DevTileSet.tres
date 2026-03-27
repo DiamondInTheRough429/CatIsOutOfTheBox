@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://dmdp0jyxbrl7f"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://dmdp0jyxbrl7f"]
 
 [ext_resource type="Texture2D" uid="uid://uj2ke17q4xx6" path="res://Assets/TileSets/DevTest/Cardboard.png" id="1_6veef"]
 [ext_resource type="PackedScene" uid="uid://bq4yayd8ik5xd" path="res://ActualGame/Tiles/ClawTile.tscn" id="2_1wrmy"]
 [ext_resource type="PackedScene" uid="uid://kshmupadoyu4" path="res://ActualGame/Tiles/ObserveTotorialTile.tscn" id="2_2iyf8"]
 [ext_resource type="PackedScene" uid="uid://oivgasjt2ai4" path="res://ActualGame/Tiles/DevWall.tscn" id="2_4y60t"]
 [ext_resource type="PackedScene" uid="uid://wxmqr1k0pxo0" path="res://ActualGame/Tiles/EndTile/DevEnd.tscn" id="3_sxgvv"]
+[ext_resource type="PackedScene" uid="uid://bg3udsfmwlmi7" path="res://ActualGame/Tiles/PoisonTile.tscn" id="4_vkr8e"]
 [ext_resource type="PackedScene" uid="uid://vpx201xhf8ob" path="res://ActualGame/Observers/TestObserver.tscn" id="5_efdwf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4y60t"]
@@ -39,6 +40,7 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_2iyf8"]
 resource_name = "GeneralUseTiles"
 scenes/1/scene = ExtResource("2_1wrmy")
+scenes/2/scene = ExtResource("4_vkr8e")
 scenes/100/scene = ExtResource("2_2iyf8")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_sxgvv"]
