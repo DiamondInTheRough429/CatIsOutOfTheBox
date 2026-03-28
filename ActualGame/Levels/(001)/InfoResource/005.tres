@@ -6,6 +6,6 @@
 script = ExtResource("1_olto8")
 World = 1
 Level = 5
-LevelName = &"LEVELNAME1-5"
 LevelUID = &"uid://dknnr777hhhoe"
 NextLevelUID = &"uid://b4bv6x4jlr8v2"
+metadata/_custom_type_script = "uid://bibbt5260vm2b"
