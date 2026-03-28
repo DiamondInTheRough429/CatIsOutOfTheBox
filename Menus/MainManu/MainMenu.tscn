@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://buvo6k3q5bmq1"]
+[gd_scene load_steps=14 format=3 uid="uid://buvo6k3q5bmq1"]
 
 [ext_resource type="Theme" uid="uid://bd4anyrq4cuqn" path="res://Assets/MenuThemes.tres" id="1_a04sk"]
 [ext_resource type="Script" uid="uid://coad4ge0vgie7" path="res://Menus/MenuHandler.gd" id="1_adj0a"]
@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://7mkbc0gggnlo" path="res://Menus/Confirm Quit/ConfirmQuit.tscn" id="3_ieaex"]
 [ext_resource type="Resource" uid="uid://bnjx2amusbdw4" path="res://ActualGame/Levels/Level Pack Resource/One.tres" id="4_80yba"]
 [ext_resource type="PackedScene" uid="uid://ct0wch6n4unnr" path="res://Menus/Settings/Settings.tscn" id="4_geipl"]
-[ext_resource type="TileSet" uid="uid://dmdp0jyxbrl7f" path="res://Assets/TileSets/DevTest/DevTileSet.tres" id="8_bkoei"]
-[ext_resource type="Script" uid="uid://dciudcncrrl48" path="res://Menus/MainManu/MainScreenBackground.gd" id="9_ppqqw"]
-[ext_resource type="Texture2D" uid="uid://dnn46dxnd8c6d" path="res://Assets/Cat/TestCatRight.png" id="10_fmxav"]
-[ext_resource type="Texture2D" uid="uid://dnhrc14rstspo" path="res://Assets/Cat/TestCat.png" id="11_ha4kb"]
+[ext_resource type="Texture2D" uid="uid://do142lu4eh5v5" path="res://Assets/Logo.png" id="5_fmxav"]
+[ext_resource type="Theme" uid="uid://bdihwxf0esnth" path="res://Assets/CreditsTMenu.tres" id="8_th5yc"]
+[ext_resource type="PackedScene" uid="uid://78y0ok5qj3e2" path="res://Menus/MenuBackground.tscn" id="9_80yba"]
+[ext_resource type="PackedScene" uid="uid://bltbvwf5om7sh" path="res://Menus/Credits/Credits.tscn" id="11_ppqqw"]
 
 [sub_resource type="GDScript" id="GDScript_geipl"]
 resource_name = "TestMenu"
@@ -22,6 +22,7 @@ var ContinueWorld:int = 0
 var ContinueLevel:int  = 1
 
 func _ready() -> void:
+	DisplayServer.window_set_title.call_deferred(tr(\"GAME_TITLE\"))
 	ContinueButton.pressed.connect(ContinueGame)
 	var HighComplete:Vector2i = SaveHandler.HelpContinue()
 	ContinueWorld = HighComplete.x
@@ -33,27 +34,26 @@ func ContinueGame()->void:
 	get_tree().change_scene_to_file.call_deferred(ContinueInfo.LevelUID)
 "
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_uur7y"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_fmxav")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_ha4kb")
-}],
-"loop": false,
-"name": &"MoveRight",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_ha4kb")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="GDScript" id="GDScript_ppqqw"]
+resource_name = "CreditButtonMatchMenu"
+script/source = "extends Button
+
+@export var MainMenu:MenuHandler
+@export var InPos:Vector2
+@export var OutPos:Vector2
+
+func _ready() -> void:
+	MainMenu.MenuMove.connect(MatchMove)
+
+func MatchMove(In:bool) -> void:
+	show()
+	var MoveTween:Tween = create_tween()
+	var CorrectPos:Vector2 = InPos if In else OutPos
+	MoveTween.tween_property(self, \"position\", CorrectPos, .2)
+	if !In:
+		await MoveTween.finished
+		hide()
+"
 
 [node name="MainMenuScreen" type="Control" node_paths=PackedStringArray("ContinueButton")]
 layout_mode = 3
@@ -67,13 +67,21 @@ script = SubResource("GDScript_geipl")
 ContinueButton = NodePath("VBoxContainer2/Continue")
 Worlds = Array[ExtResource("2_q5iig")]([ExtResource("3_bkoei"), ExtResource("4_80yba")])
 
-[node name="Label" type="Label" parent="."]
+[node name="TileMapLayer" parent="." instance=ExtResource("9_80yba")]
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(428, 97)
+texture = ExtResource("5_fmxav")
+
+[node name="Label" type="RichTextLabel" parent="."]
+visible = false
 z_index = -1
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 40.0
+theme_override_colors/font_outline_color = Color(0.078431375, 0.050980393, 0.023529412, 1)
 theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 32
+bbcode_enabled = true
 text = "GAME_TITLE"
 horizontal_alignment = 1
 
@@ -97,7 +105,8 @@ InPos = Vector2(10, 40)
 OutPos = Vector2(-150, 40)
 ButtonToMenu = {
 NodePath("Quit"): NodePath("../ConfirmQuit"),
-NodePath("Settings"): NodePath("../Settings")
+NodePath("Settings"): NodePath("../Settings"),
+NodePath("../Credits"): NodePath("../Credits2")
 }
 LevelSelectButton = NodePath("Level Select2")
 
@@ -122,6 +131,19 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Continue")
 text = "QUIT"
+
+[node name="Credits" type="Button" parent="." node_paths=PackedStringArray("MainMenu")]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 282.0
+offset_right = 630.0
+offset_bottom = 312.0
+theme = ExtResource("8_th5yc")
+text = "CREDITS"
+script = SubResource("GDScript_ppqqw")
+MainMenu = NodePath("../VBoxContainer2")
+InPos = Vector2(552, 282)
+OutPos = Vector2(652, 282)
 
 [node name="ConfirmQuit" parent="." instance=ExtResource("3_ieaex")]
 visible = false
@@ -167,20 +189,19 @@ NodePath("CONTROLS/Button"): null,
 NodePath("CUSTOMIZATION/Button"): null
 }
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." node_paths=PackedStringArray("FakePlayer", "RandomTimer")]
-z_index = -20
-tile_map_data = PackedByteArray("AAD/////AAABAAAAAAD//wAAAAABAAAAAAD//wEAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAD//wYAAAABAAAAAAD//wcAAAABAAAAAAD//wgAAAABAAAAAAD//wkAAAABAAAAAAD//woAAAABAAAAAAAAAP//AAABAAAAAAAAAAAAAAABAAAAAAAAAAEAAAABAAAAAAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAAAAAQAAAABAAAAAAAAAAUAAAABAAAAAAAAAAYAAAABAAAAAAAAAAcAAAABAAAAAAAAAAgAAAABAAAAAAAAAAkAAAABAAAAAAAAAAoAAAABAAAAAAABAP//AAABAAAAAAABAAAAAAABAAAAAAABAAEAAAABAAAAAAABAAIAAAABAAAAAAABAAMAAAABAAAAAAABAAQAAAABAAAAAAABAAUAAAABAAAAAAABAAYAAAABAAAAAAABAAcAAAABAAAAAAABAAgAAAABAAAAAAABAAkAAAABAAAAAAABAAoAAAABAAAAAAACAP//AAABAAAAAAACAAAAAAABAAAAAAACAAEAAAABAAAAAAACAAIAAAABAAAAAAACAAMAAAABAAAAAAACAAQAAAABAAAAAAACAAUAAAABAAAAAAACAAYAAAABAAAAAAACAAcAAAABAAAAAAACAAgAAAABAAAAAAACAAkAAAABAAAAAAACAAoAAAABAAAAAAADAP//AAABAAAAAAADAAAAAAABAAAAAAADAAEAAAABAAAAAAADAAIAAAABAAAAAAADAAMAAAABAAAAAAADAAQAAAABAAAAAAADAAUAAAABAAAAAAADAAYAAAABAAAAAAADAAcAAAABAAAAAAADAAgAAAABAAAAAAADAAkAAAABAAAAAAADAAoAAAABAAAAAAAEAP//AAABAAAAAAAEAAAAAAABAAAAAAAEAAEAAAABAAAAAAAEAAIAAAABAAAAAAAEAAMAAAABAAAAAAAEAAQAAAABAAAAAAAEAAUAAAABAAAAAAAEAAYAAAABAAAAAAAEAAcAAAABAAAAAAAEAAgAAAABAAAAAAAEAAkAAAABAAAAAAAEAAoAAAABAAAAAAAFAP//AAABAAAAAAAFAAAAAAABAAAAAAAFAAEAAAABAAAAAAAFAAIAAAABAAAAAAAFAAMAAAABAAAAAAAFAAQAAAABAAAAAAAFAAUAAAABAAAAAAAFAAYAAAABAAAAAAAFAAcAAAABAAAAAAAFAAgAAAABAAAAAAAFAAkAAAABAAAAAAAFAAoAAAABAAAAAAAGAP//AAABAAAAAAAGAAAAAAABAAAAAAAGAAEAAAABAAAAAAAGAAIAAAABAAAAAAAGAAMAAAABAAAAAAAGAAQAAAABAAAAAAAGAAUAAAABAAAAAAAGAAYAAAABAAAAAAAGAAcAAAABAAAAAAAGAAgAAAABAAAAAAAGAAkAAAABAAAAAAAGAAoAAAABAAAAAAAHAP//AAABAAAAAAAHAAAAAAABAAAAAAAHAAEAAAABAAAAAAAHAAIAAAABAAAAAAAHAAMAAAABAAAAAAAHAAQAAAABAAAAAAAHAAUAAAABAAAAAAAHAAYAAAABAAAAAAAHAAcAAAABAAAAAAAHAAgAAAABAAAAAAAHAAkAAAABAAAAAAAHAAoAAAABAAAAAAAIAP//AAABAAAAAAAIAAAAAAABAAAAAAAIAAEAAAABAAAAAAAIAAIAAAABAAAAAAAIAAMAAAABAAAAAAAIAAQAAAABAAAAAAAIAAUAAAABAAAAAAAIAAYAAAABAAAAAAAIAAcAAAABAAAAAAAIAAgAAAABAAAAAAAIAAkAAAABAAAAAAAIAAoAAAABAAAAAAAJAP//AAABAAAAAAAJAAAAAAABAAAAAAAJAAEAAAABAAAAAAAJAAIAAAABAAAAAAAJAAMAAAABAAAAAAAJAAQAAAABAAAAAAAJAAUAAAABAAAAAAAJAAYAAAABAAAAAAAJAAcAAAABAAAAAAAJAAgAAAABAAAAAAAJAAkAAAABAAAAAAAJAAoAAAABAAAAAAAKAP//AAABAAAAAAAKAAAAAAABAAAAAAAKAAEAAAABAAAAAAAKAAIAAAABAAAAAAAKAAMAAAABAAAAAAAKAAQAAAABAAAAAAAKAAUAAAABAAAAAAAKAAYAAAABAAAAAAAKAAcAAAABAAAAAAAKAAgAAAABAAAAAAAKAAkAAAABAAAAAAAKAAoAAAABAAAAAAALAP//AAABAAAAAAALAAAAAAABAAAAAAALAAEAAAABAAAAAAALAAIAAAABAAAAAAALAAMAAAABAAAAAAALAAQAAAABAAAAAAALAAUAAAABAAAAAAALAAYAAAABAAAAAAALAAcAAAABAAAAAAALAAgAAAABAAAAAAALAAkAAAABAAAAAAALAAoAAAABAAAAAAAMAP//AAABAAAAAAAMAAAAAAABAAAAAAAMAAEAAAABAAAAAAAMAAIAAAABAAAAAAAMAAMAAAABAAAAAAAMAAQAAAABAAAAAAAMAAUAAAABAAAAAAAMAAYAAAABAAAAAAAMAAcAAAABAAAAAAAMAAgAAAABAAAAAAAMAAkAAAABAAAAAAAMAAoAAAABAAAAAAANAP//AAABAAAAAAANAAAAAAABAAAAAAANAAEAAAABAAAAAAANAAIAAAABAAAAAAANAAMAAAABAAAAAAANAAQAAAABAAAAAAANAAUAAAABAAAAAAANAAYAAAABAAAAAAANAAcAAAABAAAAAAANAAgAAAABAAAAAAANAAkAAAABAAAAAAANAAoAAAABAAAAAAAOAP//AAABAAAAAAAOAAAAAAABAAAAAAAOAAEAAAABAAAAAAAOAAIAAAABAAAAAAAOAAMAAAABAAAAAAAOAAQAAAABAAAAAAAOAAUAAAABAAAAAAAOAAYAAAABAAAAAAAOAAcAAAABAAAAAAAOAAgAAAABAAAAAAAOAAkAAAABAAAAAAAOAAoAAAABAAAAAAAPAP//AAABAAAAAAAPAAAAAAABAAAAAAAPAAEAAAABAAAAAAAPAAIAAAABAAAAAAAPAAMAAAABAAAAAAAPAAQAAAABAAAAAAAPAAUAAAABAAAAAAAPAAYAAAABAAAAAAAPAAcAAAABAAAAAAAPAAgAAAABAAAAAAAPAAkAAAABAAAAAAAPAAoAAAABAAAAAAAQAP//AAABAAAAAAAQAAAAAAABAAAAAAAQAAEAAAABAAAAAAAQAAIAAAABAAAAAAAQAAMAAAABAAAAAAAQAAQAAAABAAAAAAAQAAUAAAABAAAAAAAQAAYAAAABAAAAAAAQAAcAAAABAAAAAAAQAAgAAAABAAAAAAAQAAkAAAABAAAAAAAQAAoAAAABAAAAAAARAP//AAABAAAAAAARAAAAAAABAAAAAAARAAEAAAABAAAAAAARAAIAAAABAAAAAAARAAMAAAABAAAAAAARAAQAAAABAAAAAAARAAUAAAABAAAAAAARAAYAAAABAAAAAAARAAcAAAABAAAAAAARAAgAAAABAAAAAAARAAkAAAABAAAAAAARAAoAAAABAAAAAAASAP//AAABAAAAAAASAAAAAAABAAAAAAASAAEAAAABAAAAAAASAAIAAAABAAAAAAASAAMAAAABAAAAAAASAAQAAAABAAAAAAASAAUAAAABAAAAAAASAAYAAAABAAAAAAASAAcAAAABAAAAAAASAAgAAAABAAAAAAASAAkAAAABAAAAAAASAAoAAAABAAAAAAATAP//AAABAAAAAAATAAAAAAABAAAAAAATAAEAAAABAAAAAAATAAIAAAABAAAAAAATAAMAAAABAAAAAAATAAQAAAABAAAAAAATAAUAAAABAAAAAAATAAYAAAABAAAAAAATAAcAAAABAAAAAAATAAgAAAABAAAAAAATAAkAAAABAAAAAAATAAoAAAABAAAAAAAUAP//AAABAAAAAAAUAAAAAAABAAAAAAAUAAEAAAABAAAAAAAUAAIAAAABAAAAAAAUAAMAAAABAAAAAAAUAAQAAAABAAAAAAAUAAUAAAABAAAAAAAUAAYAAAABAAAAAAAUAAcAAAABAAAAAAAUAAgAAAABAAAAAAAUAAkAAAABAAAAAAAUAAoAAAABAAAAAAA=")
-tile_set = ExtResource("8_bkoei")
-script = ExtResource("9_ppqqw")
-FakePlayer = NodePath("Fake Player")
-RandomTimer = NodePath("Timer")
-
-[node name="Timer" type="Timer" parent="TileMapLayer"]
-one_shot = true
-autostart = true
-
-[node name="Fake Player" type="AnimatedSprite2D" parent="TileMapLayer"]
-position = Vector2(-16, 160)
-sprite_frames = SubResource("SpriteFrames_uur7y")
-animation = &"MoveRight"
-autoplay = "default"
+[node name="Credits2" parent="." instance=ExtResource("11_ppqqw")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -480.0
+offset_right = 280.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+InPos = Vector2(20, 10)
+OutPos = Vector2(20, -320)

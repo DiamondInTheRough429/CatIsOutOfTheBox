@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dt88rs0b17hv4"]
+[gd_scene load_steps=8 format=3 uid="uid://dt88rs0b17hv4"]
 
 [ext_resource type="Theme" uid="uid://bd4anyrq4cuqn" path="res://Assets/MenuThemes.tres" id="1_1k1nq"]
 [ext_resource type="Script" uid="uid://d1evx1awtxlwi" path="res://Menus/LevelSelect/LevelSelectMenu.gd" id="1_b15eh"]
 [ext_resource type="Script" uid="uid://cn1knei75pnhl" path="res://ActualGame/Levels/Level Pack Resource/MadeLevelPack.gd" id="2_kt1qu"]
 [ext_resource type="Resource" uid="uid://dggwtvxq2a1bo" path="res://ActualGame/Levels/Level Pack Resource/Toutorial.tres" id="3_1k1nq"]
 [ext_resource type="Resource" uid="uid://bnjx2amusbdw4" path="res://ActualGame/Levels/Level Pack Resource/One.tres" id="4_88156"]
+[ext_resource type="PackedScene" uid="uid://78y0ok5qj3e2" path="res://Menus/MenuBackground.tscn" id="7_1k1nq"]
 [ext_resource type="PackedScene" uid="uid://dodl51mcwjuas" path="res://Menus/LevelSelect/WorldMenu.tscn" id="8_88156"]
 
 [node name="LevelSelect" type="TabContainer" node_paths=PackedStringArray("SelfTabCon")]
@@ -20,3 +21,5 @@ Worlds = Array[ExtResource("2_kt1qu")]([ExtResource("3_1k1nq"), ExtResource("4_8
 WorldMenus = ExtResource("8_88156")
 SelfTabCon = NodePath(".")
 CurrentMenu = true
+
+[node name="TileMapLayer" parent="." instance=ExtResource("7_1k1nq")]

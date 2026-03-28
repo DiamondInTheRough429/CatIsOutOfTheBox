@@ -10,6 +10,7 @@ signal tab_changed(tab:int)
 
 func _ready() -> void:
 	super._ready()
+	DisplayServer.window_set_title.call_deferred(tr("GAME_TITLE"))
 	MakeTabs.call_deferred()
 	if has_signal("tab_changed"):
 		tab_changed.connect(SetFirstFocus)

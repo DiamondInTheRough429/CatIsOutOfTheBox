@@ -1,0 +1,99 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bdihwxf0esnth"]
+
+[ext_resource type="FontFile" uid="uid://dkmwg4h3jd0i6" path="res://Assets/Alphakind.otf" id="1_vn1cw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt60f"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.08392086, 0.34007084, 0.3401759, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 5
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_so4d5"]
+bg_color = Color(0.9105497, 0.91054976, 0.9105497, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.23063004, 0.7333285, 0.7334483, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 5
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vn1cw"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.26666668, 0.8, 0.8, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 5
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sd1p1"]
+bg_color = Color(0.8175213, 0.8175213, 0.81752115, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.15268987, 0.5333397, 0.53348774, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 5
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_mehjg"]
+color = Color(1, 1, 1, 0.6431373)
+grow_begin = 3.0
+grow_end = 3.0
+thickness = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_occtp"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.92941177, 0.5882353, 0.9098039, 0.81960785)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.5792057, 0.8484801, 0.934224, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[resource]
+default_font = ExtResource("1_vn1cw")
+default_font_size = 16
+Button/colors/font_color = Color(0.99035627, 0.53920853, 0.7269371, 1)
+Button/colors/font_focus_color = Color(0.99215686, 0.5372549, 0.7254902, 1)
+Button/colors/font_hover_color = Color(0.99215686, 0.5372549, 0.7254902, 1)
+Button/colors/font_hover_pressed_color = Color(0.9372549, 0.50980395, 0.68235296, 1)
+Button/colors/font_pressed_color = Color(0.972549, 0.5254902, 0.70980394, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_tt60f")
+Button/styles/hover = SubResource("StyleBoxFlat_so4d5")
+Button/styles/normal = SubResource("StyleBoxFlat_vn1cw")
+Button/styles/pressed = SubResource("StyleBoxFlat_sd1p1")
+DLabel/base_type = &"Label"
+DLabel/colors/font_color = Color(0.64322174, 0.00075074343, 0.7253305, 1)
+DLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+HSeparator/styles/separator = SubResource("StyleBoxLine_mehjg")
+Label/constants/outline_size = 7
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_occtp")
+RLabel/base_type = &"Label"
+RLabel/colors/font_color = Color(0.98875684, 0.59551245, 0.69069254, 1)
+RLabel/colors/font_outline_color = Color(0.21616757, 0.21992812, 0.6236444, 1)

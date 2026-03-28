@@ -68,6 +68,8 @@ func _ready() -> void:
 	StarTimer.one_shot = true
 	StarTimer.start(LevelInfoResource.TimeStarLimit)
 	LevelReady.emit.call_deferred()
+	var FormatNumber:String = "%03d" %LevelSaveResource.Level
+	DisplayServer.window_set_title(tr("LEVEL_END_DYNAMIC").format({"Number" : FormatNumber, "Name" : tr(LevelInfoResource.GetName())}))
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("DEV_Reset"):

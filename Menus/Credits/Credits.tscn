@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://bltbvwf5om7sh"]
+
+[ext_resource type="Script" uid="uid://coad4ge0vgie7" path="res://Menus/MenuHandler.gd" id="1_kgf1m"]
+[ext_resource type="Theme" uid="uid://bdihwxf0esnth" path="res://Assets/CreditsTMenu.tres" id="1_kwoi3"]
+
+[node name="Credits" type="PanelContainer" node_paths=PackedStringArray("FirstFocus", "GoBackButton")]
+custom_minimum_size = Vector2(600, 300)
+theme = ExtResource("1_kwoi3")
+script = ExtResource("1_kgf1m")
+FirstFocus = NodePath("VBoxContainer/Button")
+GoBackButton = NodePath("VBoxContainer/Button")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"DLabel"
+theme_override_font_sizes/font_size = 32
+text = "DIAMOND"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_type_variation = &"DLabel"
+text = "DIAMOND_TEXT"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"RLabel"
+theme_override_font_sizes/font_size = 32
+text = "RUBY"
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_type_variation = &"RLabel"
+text = "RUBY_TEXT"
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Go Back"

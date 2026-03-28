@@ -18,3 +18,15 @@ Obserever 10
 
 Outline Color Hex: 140d06
 Font Color Hex: 9d6500
+
+Need:
+	World 2, Box and tracks
+	World 2 tile map
+	
+	World 3 PlayerSpliter
+
+Really Want:
+
+Later:
+
+DONT:

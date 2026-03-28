@@ -1,5 +1,5 @@
 key,en,uwu
-GAME_TITLE,Cat's Out Of The Box,LET ME OUT
+GAME_TITLE,Cat Is (Getting) Out Of The Box,LET ME OUT
 -MENUS-,-Menus-,
 CONTINUE,"Continue
  ({WORLD} - {LEVEL})","ContinUwU
@@ -42,7 +42,11 @@ When observed things become determined and are outlined (Middle)
 Afterwards things stay determined (Right)",
 TUTORIAL_3,"The purple stuff on the group is poison (Which is Deadly!)
 You can Scratch on the claw mark tile to effect the level",
-,,
+-CREDITS-,-Credits-,
+DIAMOND,Diamond (DiamondInTheRough429),
+DIAMOND_TEXT,Me :3,
+RUBY,Ruby (Tag),
+RUBY_TEXT,,
 -COSMETICS-,-Cosmetics-,
 NOT_UNLOCKED_COSMETIC,Not Unlcoked,
 DEFAULT_COSMETIC,Calico,

@@ -33,6 +33,8 @@ var MainMenuUID:String = "uid://buvo6k3q5bmq1"
 ##Button to close the game
 @export var QuitGameButton:Button
 
+signal MenuMove(In:bool)
+
 func _ready() -> void:
 	#connect menhu logic
 	if GrabFirst:
@@ -63,6 +65,7 @@ func MoveInOut(In:bool = true) -> void:
 	var CorrectPos:Vector2 = InPos if In else OutPos
 	MoveTween.tween_property(self, "position", CorrectPos, .2)
 	CurrentMenu = In
+	MenuMove.emit(In)
 	#Grab focus when enter screen
 	if In:
 		if FirstFocus != null:
@@ -71,6 +74,7 @@ func MoveInOut(In:bool = true) -> void:
 	else:
 		await MoveTween.finished
 		hide()
+	
 
 ##Go to menu
 func GoToMenu(NewMenu:MenuHandler = PreviousMenu) -> void:

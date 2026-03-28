@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://kshmupadoyu4" path="res://ActualGame/Tiles/ObserveTotorialTile.tscn" id="2_2iyf8"]
 [ext_resource type="PackedScene" uid="uid://oivgasjt2ai4" path="res://ActualGame/Tiles/DevWall.tscn" id="2_4y60t"]
 [ext_resource type="PackedScene" uid="uid://wxmqr1k0pxo0" path="res://ActualGame/Tiles/EndTile/DevEnd.tscn" id="3_sxgvv"]
-[ext_resource type="PackedScene" path="res://ActualGame/Tiles/PoisonTile.tscn" id="4_vkr8e"]
+[ext_resource type="PackedScene" uid="uid://bg3udsfmwlmi7" path="res://ActualGame/Tiles/PoisonTile.tscn" id="4_vkr8e"]
 [ext_resource type="PackedScene" uid="uid://vpx201xhf8ob" path="res://ActualGame/Observers/TestObserver.tscn" id="5_efdwf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4y60t"]
