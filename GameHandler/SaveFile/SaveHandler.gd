@@ -27,9 +27,7 @@ func Load() -> void:
 ##Set The Level info for a worlds Level
 func SetLevelInfo(World:int, Level:int, SaveInfo:LevelSaveInfo) -> void:
 	if GetWorldHighestComplete(World) <= Level and SaveInfo.Complete != false:
-		print(Level)
 		SetWorldHighestComplete(World, Level)
-	print(SaveInfo)
 	SaveFile.set_value(str(World),  str(Level), SaveInfo)
 	Save()
 

@@ -170,7 +170,6 @@ func ReadyLevel() -> void:
 ##Run when Level Ends
 func EndLevel() -> void:
 	LevelSaveResource.EndLevel(true, !Player.HasDied, StarTimer.time_left > 0)
-	print(LevelSaveResource)
 	LevelEnds.emit()
 
 ##Move To the next level
