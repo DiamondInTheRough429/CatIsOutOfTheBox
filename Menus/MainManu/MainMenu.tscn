@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ct0wch6n4unnr" path="res://Menus/Settings/Settings.tscn" id="4_geipl"]
 [ext_resource type="Texture2D" uid="uid://do142lu4eh5v5" path="res://Assets/Logo.png" id="5_fmxav"]
 [ext_resource type="Theme" uid="uid://bdihwxf0esnth" path="res://Assets/CreditsTMenu.tres" id="8_th5yc"]
-[ext_resource type="PackedScene" path="res://Menus/MenuBackground.tscn" id="9_80yba"]
+[ext_resource type="PackedScene" uid="uid://78y0ok5qj3e2" path="res://Menus/MenuBackground.tscn" id="9_80yba"]
 [ext_resource type="PackedScene" uid="uid://bltbvwf5om7sh" path="res://Menus/Credits/Credits.tscn" id="11_ppqqw"]
 
 [sub_resource type="GDScript" id="GDScript_geipl"]
@@ -25,6 +25,9 @@ func _ready() -> void:
 	DisplayServer.window_set_title.call_deferred(tr(\"GAME_TITLE\"))
 	ContinueButton.pressed.connect(ContinueGame)
 	var HighComplete:Vector2i = SaveHandler.HelpContinue()
+	var Max:int = 3 if HighComplete.x == 0 else 30
+	if HighComplete.y >= Max:
+		HighComplete = Vector2i(HighComplete.x+1, 0)
 	ContinueWorld = HighComplete.x
 	ContinueLevel = HighComplete.y+1
 	ContinueButton.text = tr(\"CONTINUE\").format({\"WORLD\" : \"%03d\" %ContinueWorld, \"LEVEL\" : \"%03d\" %ContinueLevel})

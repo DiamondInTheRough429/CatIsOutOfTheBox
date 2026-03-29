@@ -20,5 +20,5 @@ func EndLevel(Finished:bool = true, Deathless:bool = false, InTime:bool = false)
 		CompleteDeathless = Deathless
 	if !CompleteInTime:
 		CompleteInTime = InTime
-	
+	print(World)
 	SaveHandler.SetLevelInfo(World, Level, self)

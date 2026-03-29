@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 SaveHandler="*res://GameHandler/SaveFile/SaveHandler.gd"
 SettingsHandler="*res://GameHandler/Settings/SettingsHandler.gd"
+GlobalMusicHandler="*res://GameHandler/GlobalMusic/GlobalMusic.gd"
 
 [display]
 

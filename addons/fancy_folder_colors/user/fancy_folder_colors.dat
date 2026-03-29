@@ -8,6 +8,7 @@ PTH={
 "res://Assets/": Color(0.17424317, 0.73125, 0.018281233, 1),
 "res://DevTesting/": Color(1, 0.034375012, 0.034375012, 1),
 "res://GameHandler/": Color(0.809375, 0.3970996, 0.6985759, 1),
+"res://GameHandler/GlobalMusic/": Color(0.8392157, 0.5529412, 0.5803922, 1),
 "res://GameHandler/LevelHandler/": Color(0.6421875, 0.054184582, 0.054184582, 1),
 "res://GameHandler/Observable/": Color(0.030830069, 0.7046875, 0.15507239, 1),
 "res://GameHandler/Observable/Player": Color(0.25151804, 0.0076220785, 0.3484375, 1),
