@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://c8miab8ty0qwf"]
+[gd_scene load_steps=6 format=4 uid="uid://cy2b4yolomup6"]
 
 [ext_resource type="TileSet" uid="uid://dmdp0jyxbrl7f" path="res://Assets/TileSets/DevTest/DevTileSet.tres" id="1_cw4i6"]
 [ext_resource type="Script" uid="uid://bb5r5ruwttbqc" path="res://GameHandler/LevelHandler/LevelHandler.gd" id="2_d41h8"]
