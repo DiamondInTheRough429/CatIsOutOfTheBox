@@ -1,8 +1,9 @@
 extends TileHanlder
 class_name DuplicatePlayerTile
 
-@export var PlayerOutputOne:Vector2
-@export var PlayerOutputTwo:Vector2
+@export var PlayerOutputOne:PlayerHandler.Directions = PlayerHandler.Directions.Up
+@export var PlayerOutputTwo:PlayerHandler.Directions = PlayerHandler.Directions.Down
+@export var AudioPlayer:AudioStreamPlayer2D
 
 func PlayerEnter(_Player:PlayerHandler) -> void:
 	if _Player.DuplicatedPlayer == null:
@@ -10,7 +11,15 @@ func PlayerEnter(_Player:PlayerHandler) -> void:
 
 func Duplicate(Player:PlayerHandler) -> void:
 	var DupedPlayer:PlayerHandler = Player.duplicate()
-	Player.get_parent().add_child(DupedPlayer)
+	Player.get_parent().add_child.call_deferred(DupedPlayer)
 	Player.DuplicatedPlayer = DupedPlayer
 	DupedPlayer.DuplicatedPlayer = Player
 	DupedPlayer.CurrentPlayer = false
+	Player.CurrentPlayer = false
+	DupedPlayer.global_position = global_position
+	if AudioPlayer != null:
+		AudioPlayer.play()
+		await AudioPlayer.finished
+	Player.CurrentPlayer = true
+	Player.Move(PlayerOutputOne)
+	DupedPlayer.Move(PlayerOutputTwo)

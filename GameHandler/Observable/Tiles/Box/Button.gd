@@ -2,8 +2,18 @@ extends TileHanlder
 class_name ButtonTileHandler
 
 @export var PlayerInteracts:bool = false
+@export var SecondSprite:AnimatedSprite2D
+@export var BoxOnlyFrames:SpriteFrames
+@export var BothFrames:SpriteFrames
+@export_color_no_alpha var ButtonColor:Color
 var Pressed:bool = false : set=SetPress
 signal PressChange(Press:bool)
+
+func _ready() -> void:
+	super._ready()
+	SecondSprite.modulate = ButtonColor
+	SecondSprite.sprite_frames = BothFrames if PlayerInteracts else BoxOnlyFrames
+	z_index = -1
 
 func PrepColision() -> void:
 	super.PrepColision()
@@ -44,7 +54,9 @@ func UpdatePressed() -> void:
 			Pressed = HeldDown
 
 func SetPress(Set:bool) -> void:
+	print(Set)
 	Pressed = Set
 	PressChange.emit(Pressed)
 	var PlayAni:String = "Press" if Pressed else "Unpress"
 	Sprite.play(PlayAni)
+	SecondSprite.play(PlayAni)

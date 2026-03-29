@@ -38,3 +38,5 @@ Art Needed:
 Machanics neeeded
 	Box Pushing
 	Duplicate Player
+
+MASTER BUTTON LEVEL, Button does everything, use with other buttons

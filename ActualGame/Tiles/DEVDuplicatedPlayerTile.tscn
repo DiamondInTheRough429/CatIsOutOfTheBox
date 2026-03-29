@@ -1,7 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://djmjab3d2a6dr"]
+[gd_scene load_steps=6 format=3 uid="uid://djmjab3d2a6dr"]
 
 [ext_resource type="Script" uid="uid://bhlipxwp42424" path="res://GameHandler/Observable/Tiles/DuplicatePlayerTile.gd" id="1_wt8v8"]
+[ext_resource type="Texture2D" uid="uid://ue68l8bw8553" path="res://Assets/Dev Testing/OrbGRB.png" id="2_7yoh5"]
+[ext_resource type="AudioStream" uid="uid://cnc5um7xfle40" path="res://Assets/Audio/Scratch1.ogg" id="3_7d07q"]
 
-[node name="DevDuplicatedPlayerTile" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d07q"]
+size = Vector2(16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hwtc3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7yoh5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DevDuplicatedPlayerTile" type="Area2D" node_paths=PackedStringArray("AudioPlayer", "Sprite")]
 script = ExtResource("1_wt8v8")
+PlayerOutputOne = Vector2(0, -32)
+PlayerOutputTwo = Vector2(0, 32)
+AudioPlayer = NodePath("AudioStreamPlayer2D")
+Sprite = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://bhlipxwp42424"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7d07q")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hwtc3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7d07q")

@@ -25,8 +25,10 @@ enum WallCheckPossible{None, Wall, Box}
 #endregion
 
 #region Duplication
-@export var CurrentOutline:Material
-var CurrentPlayer:bool = true
+@export var CurrentOutlineMat:Material
+@export var CurrentObservedMat:Material
+var StoredObservedMat:Material
+var CurrentPlayer:bool = true : set = SetCurrent
 var DuplicatedPlayer:PlayerHandler
 #endregion
 
@@ -43,6 +45,8 @@ var HasDied:bool = false
 func _ready() -> void:
 	z_index = 5
 	CurrentMenu = PauseScreen
+	StoredObservedMat = ObservedMat
+	GroupMat = CurrentOutlineMat
 
 func _physics_process(_delta: float) -> void:
 	if FastMovement == true:
@@ -59,25 +63,26 @@ func _physics_process(_delta: float) -> void:
 
 #region Input functions
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") and CurrentMenu == PauseScreen and PauseScreen.CurrentMenu:
-		CanMove = !CanMove
-		await PauseScreen.MoveInOut(!CanMove)
-		PauseScreen.CurrentMenu = true
-		CurrentMenu = PauseScreen
-	if event.is_action_pressed("DEV_Kill"):
-		KillPlayer()
-	if event.is_action_pressed("PL_Switch"):
-		SwitchPlayers()
-	#region Moving Input
-	if event.is_action_pressed("PM_Up") or event.is_action("PM_Up") and event.is_echo():
-		Move(Directions.Up)
-	if event.is_action_pressed("PM_Down")  or event.is_action("PM_Down") and event.is_echo():
-		Move(Directions.Down)
-	if event.is_action_pressed("PM_Left") or event.is_action("PM_Left") and event.is_echo():
-		Move(Directions.Left)
-	if event.is_action_pressed("PM_Right") or event.is_action("PM_Right") and event.is_echo():
-		Move(Directions.Right)
-	#endregion
+	if CurrentPlayer:
+		if event.is_action_pressed("ui_cancel") and CurrentMenu == PauseScreen and PauseScreen.CurrentMenu:
+			CanMove = !CanMove
+			await PauseScreen.MoveInOut(!CanMove)
+			PauseScreen.CurrentMenu = true
+			CurrentMenu = PauseScreen
+		if event.is_action_pressed("DEV_Kill"):
+			KillPlayer()
+		if event.is_action_pressed("PL_Switch"):
+			SwitchPlayers.call_deferred()
+		#region Moving Input
+		if event.is_action_pressed("PM_Up") or event.is_action("PM_Up") and event.is_echo():
+			Move(Directions.Up)
+		if event.is_action_pressed("PM_Down")  or event.is_action("PM_Down") and event.is_echo():
+			Move(Directions.Down)
+		if event.is_action_pressed("PM_Left") or event.is_action("PM_Left") and event.is_echo():
+			Move(Directions.Left)
+		if event.is_action_pressed("PM_Right") or event.is_action("PM_Right") and event.is_echo():
+			Move(Directions.Right)
+		#endregion
 
 ##Move player
 func Move(Direction:Directions) -> void:
@@ -167,8 +172,13 @@ func SetCurrent(Set:bool) -> void:
 	CurrentPlayer = Set
 	Camera.enabled = Set
 	if CurrentPlayer and DuplicatedPlayer != null:
-		if CurrentOutline != null and Sprite != null:
-			Sprite.material = CurrentOutline
+		if CurrentOutlineMat != null and Sprite != null:
+			ObservedMat = CurrentObservedMat
+			Sprite.material = ObservedMat if Observed == WhenObserved.Currently else CurrentOutlineMat
+	else:
+		if StoredObservedMat != null and Sprite != null:
+			ObservedMat = StoredObservedMat
+			Sprite.material = ObservedMat if Observed == WhenObserved.Currently else null
 
 ##Handles Killing Payer
 func KillPlayer() -> void:

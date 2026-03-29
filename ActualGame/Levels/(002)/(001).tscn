@@ -28,3 +28,4 @@ OnTracks = true
 
 [node name="DevButton" parent="." instance=ExtResource("5_yatrx")]
 position = Vector2(432, 208)
+PlayerInteracts = true
