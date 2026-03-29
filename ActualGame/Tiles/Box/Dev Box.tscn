@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkbunkuyil3tm"]
+
+[ext_resource type="Script" uid="uid://bd15a3wix6car" path="res://GameHandler/Observable/Tiles/Box/BoxTile.gd" id="1_b8p2c"]
+[ext_resource type="Texture2D" uid="uid://diq43yyao2sqt" path="res://Assets/Lock.png" id="2_nvh58"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8p2c"]
+size = Vector2(16, 16)
+
+[node name="DevBox" type="Area2D" node_paths=PackedStringArray("CheckRay")]
+script = ExtResource("1_b8p2c")
+OnTracks = false
+CheckRay = NodePath("RayCast2D")
+metadata/_custom_type_script = "uid://bd15a3wix6car"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b8p2c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nvh58")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]

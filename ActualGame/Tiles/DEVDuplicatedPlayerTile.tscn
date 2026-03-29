@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://djmjab3d2a6dr"]
+
+[ext_resource type="Script" uid="uid://bhlipxwp42424" path="res://GameHandler/Observable/Tiles/DuplicatePlayerTile.gd" id="1_wt8v8"]
+
+[node name="DevDuplicatedPlayerTile" type="Area2D"]
+script = ExtResource("1_wt8v8")
+metadata/_custom_type_script = "uid://bhlipxwp42424"

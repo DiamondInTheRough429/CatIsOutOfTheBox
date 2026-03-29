@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://gajxajvi3y0y"]
+
+[ext_resource type="Script" uid="uid://4vux8k3limp5" path="res://GameHandler/Observable/Tiles/Box/TrackTile.gd" id="1_0murv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnwqn"]
+size = Vector2(32, 32)
+
+[node name="DevTrack" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_0murv")
+metadata/_custom_type_script = "uid://4vux8k3limp5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gnwqn")

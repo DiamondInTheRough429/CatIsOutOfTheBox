@@ -37,6 +37,8 @@ signal LevelReady
 signal LevelEnds
 
 func _ready() -> void:
+	for Started in NodesToRest:
+		ChildEnter.call_deferred(Started, true)
 	child_entered_tree.connect(ChildEnter)
 	child_exiting_tree.connect(ChildLeave)
 	var GotLevelRes:LevelSaveInfo = SaveHandler.GetLevelInfo(World, Level)
@@ -76,19 +78,23 @@ func _input(event: InputEvent) -> void:
 		Reset()
 
 ##Handle Child Entering tree
-func ChildEnter(Child:Node) -> void:
+func ChildEnter(Child:Node, Already:bool = false) -> void:
 	if Child.has_method("PrepColision"):
 		Child.PrepColision()
-		LevelReady.connect(Child.ToggleCollsion.bind(false))
+		if "StartCollisionOff" not in Child:
+			LevelReady.connect(Child.ToggleCollsion.bind(false))
 	if Child.has_method("RESET"):
 		ResetingLevel.connect(Child.RESET)
-		NodesToRest.append(Child)
+		if !Already:
+			NodesToRest.append(Child)
 		if "position" in Child:
 			Child.set_meta("DefaultPosition", Child.position)
 		if "visible" in Child:
 			Child.set_meta("DefaultVisible", Child.visible)
 		if "Observed" in Child:
 			Child.set_meta("DefaultObserved", Child.Observed)
+	if "Pressed" in Child:
+		Child.set_meta("DefaultPress", Child.Pressed)
 	if "StartCollisionOff" in Child and Child.has_method("ToggleCollsion"):
 			Child.ToggleCollsion(false, !Child.StartCollisionOff)
 	if Child is Observable:
@@ -153,6 +159,8 @@ func Reset() -> void:
 			Reseting.visible = Reseting.get_meta("DefaultVisible")
 		if Reseting.has_meta("DefaultObserved"):
 			Reseting.Observed = Reseting.get_meta("DefaultObserved")
+		if Reseting.has_meta("DefaultPress"):
+			Reseting.Pressed = Reseting.get_meta("DefaultPress")
 		if "CanMove" in Reseting:
 			Reseting.CanMove = false
 	ReadyLevel.call_deferred()

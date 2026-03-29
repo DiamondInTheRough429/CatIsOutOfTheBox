@@ -18,9 +18,16 @@ signal PlayerFrozen(Frozen:bool)
 ##Tells if player can move fast
 var FastMovement:bool = false
 #region Wall Checking var
+enum WallCheckPossible{None, Wall, Box}
 ##Ray cast to check for walls
 @export var WallCheck:RayCast2D
 #endregion
+#endregion
+
+#region Duplication
+@export var CurrentOutline:Material
+var CurrentPlayer:bool = true
+var DuplicatedPlayer:PlayerHandler
 #endregion
 
 #region UI
@@ -59,6 +66,8 @@ func _input(event: InputEvent) -> void:
 		CurrentMenu = PauseScreen
 	if event.is_action_pressed("DEV_Kill"):
 		KillPlayer()
+	if event.is_action_pressed("PL_Switch"):
+		SwitchPlayers()
 	#region Moving Input
 	if event.is_action_pressed("PM_Up") or event.is_action("PM_Up") and event.is_echo():
 		Move(Directions.Up)
@@ -72,7 +81,15 @@ func _input(event: InputEvent) -> void:
 
 ##Move player
 func Move(Direction:Directions) -> void:
-	if CanMove and !CurrentlyMoving and !CheckWall(Direction):
+	var CheckedWall:WallCheckPossible = CheckWall(Direction)
+	if CanMove and !CurrentlyMoving and CheckedWall != WallCheckPossible.Wall:
+		if CheckedWall == WallCheckPossible.Box:
+			var Collided:BoxTile = WallCheck.get_collider()
+			var Test:int = Direction
+			if !Collided.CheckMove(Test):
+				return
+			else:
+				Collided.Move(Test)
 		CurrentlyMoving = true
 		var NewPosition:Vector2 = position
 		Sprite.frame = 0
@@ -95,7 +112,7 @@ func Move(Direction:Directions) -> void:
 		CurrentlyMoving = false
 
 ##Return true if wall that direction else flase
-func CheckWall(Direction:Directions) -> bool:
+func CheckWall(Direction:Directions) -> WallCheckPossible:
 	match Direction:
 		Directions.Up:
 			WallCheck.target_position = Vector2(0,-32)
@@ -106,9 +123,10 @@ func CheckWall(Direction:Directions) -> bool:
 		Directions.Right:
 			WallCheck.target_position = Vector2(32,0)
 	WallCheck.force_raycast_update()
-	if WallCheck.get_collider() != null:
-		return true
-	return false
+	var Collided:Area2D = WallCheck.get_collider()
+	if Collided != null:
+		return WallCheckPossible.Wall if Collided.get_collision_layer_value(4) else WallCheckPossible.Box
+	return WallCheckPossible.None
 #endregion
 
 func PrepColision() -> void:
@@ -126,6 +144,7 @@ func PrepColision() -> void:
 		WallCheck.collision_mask = 0
 		WallCheck.collide_with_areas = true
 		WallCheck.set_collision_mask_value(4, true)
+		WallCheck.set_collision_mask_value(5, true)
 
 func ConnectLevel(NewLevel:LevelHandler = Level) -> void:
 	Level = NewLevel
@@ -139,13 +158,31 @@ func CanMoveSetter(Set:bool) -> void:
 	CanMove = Set
 	PlayerFrozen.emit(!CanMove)
 
+func SwitchPlayers() -> void:
+	if CurrentPlayer and DuplicatedPlayer != null:
+		CurrentPlayer = false
+		DuplicatedPlayer.CurrentPlayer = true
+
+func SetCurrent(Set:bool) -> void:
+	CurrentPlayer = Set
+	Camera.enabled = Set
+	if CurrentPlayer and DuplicatedPlayer != null:
+		if CurrentOutline != null and Sprite != null:
+			Sprite.material = CurrentOutline
+
 ##Handles Killing Payer
 func KillPlayer() -> void:
+	CanMove = false
 	Sprite.play("Dies")
 	await Sprite.animation_finished
-	HasDied = true
-	CanMove = false
-	PlayerDiesScreen.MoveInOut()
+	if DuplicatedPlayer != null:
+		CurrentPlayer = false
+		DuplicatedPlayer.CurrentPlayer = true
+		DuplicatedPlayer.DuplicatedPlayer = null
+		queue_free.call_deferred()
+	else:
+		HasDied = true
+		PlayerDiesScreen.MoveInOut()
 
 func AnimatePlayer(Ani:String, Freeze:bool = true) -> bool:
 	if Sprite.sprite_frames.has_animation(Ani):

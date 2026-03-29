@@ -19,14 +19,22 @@ Obserever 10
 Outline Color Hex: 140d06
 Font Color Hex: 9d6500
 
-Need:
-	World 2, Box and tracks
-	World 2 tile map
+Art Needed:
+	Cat's
+	Tiles Set 
+		Cardboard
+		Metal -
+			Cardboard but with indents for box
+		EndTile
+		Box and Button metal world
+			2 Buttons: one for player and box one for box
 	
-	World 3 PlayerSpliter
+	Music:
+		Menus
+		World 1
+		World 2
+		World 3
 
-Really Want:
-
-Later:
-
-DONT:
+Machanics neeeded
+	Box Pushing
+	Duplicate Player

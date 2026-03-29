@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bphqqmx05ftb0"]
+
+[ext_resource type="Script" uid="uid://dm3frunvul27s" path="res://GameHandler/Observable/Tiles/Box/Button.gd" id="1_20ick"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20ick"]
+size = Vector2(16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pq0ae"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"DefaultState",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"Press",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"Unpress",
+"speed": 5.0
+}]
+
+[node name="DevButton" type="Area2D" node_paths=PackedStringArray("Sprite")]
+script = ExtResource("1_20ick")
+Sprite = NodePath("AnimatedSprite2D")
+metadata/_custom_type_script = "uid://dm3frunvul27s"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_20ick")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pq0ae")
+animation = &"DefaultState"
+autoplay = "DefaultState"

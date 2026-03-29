@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://dmdp0jyxbrl7f"]
+[gd_resource type="TileSet" load_steps=18 format=3 uid="uid://dmdp0jyxbrl7f"]
 
 [ext_resource type="Texture2D" uid="uid://uj2ke17q4xx6" path="res://Assets/TileSets/DevTest/Cardboard.png" id="1_6veef"]
 [ext_resource type="PackedScene" uid="uid://bq4yayd8ik5xd" path="res://ActualGame/Tiles/ClawTile.tscn" id="2_1wrmy"]
@@ -7,6 +7,44 @@
 [ext_resource type="PackedScene" uid="uid://wxmqr1k0pxo0" path="res://ActualGame/Tiles/EndTile/DevEnd.tscn" id="3_sxgvv"]
 [ext_resource type="PackedScene" uid="uid://bg3udsfmwlmi7" path="res://ActualGame/Tiles/PoisonTile.tscn" id="4_vkr8e"]
 [ext_resource type="PackedScene" uid="uid://vpx201xhf8ob" path="res://ActualGame/Observers/TestObserver.tscn" id="5_efdwf"]
+[ext_resource type="PackedScene" uid="uid://bkbunkuyil3tm" path="res://ActualGame/Tiles/Box/Dev Box.tscn" id="5_rdmwr"]
+[ext_resource type="PackedScene" uid="uid://bphqqmx05ftb0" path="res://ActualGame/Tiles/Box/DevButton.tscn" id="6_dqthw"]
+[ext_resource type="PackedScene" uid="uid://gajxajvi3y0y" path="res://ActualGame/Tiles/Box/DevTrack.tscn" id="6_vouhq"]
+[ext_resource type="Texture2D" uid="uid://650so8ts6ii5" path="res://Assets/TileSets/NewCardboard.png" id="11_105pe"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysn4v"]
+texture = ExtResource("11_105pe")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_2iyf8"]
+resource_name = "GeneralUseTiles"
+scenes/1/scene = ExtResource("2_1wrmy")
+scenes/2/scene = ExtResource("4_vkr8e")
+scenes/3/scene = ExtResource("5_rdmwr")
+scenes/4/scene = ExtResource("6_dqthw")
+scenes/5/scene = ExtResource("6_vouhq")
+scenes/100/scene = ExtResource("2_2iyf8")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_sxgvv"]
+resource_name = "Walls"
+scenes/1/scene = ExtResource("2_4y60t")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_efdwf"]
+resource_name = "EndTiles"
+scenes/1/scene = ExtResource("3_sxgvv")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_1wrmy"]
+resource_name = "Observers"
+scenes/100/scene = ExtResource("5_efdwf")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4y60t"]
 texture = ExtResource("1_6veef")
@@ -37,28 +75,11 @@ texture_region_size = Vector2i(32, 32)
 3:4/0 = 0
 4:4/0 = 0
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_2iyf8"]
-resource_name = "GeneralUseTiles"
-scenes/1/scene = ExtResource("2_1wrmy")
-scenes/2/scene = ExtResource("4_vkr8e")
-scenes/100/scene = ExtResource("2_2iyf8")
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_sxgvv"]
-resource_name = "Walls"
-scenes/1/scene = ExtResource("2_4y60t")
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_efdwf"]
-resource_name = "EndTiles"
-scenes/1/scene = ExtResource("3_sxgvv")
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_1wrmy"]
-resource_name = "Observers"
-scenes/100/scene = ExtResource("5_efdwf")
-
 [resource]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_4y60t")
 sources/3 = SubResource("TileSetScenesCollectionSource_efdwf")
 sources/2 = SubResource("TileSetScenesCollectionSource_sxgvv")
 sources/1 = SubResource("TileSetScenesCollectionSource_2iyf8")
 sources/4 = SubResource("TileSetScenesCollectionSource_1wrmy")
+sources/7 = SubResource("TileSetAtlasSource_4y60t")
+sources/0 = SubResource("TileSetAtlasSource_ysn4v")
