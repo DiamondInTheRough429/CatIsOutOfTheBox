@@ -35,6 +35,7 @@ metadata/_custom_type_script = "uid://bd15a3wix6car"
 shape = SubResource("RectangleShape2D_b8p2c")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_b8p2c")
 autoplay = "default"
 

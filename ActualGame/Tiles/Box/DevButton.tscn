@@ -58,11 +58,13 @@ metadata/_custom_type_script = "uid://dm3frunvul27s"
 shape = SubResource("RectangleShape2D_20ick")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_pq0ae")
 animation = &"DefaultState"
 autoplay = "DefaultState"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
 sprite_frames = ExtResource("5_wkg3m")
 animation = &"DefaultState"
 autoplay = "DefaultState"

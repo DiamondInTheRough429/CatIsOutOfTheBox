@@ -171,6 +171,9 @@ func SwitchPlayers() -> void:
 func SetCurrent(Set:bool) -> void:
 	CurrentPlayer = Set
 	Camera.enabled = Set
+	if CurrentPlayer:
+		Level.Player = self
+	print(DuplicatedPlayer)
 	if CurrentPlayer and DuplicatedPlayer != null:
 		if CurrentOutlineMat != null and Sprite != null:
 			ObservedMat = CurrentObservedMat

@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://xbsym5xq0r1c"]
+[gd_scene load_steps=5 format=4 uid="uid://c4qd60c0me80b"]
 
 [ext_resource type="TileSet" uid="uid://dmdp0jyxbrl7f" path="res://Assets/TileSets/DevTest/DevTileSet.tres" id="1_n4b0n"]
 [ext_resource type="Script" uid="uid://bb5r5ruwttbqc" path="res://GameHandler/LevelHandler/LevelHandler.gd" id="2_08ups"]
-[ext_resource type="Resource" uid="uid://o4y3f1c35mka" path="res://ActualGame/Levels/(003)/InfoResource/001.tres" id="3_mqgqt"]
+[ext_resource type="Resource" path="res://ActualGame/Levels/(003)/InfoResource/001.tres" id="3_mqgqt"]
 [ext_resource type="PackedScene" uid="uid://vpx201xhf8ob" path="res://ActualGame/Observers/TestObserver.tscn" id="4_mqgqt"]
 
 [node name="003-001" type="TileMapLayer" node_paths=PackedStringArray("Background")]

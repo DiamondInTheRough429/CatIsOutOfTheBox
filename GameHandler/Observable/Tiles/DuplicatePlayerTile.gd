@@ -20,6 +20,7 @@ func Duplicate(Player:PlayerHandler) -> void:
 	if AudioPlayer != null:
 		AudioPlayer.play()
 		await AudioPlayer.finished
+	DupedPlayer.set_meta("DefaultPosition", Player.get_meta("DefaultPosition"))
 	Player.CurrentPlayer = true
 	Player.Move(PlayerOutputOne)
 	DupedPlayer.Move(PlayerOutputTwo)
