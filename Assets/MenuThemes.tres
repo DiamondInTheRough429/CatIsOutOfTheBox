@@ -178,6 +178,7 @@ RichTextLabel/colors/default_color = Color(0.6156863, 0.39607844, 0, 1)
 RichTextLabel/colors/font_outline_color = Color(0.078431375, 0.050980393, 0.023529412, 1)
 RichTextLabel/constants/outline_size = 7
 RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_wl0a7")
+SocialButton/base_type = &"Button"
 TabContainer/colors/font_hovered_color = Color(0.81338984, 0.529046, 5.7756904e-07, 1)
 TabContainer/colors/font_outline_color = Color(0.078431375, 0.050980393, 0.023529412, 1)
 TabContainer/colors/font_selected_color = Color(0.6156863, 0.39607844, 0, 1)
