@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=21 format=3 uid="uid://dmdp0jyxbrl7f"]
+[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://dmdp0jyxbrl7f"]
 
 [ext_resource type="Texture2D" uid="uid://uj2ke17q4xx6" path="res://Assets/TileSets/DevTest/Cardboard.png" id="1_6veef"]
 [ext_resource type="PackedScene" uid="uid://bq4yayd8ik5xd" path="res://ActualGame/Tiles/ClawTile.tscn" id="2_1wrmy"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://djmjab3d2a6dr" path="res://ActualGame/Tiles/DEVDuplicatedPlayerTile.tscn" id="8_ysn4v"]
 [ext_resource type="Texture2D" uid="uid://650so8ts6ii5" path="res://Assets/TileSets/NewCardboard.png" id="11_105pe"]
 [ext_resource type="Texture2D" uid="uid://ddweglov2gemt" path="res://Assets/TileSets/MetalTracks.png" id="12_25i1h"]
+[ext_resource type="Texture2D" uid="uid://h6f7nhse0k30" path="res://Assets/TileSets/MetalTracksCardboard.png" id="14_achsv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysn4v"]
 texture = ExtResource("11_105pe")
@@ -69,6 +70,40 @@ texture_region_size = Vector2i(32, 32)
 2:5/0 = 0
 3:5/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_25pkd"]
+texture = ExtResource("14_achsv")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4y60t"]
 texture = ExtResource("1_6veef")
 texture_region_size = Vector2i(32, 32)
@@ -107,3 +142,4 @@ sources/4 = SubResource("TileSetScenesCollectionSource_1wrmy")
 sources/7 = SubResource("TileSetAtlasSource_4y60t")
 sources/0 = SubResource("TileSetAtlasSource_ysn4v")
 sources/5 = SubResource("TileSetAtlasSource_achsv")
+sources/6 = SubResource("TileSetAtlasSource_25pkd")

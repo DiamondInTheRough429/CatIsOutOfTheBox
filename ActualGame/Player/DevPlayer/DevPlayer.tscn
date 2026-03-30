@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bppwffi1d7d1v" path="res://GameHandler/Observable/Player/PlayerHandler.gd" id="1_saakk"]
 [ext_resource type="Shader" uid="uid://casy5vk58bldw" path="res://Assets/Outline.gdshader" id="2_4vsv7"]
-[ext_resource type="SpriteFrames" uid="uid://cxw5wyv0n6gss" path="res://ActualGame/Player/DevPlayer/DevSpriteFrames.tres" id="2_parxw"]
+[ext_resource type="SpriteFrames" uid="uid://cxw5wyv0n6gss" path="res://Assets/Cat/7-DevCat/DevSpriteFrames.tres" id="2_parxw"]
 [ext_resource type="PackedScene" uid="uid://bf8jkspsloxh2" path="res://Menus/In Game Menus/PlayerPause/Player Pause Screen.tscn" id="3_co56n"]
 [ext_resource type="PackedScene" uid="uid://cgsyccwykrwah" path="res://Menus/In Game Menus/Player Reach End/Level End Screen.tscn" id="4_1vmlv"]
 [ext_resource type="PackedScene" uid="uid://bw3g5l58csn17" path="res://Menus/In Game Menus/Player Died/Player Died Screen.tscn" id="5_pwk1t"]
@@ -29,6 +29,7 @@ shader_parameter/CornerPixel = false
 size = Vector2(16, 16)
 
 [node name="DevPlayer" type="Area2D" node_paths=PackedStringArray("Camera", "WallCheck", "PauseScreen", "PlayerDiesScreen", "LevelEndScreen", "Sprite")]
+y_sort_enabled = true
 script = ExtResource("1_saakk")
 Camera = NodePath("Camera2D")
 WallCheck = NodePath("wallcheck")
@@ -37,6 +38,10 @@ CurrentObservedMat = SubResource("ShaderMaterial_tdrqe")
 PauseScreen = NodePath("CanvasLayer/PlayerPauseScreen")
 PlayerDiesScreen = NodePath("CanvasLayer/PlayerDiedScreen")
 LevelEndScreen = NodePath("CanvasLayer/LevelEndScreen")
+CosmeticToSprite = Dictionary[int, SpriteFrames]({
+0: null,
+7: ExtResource("2_parxw")
+})
 Sprite = NodePath("AnimatedSprite2D")
 ObservedMat = SubResource("ShaderMaterial_t6b2a")
 metadata/_custom_type_script = "uid://bppwffi1d7d1v"
@@ -45,6 +50,7 @@ metadata/_custom_type_script = "uid://bppwffi1d7d1v"
 shape = SubResource("RectangleShape2D_parxw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = ExtResource("2_parxw")
 autoplay = "default"
 

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bb5r5ruwttbqc" path="res://GameHandler/LevelHandler/LevelHandler.gd" id="1_ia2k0"]
 [ext_resource type="Script" uid="uid://bia8d22d3t20e" path="res://GameHandler/LevelHandler/LevelSaveInfo.gd" id="2_ti3hu"]
 [ext_resource type="Texture2D" uid="uid://tw5akpjuhfm2" path="res://icon.svg" id="3_ugotv"]
-[ext_resource type="SpriteFrames" uid="uid://cxw5wyv0n6gss" path="res://ActualGame/Player/DevPlayer/DevSpriteFrames.tres" id="4_25r48"]
+[ext_resource type="SpriteFrames" uid="uid://cxw5wyv0n6gss" path="res://Assets/Cat/7-DevCat/DevSpriteFrames.tres" id="4_25r48"]
 
 [sub_resource type="Resource" id="Resource_6wy2j"]
 script = ExtResource("2_ti3hu")

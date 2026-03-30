@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cct6wtufnngbw"
-path="res://.godot/imported/TestCatScratchLUP.png-33e996018a75b724b181bb0a2937f730.ctex"
+uid="uid://b308j5jpd0wqw"
+path="res://.godot/imported/Rail_Box_Button_Up.png-71c9a33e31b3e8a3b2eeda9ee3a3ec17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cat/TestCatScratchLUP.png"
-dest_files=["res://.godot/imported/TestCatScratchLUP.png-33e996018a75b724b181bb0a2937f730.ctex"]
+source_file="res://Assets/TileSets/Individual Tiles/Button/Rail/Rail_Box_Button_Up.png"
+dest_files=["res://.godot/imported/Rail_Box_Button_Up.png-71c9a33e31b3e8a3b2eeda9ee3a3ec17.ctex"]
 
 [params]
 

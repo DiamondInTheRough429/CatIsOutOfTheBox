@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnhrc14rstspo"
-path="res://.godot/imported/TestCat.png-4e1bd66d10f78c2d7cd488cf2be0e649.ctex"
+uid="uid://csyjjvcgd31o"
+path="res://.godot/imported/Rail_Switch_Down.png-4d8483d07b94335e5e65c4684ce9f29b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cat/TestCat.png"
-dest_files=["res://.godot/imported/TestCat.png-4e1bd66d10f78c2d7cd488cf2be0e649.ctex"]
+source_file="res://Assets/TileSets/Individual Tiles/Button/Rail/Rail_Switch_Down.png"
+dest_files=["res://.godot/imported/Rail_Switch_Down.png-4d8483d07b94335e5e65c4684ce9f29b.ctex"]
 
 [params]
 

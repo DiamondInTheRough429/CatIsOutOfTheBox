@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c02idn2b1lox7"
-path="res://.godot/imported/TestCatStartDie.png-a589b5075dbfde136eadcfd0d051d62b.ctex"
+uid="uid://da78maoai0133"
+path="res://.godot/imported/MetalBox_Small.png-3a03226bf7dada72cd0dd2eaf206696e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cat/TestCatStartDie.png"
-dest_files=["res://.godot/imported/TestCatStartDie.png-a589b5075dbfde136eadcfd0d051d62b.ctex"]
+source_file="res://Assets/TileSets/Individual Tiles/MetalBox_Small.png"
+dest_files=["res://.godot/imported/MetalBox_Small.png-3a03226bf7dada72cd0dd2eaf206696e.ctex"]
 
 [params]
 

@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://di5i14ntof0rn"]
+
+[ext_resource type="Texture2D" uid="uid://cgcu3xc18d1yy" path="res://Assets/TileSets/Individual Tiles/Button/Rail/Rail_Button_Down.png" id="1_bkqxy"]
+[ext_resource type="Texture2D" uid="uid://chcvg0ktkg5ml" path="res://Assets/TileSets/Individual Tiles/Button/Rail/Rail_Button_Up.png" id="2_invko"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bkqxy")
+}],
+"loop": true,
+"name": &"Broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_invko")
+}],
+"loop": false,
+"name": &"DefaultState",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bkqxy")
+}],
+"loop": false,
+"name": &"Press",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_invko")
+}],
+"loop": false,
+"name": &"Unpress",
+"speed": 5.0
+}]

@@ -1,0 +1,105 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://j00whye67ixm"]
+
+[ext_resource type="Texture2D" uid="uid://dnhrc14rstspo" path="res://Assets/Cat/7-DevCat/TestCat.png" id="1_52rrv"]
+[ext_resource type="Texture2D" uid="uid://dcid60cgb1tks" path="res://Assets/Cat/7-DevCat/TestCatDead.png" id="2_e1snd"]
+[ext_resource type="Texture2D" uid="uid://dng0p5wvb1106" path="res://Assets/Cat/7-DevCat/TestCatDown.png" id="3_17uk1"]
+[ext_resource type="Texture2D" uid="uid://ba8f5810fkwel" path="res://Assets/Cat/7-DevCat/TestCatLeft.png" id="4_7lug0"]
+[ext_resource type="Texture2D" uid="uid://dnn46dxnd8c6d" path="res://Assets/Cat/7-DevCat/TestCatRight.png" id="5_g4mp6"]
+[ext_resource type="Texture2D" uid="uid://cgiib4nfmuvxl" path="res://Assets/Cat/7-DevCat/TestCatUp.png" id="6_30n5t"]
+[ext_resource type="Texture2D" uid="uid://cct6wtufnngbw" path="res://Assets/Cat/7-DevCat/TestCatScratchLUP.png" id="7_wbq2s"]
+[ext_resource type="Texture2D" uid="uid://3rf7px5p4an3" path="res://Assets/Cat/7-DevCat/TestCatScratchRUP.png" id="8_dl3bf"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_52rrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e1snd")
+}],
+"loop": false,
+"name": &"Dies",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_17uk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_52rrv")
+}],
+"loop": false,
+"name": &"MoveDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7lug0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_52rrv")
+}],
+"loop": false,
+"name": &"MoveLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_g4mp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_52rrv")
+}],
+"loop": false,
+"name": &"MoveRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_30n5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_52rrv")
+}],
+"loop": false,
+"name": &"MoveUp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_wbq2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_52rrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dl3bf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_52rrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wbq2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_52rrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dl3bf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_52rrv")
+}],
+"loop": false,
+"name": &"Scratch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_52rrv")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]

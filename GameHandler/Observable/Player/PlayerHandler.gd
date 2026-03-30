@@ -39,14 +39,23 @@ var CurrentMenu:MenuHandler
 @export var LevelEndScreen:LevelEndMenuHandler
 #endregion
 
+#region Cosmetic
+@export var CosmeticToSprite:Dictionary[SettingsHandler.Cosmetics, SpriteFrames]
+#endregion
+
 ##Tells if has died in this level
 var HasDied:bool = false
+
+signal Died
 
 func _ready() -> void:
 	z_index = 5
 	CurrentMenu = PauseScreen
 	StoredObservedMat = ObservedMat
 	GroupMat = CurrentOutlineMat
+	if CosmeticToSprite.has(SettingsHandler.CurrentCosmetic):
+		var Frames:SpriteFrames = CosmeticToSprite.get(SettingsHandler.CurrentCosmetic)
+		Sprite.sprite_frames = Frames if Frames != null else Sprite.sprite_frames
 
 func _physics_process(_delta: float) -> void:
 	if FastMovement == true:
@@ -173,14 +182,15 @@ func SetCurrent(Set:bool) -> void:
 	Camera.enabled = Set
 	if CurrentPlayer:
 		Level.Player = self
-	print(DuplicatedPlayer)
 	if CurrentPlayer and DuplicatedPlayer != null:
 		if CurrentOutlineMat != null and Sprite != null:
 			ObservedMat = CurrentObservedMat
+			GroupMat = CurrentOutlineMat
 			Sprite.material = ObservedMat if Observed == WhenObserved.Currently else CurrentOutlineMat
 	else:
 		if StoredObservedMat != null and Sprite != null:
 			ObservedMat = StoredObservedMat
+			GroupMat = null
 			Sprite.material = ObservedMat if Observed == WhenObserved.Currently else null
 
 ##Handles Killing Payer
@@ -188,10 +198,11 @@ func KillPlayer() -> void:
 	CanMove = false
 	Sprite.play("Dies")
 	await Sprite.animation_finished
+	Died.emit()
 	if DuplicatedPlayer != null:
 		CurrentPlayer = false
-		DuplicatedPlayer.CurrentPlayer = true
 		DuplicatedPlayer.DuplicatedPlayer = null
+		DuplicatedPlayer.CurrentPlayer = true
 		queue_free.call_deferred()
 	else:
 		HasDied = true

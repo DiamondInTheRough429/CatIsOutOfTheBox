@@ -25,7 +25,8 @@ func MoveInOut(In:bool = true) -> void:
 func ConnectLevel(NewLevel:LevelHandler = Level) -> void:
 	Level = NewLevel
 	if Level != null:
-		ResetButton.pressed.connect(ResetButtonPressed)
+		if !ResetButton.pressed.is_connected(ResetButtonPressed):
+			ResetButton.pressed.connect(ResetButtonPressed)
 
 ##Continue game when button pressed
 func ContinuePressed() -> void:

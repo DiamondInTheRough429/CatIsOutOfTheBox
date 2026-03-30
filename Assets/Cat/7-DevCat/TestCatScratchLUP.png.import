@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcid60cgb1tks"
-path="res://.godot/imported/TestCatDead.png-5e31a3b241e7cb802c8f56d369ebc41b.ctex"
+uid="uid://cct6wtufnngbw"
+path="res://.godot/imported/TestCatScratchLUP.png-88b1df4af8be44fd233fb300c6a894a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cat/TestCatDead.png"
-dest_files=["res://.godot/imported/TestCatDead.png-5e31a3b241e7cb802c8f56d369ebc41b.ctex"]
+source_file="res://Assets/Cat/7-DevCat/TestCatScratchLUP.png"
+dest_files=["res://.godot/imported/TestCatScratchLUP.png-88b1df4af8be44fd233fb300c6a894a5.ctex"]
 
 [params]
 

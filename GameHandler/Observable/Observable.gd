@@ -41,7 +41,6 @@ func ToggleCollsion(Toggle:bool = true, On:bool = true, VisibilityMatch:bool = t
 
 ##Update visuals of Observable
 func ObservedVisualUpdate() -> void:
-	
 	match Observed:
 		WhenObserved.Never:
 			if Sprite != null:

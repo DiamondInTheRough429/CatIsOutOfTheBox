@@ -56,10 +56,11 @@ func _ready() -> void:
 		tab_changed.connect(SetFirstFocus)
 
 func _input(event: InputEvent) -> void:
-		if event.is_action_pressed("UI_TabSwitchLeft"):
-			ChangeTab(true)
-		if event.is_action_pressed("UI_TabSwitchRight"):
-			ChangeTab(false)
+		if CurrentMenu:
+			if event.is_action_pressed("UI_TabSwitchLeft"):
+				ChangeTab(true)
+			if event.is_action_pressed("UI_TabSwitchRight"):
+				ChangeTab(false)
 
 func ChangeTab(Left:bool) -> void:
 	if SelfTabCon != null:

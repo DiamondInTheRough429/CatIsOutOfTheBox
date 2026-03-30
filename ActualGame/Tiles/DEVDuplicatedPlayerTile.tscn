@@ -1,27 +1,128 @@
-[gd_scene load_steps=6 format=3 uid="uid://djmjab3d2a6dr"]
+[gd_scene load_steps=17 format=3 uid="uid://djmjab3d2a6dr"]
 
 [ext_resource type="Script" uid="uid://bhlipxwp42424" path="res://GameHandler/Observable/Tiles/DuplicatePlayerTile.gd" id="1_wt8v8"]
-[ext_resource type="Texture2D" uid="uid://ue68l8bw8553" path="res://Assets/Dev Testing/OrbGRB.png" id="2_7yoh5"]
+[ext_resource type="PackedScene" uid="uid://cdjrdvvpwv0w0" path="res://ActualGame/Player/DevPlayer/DevPlayer.tscn" id="2_hwtc3"]
 [ext_resource type="AudioStream" uid="uid://cnc5um7xfle40" path="res://Assets/Audio/Scratch1.ogg" id="3_7d07q"]
+[ext_resource type="Texture2D" uid="uid://b1ing6yxqtbl1" path="res://Assets/TileSets/Individual Tiles/Duplicater/DupOff.png" id="3_vja4o"]
+[ext_resource type="Texture2D" uid="uid://b4yjgwl0aunpv" path="res://Assets/TileSets/Individual Tiles/Duplicater/DupOn.png" id="4_k6rv1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7d07q"]
 size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v4iu"]
+atlas = ExtResource("4_k6rv1")
+region = Rect2(0, 0, 34, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehulx"]
+atlas = ExtResource("4_k6rv1")
+region = Rect2(34, 0, 34, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06sra"]
+atlas = ExtResource("4_k6rv1")
+region = Rect2(68, 0, 34, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfnae"]
+atlas = ExtResource("4_k6rv1")
+region = Rect2(102, 0, 34, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldmv6"]
+atlas = ExtResource("4_k6rv1")
+region = Rect2(136, 0, 34, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8she3"]
+atlas = ExtResource("4_k6rv1")
+region = Rect2(170, 0, 34, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwrfn"]
+atlas = ExtResource("4_k6rv1")
+region = Rect2(204, 0, 34, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a286"]
+atlas = ExtResource("4_k6rv1")
+region = Rect2(238, 0, 34, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivxq7"]
+atlas = ExtResource("4_k6rv1")
+region = Rect2(272, 0, 34, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hwtc3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7yoh5")
+"texture": ExtResource("3_vja4o")
 }],
 "loop": false,
+"name": &"Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v4iu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehulx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06sra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfnae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldmv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8she3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwrfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a286")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivxq7")
+}],
+"loop": true,
+"name": &"On",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v4iu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehulx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06sra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfnae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldmv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8she3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwrfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a286")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivxq7")
+}],
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
 [node name="DevDuplicatedPlayerTile" type="Area2D" node_paths=PackedStringArray("AudioPlayer", "Sprite")]
 script = ExtResource("1_wt8v8")
-PlayerOutputOne = Vector2(0, -32)
-PlayerOutputTwo = Vector2(0, 32)
+PlayerScene = ExtResource("2_hwtc3")
 AudioPlayer = NodePath("AudioStreamPlayer2D")
 Sprite = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://bhlipxwp42424"
@@ -30,7 +131,10 @@ metadata/_custom_type_script = "uid://bhlipxwp42424"
 shape = SubResource("RectangleShape2D_7d07q")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_hwtc3")
+autoplay = "On"
+offset = Vector2(0, -1)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_7d07q")

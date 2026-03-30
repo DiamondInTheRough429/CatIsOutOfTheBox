@@ -119,7 +119,7 @@ func ChildLeave(Child:Node) -> void:
 		Child.PlayerReachedEnd.disconnect(EndLevel)
 
 ##get limits of player camara
-func GetLimits()->void:
+func GetLimits(PlayerNeeded:PlayerHandler = Player)->void:
 	var MinLimit:Vector2 = WallTiles.keys().front()
 	var MaxLimit:Vector2 = WallTiles.keys().front()
 	for Wall in WallTiles:
@@ -137,10 +137,10 @@ func GetLimits()->void:
 			MaxLimit.y = Wall.y
 	MinLimit = map_to_local(MinLimit) - Vector2(16,16)
 	MaxLimit = map_to_local(MaxLimit) + Vector2(16,16)
-	Player.Camera.limit_top = int(MinLimit.y)
-	Player.Camera.limit_bottom= int(MaxLimit.y)
-	Player.Camera.limit_left = int(MinLimit.x)
-	Player.Camera.limit_right = int(MaxLimit.x)
+	PlayerNeeded.Camera.limit_top = int(MinLimit.y)
+	PlayerNeeded.Camera.limit_bottom= int(MaxLimit.y)
+	PlayerNeeded.Camera.limit_left = int(MinLimit.x)
+	PlayerNeeded.Camera.limit_right = int(MaxLimit.x)
 
 ##Tells when player is paused
 func PauseLevel(Paused:bool) -> void:
@@ -150,6 +150,11 @@ func PauseLevel(Paused:bool) -> void:
 func Reset() -> void:
 	ResetingLevel.emit()
 	StarTimer.stop()
+	if Player.DuplicatedPlayer != null:
+		var OldPlayer:PlayerHandler = Player.DuplicatedPlayer
+		Player.DuplicatedPlayer = null
+		Player.CurrentPlayer = true
+		OldPlayer.free()
 	for Reseting in NodesToRest:
 		if Reseting.has_method("ToggleCollsion"):
 			Reseting.ToggleCollsion(false, false)
@@ -168,6 +173,8 @@ func Reset() -> void:
 ##Sets Level To Ready
 func ReadyLevel() -> void:
 	LevelReady.emit()
+	if Player.Sprite != null:
+		Player.Sprite.material =  Player.ObservedMat if  Player.Observed ==  Player.WhenObserved.Currently else null
 	for Reseting in NodesToRest:
 		if "StartCollisionOff" in Reseting and Reseting.has_method("ToggleCollsion"):
 			Reseting.ToggleCollsion(false, !Reseting.StartCollisionOff)

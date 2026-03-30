@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dng0p5wvb1106"
-path="res://.godot/imported/TestCatDown.png-47c0110ceb38e8a549d1883e1bb46fa1.ctex"
+uid="uid://c02idn2b1lox7"
+path="res://.godot/imported/TestCatStartDie.png-2cc68d2147988baf75ea87f3f54cef5a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cat/TestCatDown.png"
-dest_files=["res://.godot/imported/TestCatDown.png-47c0110ceb38e8a549d1883e1bb46fa1.ctex"]
+source_file="res://Assets/Cat/7-DevCat/TestCatStartDie.png"
+dest_files=["res://.godot/imported/TestCatStartDie.png-2cc68d2147988baf75ea87f3f54cef5a.ctex"]
 
 [params]
 
