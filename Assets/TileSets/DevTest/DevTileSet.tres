@@ -1,6 +1,8 @@
-[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://dmdp0jyxbrl7f"]
+[gd_resource type="TileSet" load_steps=25 format=3 uid="uid://dmdp0jyxbrl7f"]
 
 [ext_resource type="Texture2D" uid="uid://uj2ke17q4xx6" path="res://Assets/TileSets/DevTest/Cardboard.png" id="1_6veef"]
+[ext_resource type="Texture2D" uid="uid://650so8ts6ii5" path="res://Assets/TileSets/TileSets/Cardboard.png" id="1_25pkd"]
+[ext_resource type="Texture2D" uid="uid://p2rjc0h1yrg8" path="res://Assets/TileSets/TileSets/Metal.png" id="1_achsv"]
 [ext_resource type="PackedScene" uid="uid://bq4yayd8ik5xd" path="res://ActualGame/Tiles/ClawTile.tscn" id="2_1wrmy"]
 [ext_resource type="PackedScene" uid="uid://kshmupadoyu4" path="res://ActualGame/Tiles/ObserveTotorialTile.tscn" id="2_2iyf8"]
 [ext_resource type="PackedScene" uid="uid://oivgasjt2ai4" path="res://ActualGame/Tiles/DevWall.tscn" id="2_4y60t"]
@@ -11,12 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://bphqqmx05ftb0" path="res://ActualGame/Tiles/Box/DevButton.tscn" id="6_dqthw"]
 [ext_resource type="PackedScene" uid="uid://gajxajvi3y0y" path="res://ActualGame/Tiles/Box/DevTrack.tscn" id="6_vouhq"]
 [ext_resource type="PackedScene" uid="uid://djmjab3d2a6dr" path="res://ActualGame/Tiles/DEVDuplicatedPlayerTile.tscn" id="8_ysn4v"]
-[ext_resource type="Texture2D" uid="uid://650so8ts6ii5" path="res://Assets/TileSets/NewCardboard.png" id="11_105pe"]
 [ext_resource type="Texture2D" uid="uid://ddweglov2gemt" path="res://Assets/TileSets/MetalTracks.png" id="12_25i1h"]
 [ext_resource type="Texture2D" uid="uid://h6f7nhse0k30" path="res://Assets/TileSets/MetalTracksCardboard.png" id="14_achsv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysn4v"]
-texture = ExtResource("11_105pe")
+texture = ExtResource("1_25pkd")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -133,6 +134,19 @@ texture_region_size = Vector2i(32, 32)
 3:4/0 = 0
 4:4/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vj26v"]
+texture = ExtResource("1_achsv")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
 [resource]
 tile_size = Vector2i(32, 32)
 sources/3 = SubResource("TileSetScenesCollectionSource_efdwf")
@@ -143,3 +157,4 @@ sources/7 = SubResource("TileSetAtlasSource_4y60t")
 sources/0 = SubResource("TileSetAtlasSource_ysn4v")
 sources/5 = SubResource("TileSetAtlasSource_achsv")
 sources/6 = SubResource("TileSetAtlasSource_25pkd")
+sources/8 = SubResource("TileSetAtlasSource_vj26v")
