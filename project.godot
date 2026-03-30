@@ -12,7 +12,7 @@ config_version=5
 
 config/name="CatIsOutOfTheBox-DIJ"
 config/description="Get The Cat Out Of The Box"
-run/main_scene="uid://c4qd60c0me80b"
+run/main_scene="uid://buvo6k3q5bmq1"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
