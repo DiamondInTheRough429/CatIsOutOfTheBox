@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bg3udsfmwlmi7"]
 
 [ext_resource type="Script" uid="uid://c5s5ujassfl6o" path="res://GameHandler/Observable/Tiles/PoisonTile.gd" id="1_qd2tr"]
-[ext_resource type="Texture2D" uid="uid://caq0xo8dt8x7b" path="res://Assets/TileSets/posn.png" id="2_ly0ty"]
+[ext_resource type="Texture2D" uid="uid://caq0xo8dt8x7b" path="res://Assets/TileSets/TileSets/Obstacles/Poison.png" id="2_ly0ty"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tkkhi"]
 size = Vector2(16, 16)

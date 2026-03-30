@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddweglov2gemt"
-path="res://.godot/imported/MetalTracks.png-8dcf5fcbfd2b6f302ca778545642adbb.ctex"
+uid="uid://p2rjc0h1yrg8"
+path="res://.godot/imported/Metal.png-54f27af887e49c0e6a9a361c2613d8e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TileSets/MetalTracks.png"
-dest_files=["res://.godot/imported/MetalTracks.png-8dcf5fcbfd2b6f302ca778545642adbb.ctex"]
+source_file="res://Assets/TileSets/TileSets/Walls/Metal.png"
+dest_files=["res://.godot/imported/Metal.png-54f27af887e49c0e6a9a361c2613d8e3.ctex"]
 
 [params]
 

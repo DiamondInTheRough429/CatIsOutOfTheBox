@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p2rjc0h1yrg8"
-path="res://.godot/imported/Metal.png-8602a195da39cb0ff4bfc667f1b35d1d.ctex"
+uid="uid://bh6icnrlcmwpk"
+path="res://.godot/imported/MetalTracksMetal.png-26452d079242e2f26688da71b77a9b30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TileSets/TileSets/Metal.png"
-dest_files=["res://.godot/imported/Metal.png-8602a195da39cb0ff4bfc667f1b35d1d.ctex"]
+source_file="res://Assets/TileSets/TileSets/Tracks/MetalTracksMetal.png"
+dest_files=["res://.godot/imported/MetalTracksMetal.png-26452d079242e2f26688da71b77a9b30.ctex"]
 
 [params]
 

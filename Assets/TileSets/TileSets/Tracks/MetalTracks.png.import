@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://650so8ts6ii5"
-path="res://.godot/imported/Cardboard.png-64e018a6f54591f0fc1293e8c96716ce.ctex"
+uid="uid://ddweglov2gemt"
+path="res://.godot/imported/MetalTracks.png-54ec536a2adc624ddc41b7fab0f3f8fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TileSets/TileSets/Cardboard.png"
-dest_files=["res://.godot/imported/Cardboard.png-64e018a6f54591f0fc1293e8c96716ce.ctex"]
+source_file="res://Assets/TileSets/TileSets/Tracks/MetalTracks.png"
+dest_files=["res://.godot/imported/MetalTracks.png-54ec536a2adc624ddc41b7fab0f3f8fb.ctex"]
 
 [params]
 
