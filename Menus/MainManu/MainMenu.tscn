@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://cn1knei75pnhl" path="res://ActualGame/Levels/Level Pack Resource/MadeLevelPack.gd" id="2_q5iig"]
 [ext_resource type="Resource" uid="uid://dggwtvxq2a1bo" path="res://ActualGame/Levels/Level Pack Resource/Toutorial.tres" id="3_bkoei"]
 [ext_resource type="PackedScene" uid="uid://7mkbc0gggnlo" path="res://Menus/Confirm Quit/ConfirmQuit.tscn" id="3_ieaex"]
-[ext_resource type="Resource" uid="uid://bnjx2amusbdw4" path="res://ActualGame/Levels/Level Pack Resource/One.tres" id="4_80yba"]
 [ext_resource type="PackedScene" uid="uid://ct0wch6n4unnr" path="res://Menus/Settings/Settings.tscn" id="4_geipl"]
+[ext_resource type="Resource" uid="uid://by2uifdbr31bx" path="res://ActualGame/Levels/Level Pack Resource/Piviot.tres" id="4_ppqqw"]
 [ext_resource type="Texture2D" uid="uid://do142lu4eh5v5" path="res://Assets/Logo.png" id="5_fmxav"]
 [ext_resource type="Theme" uid="uid://bdihwxf0esnth" path="res://Assets/CreditsTMenu.tres" id="8_th5yc"]
 [ext_resource type="PackedScene" uid="uid://78y0ok5qj3e2" path="res://Menus/MenuBackground.tscn" id="9_80yba"]
@@ -68,7 +68,7 @@ grow_vertical = 2
 theme = ExtResource("1_a04sk")
 script = SubResource("GDScript_geipl")
 ContinueButton = NodePath("VBoxContainer2/Continue")
-Worlds = Array[ExtResource("2_q5iig")]([ExtResource("3_bkoei"), ExtResource("4_80yba")])
+Worlds = Array[ExtResource("2_q5iig")]([ExtResource("3_bkoei"), ExtResource("4_ppqqw")])
 
 [node name="TileMapLayer" parent="." instance=ExtResource("9_80yba")]
 

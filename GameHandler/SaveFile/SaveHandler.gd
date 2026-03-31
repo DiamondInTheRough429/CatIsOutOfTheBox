@@ -41,9 +41,9 @@ func CalculateWorldStars(World:int) -> int:
 	var Levels:int = 30 
 	match World:
 		0:
-			Levels = 3
+			Levels = 4
 		1:
-			Levels = 10
+			Levels = 15
 		2:
 			Levels = 20
 		_:
@@ -90,9 +90,9 @@ func HelpContinue() -> Vector2i:
 				var NeededLevel:int
 				match HighestComplete.x:
 					0:
-						NeededLevel = 3
+						NeededLevel = 4
 					1:
-						NeededLevel = 10
+						NeededLevel = 15
 					2:
 						NeededLevel = 20
 					_:

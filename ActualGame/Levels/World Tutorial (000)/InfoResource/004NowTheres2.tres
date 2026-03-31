@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=2 format=3 uid="uid://bhw2m7vvhwjv2"]
+
+[ext_resource type="Script" uid="uid://bibbt5260vm2b" path="res://GameHandler/LevelHandler/LevelInfo.gd" id="1_2qham"]
+
+[resource]
+script = ExtResource("1_2qham")
+Level = 4
+LevelUID = &"uid://cfepuoyb3rqvh"
+NextLevelUID = &"uid://eu6t881w023r"
+metadata/_custom_type_script = "uid://bibbt5260vm2b"
