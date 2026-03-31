@@ -9,18 +9,13 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_xftam")
 }],
-"loop": false,
+"loop": true,
 "name": &"Close",
 "speed": 5.0
 }, {
 "frames": [],
-"loop": false,
-"name": &"Open",
-"speed": 5.0
-}, {
-"frames": [],
 "loop": true,
-"name": &"default",
+"name": &"Open",
 "speed": 5.0
 }]
 

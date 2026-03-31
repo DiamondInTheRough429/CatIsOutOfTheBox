@@ -1,13 +1,14 @@
-[gd_resource type="Resource" script_class="MadeLevelPack" load_steps=6 format=3 uid="uid://dggwtvxq2a1bo"]
+[gd_resource type="Resource" script_class="MadeLevelPack" load_steps=7 format=3 uid="uid://dggwtvxq2a1bo"]
 
 [ext_resource type="Script" uid="uid://bibbt5260vm2b" path="res://GameHandler/LevelHandler/LevelInfo.gd" id="1_cchgk"]
 [ext_resource type="Resource" uid="uid://daxcqyfw3kwp4" path="res://ActualGame/Levels/World Tutorial (000)/InfoResource/001FirstBox.tres" id="2_xbaoo"]
 [ext_resource type="Script" uid="uid://cn1knei75pnhl" path="res://ActualGame/Levels/Level Pack Resource/MadeLevelPack.gd" id="2_xbkwi"]
 [ext_resource type="Resource" uid="uid://b6vn5pwyq207w" path="res://ActualGame/Levels/World Tutorial (000)/InfoResource/002Observation.tres" id="3_qnuqk"]
 [ext_resource type="Resource" uid="uid://bsqhmhg0a2725" path="res://ActualGame/Levels/World Tutorial (000)/InfoResource/003AliveAndDead.tres" id="4_rc7pw"]
+[ext_resource type="Resource" uid="uid://bhw2m7vvhwjv2" path="res://ActualGame/Levels/World Tutorial (000)/InfoResource/004NowTheres2.tres" id="5_qnuqk"]
 
 [resource]
 script = ExtResource("2_xbkwi")
 World = 0
-Levels = Array[ExtResource("1_cchgk")]([ExtResource("2_xbaoo"), ExtResource("3_qnuqk"), ExtResource("4_rc7pw")])
+Levels = Array[ExtResource("1_cchgk")]([ExtResource("2_xbaoo"), ExtResource("3_qnuqk"), ExtResource("4_rc7pw"), ExtResource("5_qnuqk")])
 metadata/_custom_type_script = "uid://cn1knei75pnhl"

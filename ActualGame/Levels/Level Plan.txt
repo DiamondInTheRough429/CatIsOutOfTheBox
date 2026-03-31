@@ -1,5 +1,59 @@
 000 - Toturial
 
+Ideas needing levels
+	- MasterButton (Button that does everything, Needed sacrifice to complete level)
+
+001 - Piviot
+	001 - LevelName
+		Idea:
+		Ready:
+	002 - LevelName
+		Idea:
+		Ready:
+	003 - LevelName
+		Idea:
+		Ready:
+	004 - LevelName
+		Idea:
+		Ready:
+	005 - LevelName
+		Idea:
+		Ready:
+	006 - LevelName
+		Idea:
+		Ready:
+	007 - LevelName
+		Idea:
+		Ready:
+	008 - LevelName
+		Idea:
+		Ready:
+	009 - LevelName
+		Idea:
+		Ready:
+	010 - LevelName
+		Idea:
+		Ready:
+	011 - LevelName
+		Idea:
+		Ready:
+	012 - LevelName
+		Idea:
+		Ready:
+	013 - LevelName
+		Idea:
+		Ready:
+	014 - LevelName
+		Idea:
+		Ready:
+	015 - LevelName
+		Idea: Gaunlet of everything with time pressure of poision filling the area
+		Ready:
+
+
+
+
+-OLD-
 001 - Basic Levels
 	1-5 - Basic mechanics
 	6-10 - Recap of everything with 30 being a big level of all the mechanics being flooded by poision createing a time presure
