@@ -52,7 +52,7 @@ shape = SubResource("RectangleShape2D_parxw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 sprite_frames = ExtResource("2_parxw")
-animation = &"ScratchSide"
+animation = &"Dies"
 autoplay = "IdleSide"
 
 [node name="wallcheck" type="RayCast2D" parent="."]
