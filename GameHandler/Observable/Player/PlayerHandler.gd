@@ -6,6 +6,8 @@ class_name PlayerHandler
 @export var Camera:Camera2D
 ##Level Player is in
 @export var Level:LevelHandler
+
+@export var SwitchPlayer:AudioStreamPlayer2D
 #region Moving Var
 #Duration of movement (orginal value was 0.1 if you wanna change it back)
 var MovementDuration:float = 0.3
@@ -190,6 +192,7 @@ func SwitchPlayers() -> void:
 	if CurrentPlayer and DuplicatedPlayer != null:
 		CurrentPlayer = false
 		DuplicatedPlayer.CurrentPlayer = true
+		SwitchPlayer.play()
 
 func SetCurrent(Set:bool) -> void:
 	CurrentPlayer = Set
