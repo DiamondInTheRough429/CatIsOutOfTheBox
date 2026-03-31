@@ -224,10 +224,13 @@ func KillPlayer() -> void:
 
 func PlayDirectionalAnimation(animationName:String) -> void:
 	Sprite.play(animationName + IdleAnimationDirection)
+	
+func HasDirectionalAnimation(animationName:String) -> bool:
+	return Sprite.sprite_frames.has_animation(animationName + IdleAnimationDirection)
 
 func AnimatePlayer(Ani:String, Freeze:bool = true) -> bool:
-	if Sprite.sprite_frames.has_animation(Ani):
-		Sprite.play(Ani)
+	if HasDirectionalAnimation(Ani):
+		PlayDirectionalAnimation(Ani)
 		if Freeze:
 			CanMove = false
 			await Sprite.animation_finished
