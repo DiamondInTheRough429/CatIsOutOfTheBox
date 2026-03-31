@@ -9,6 +9,8 @@ class_name PlayerHandler
 #region Moving Var
 #Duration of movement (orginal value was 0.1 if you wanna change it back)
 var MovementDuration:float = 0.3
+#String that holds direction ["up", "side", "down"] for idle
+var IdleAnimationDirection:String = "Side"
 ##Posible directions for moving
 enum Directions{Up, Down, Left, Right, None}
 ##Tells if currently moving
@@ -115,26 +117,27 @@ func Move(Direction:Directions) -> void:
 		match Direction:
 			Directions.Up:
 				NewPosition.y -= 32
-				Sprite.play("MoveUp")
+				IdleAnimationDirection = "Down"
 			Directions.Down:
 				NewPosition.y += 32
-				Sprite.play("MoveDown")
+				IdleAnimationDirection = "Down"
 			Directions.Left:
 				NewPosition.x -= 32
 				#flip and play move right
 				Sprite.set_flip_h(true)
-				Sprite.play("MoveRight")
+				IdleAnimationDirection = "Side"
 			Directions.Right:
 				NewPosition.x += 32
-				Sprite.play("MoveRight")
+				IdleAnimationDirection = "Side"
 		var MoveTween:Tween = create_tween()
+		PlayDirectionalAnimation("Move")
 		MoveTween.tween_property(self, "position", NewPosition, MovementDuration)
 		await MoveTween.finished
 		CurrentlyMoving = false
 		
 		#only play idle if the player is in a state where they can move
 		if CanMove:
-			Sprite.play("Idle")
+			PlayDirectionalAnimation("Idle")
 
 ##Return true if wall that direction else flase
 func CheckWall(Direction:Directions) -> WallCheckPossible:
@@ -219,6 +222,9 @@ func KillPlayer() -> void:
 		HasDied = true
 		PlayerDiesScreen.MoveInOut()
 
+func PlayDirectionalAnimation(animationName:String) -> void:
+	Sprite.play(animationName + IdleAnimationDirection)
+
 func AnimatePlayer(Ani:String, Freeze:bool = true) -> bool:
 	if Sprite.sprite_frames.has_animation(Ani):
 		Sprite.play(Ani)
@@ -226,7 +232,7 @@ func AnimatePlayer(Ani:String, Freeze:bool = true) -> bool:
 			CanMove = false
 			await Sprite.animation_finished
 			#start playing idle after the scratch animation is done
-			Sprite.play("Idle")
+			PlayDirectionalAnimation("Idle")
 			CanMove = true
 		return true
 	return false
