@@ -117,7 +117,7 @@ func Move(Direction:Directions) -> void:
 		match Direction:
 			Directions.Up:
 				NewPosition.y -= 32
-				IdleAnimationDirection = "Down"
+				IdleAnimationDirection = "Up"
 			Directions.Down:
 				NewPosition.y += 32
 				IdleAnimationDirection = "Down"
