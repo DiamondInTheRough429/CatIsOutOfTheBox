@@ -42,3 +42,7 @@ func Duplicate(Player:PlayerHandler) -> void:
 func PlayerDied() -> void:
 	Sprite.play("On")
 	set_collision_layer_value(4, false)
+
+func RESET() -> void:
+	super.RESET()
+	set_collision_layer_value(4, false)
