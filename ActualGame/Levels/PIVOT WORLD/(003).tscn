@@ -54,6 +54,7 @@ position = Vector2(273, 142)
 
 [node name="DevButton5" parent="." instance=ExtResource("5_wl6vs")]
 position = Vector2(14, 81)
+PlayerInteracts = true
 
 [node name="DevGate3" parent="." instance=ExtResource("6_wl6vs")]
 position = Vector2(16, 46)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://eu6t881w023r"]
+[gd_scene load_steps=11 format=4 uid="uid://eu6t881w023r"]
 
 [ext_resource type="TileSet" uid="uid://dmdp0jyxbrl7f" path="res://Assets/TileSets/DevTest/DevTileSet.tres" id="1_nda5f"]
 [ext_resource type="Script" uid="uid://bb5r5ruwttbqc" path="res://GameHandler/LevelHandler/LevelHandler.gd" id="2_jbkbv"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://dfvdqawftbttw" path="res://ActualGame/Tiles/DevGate.tscn" id="6_npjfa"]
 [ext_resource type="PackedScene" uid="uid://b0tpe36poixfp" path="res://ActualGame/Observers/SpotlightObserver3x3.tscn" id="7_dk8yw"]
 [ext_resource type="Script" uid="uid://bm6fmsnl1l0vm" path="res://GameHandler/LevelHandler/Mechenic Handlers/World 001 Piviot/LHM_001_001.gd" id="8_o26kd"]
+[ext_resource type="Script" uid="uid://bnyilj3lkbjwb" path="res://GameHandler/LevelHandler/Mechenic Handlers/LM2groupHelper.gd" id="9_dk8yw"]
+[ext_resource type="Script" uid="uid://dcyqayqit2yeq" path="res://GameHandler/LevelHandler/TileConnectors/TileGroup.gd" id="10_o26kd"]
 
-[node name="001-001" type="TileMapLayer" node_paths=PackedStringArray("Background")]
+[node name="001-001" type="TileMapLayer" node_paths=PackedStringArray("Background", "NodesToRest")]
 tile_map_data = PackedByteArray("AAD+/wUAAgAAAAAAAQD//wUAAgAAAAAAAQAAAAUAAgAAAAAAAQABAAUAAgAAAAAAAQACAAUAAgAAAAAAAQADAAUAAgAAAAAAAQAEAAUAAgAAAAAAAQAFAAUAAgAAAAAAAQAGAAUAAgAAAAAAAQAHAAUAAgAAAAAAAQAIAAUAAgAAAAAAAQAJAAUAAgAAAAAAAQAKAAUAAgAAAAAAAQALAAUAAgAAAAAAAQAMAAUAAgAAAAAAAQANAAUAAgAAAAAAAQANAAQAAgAAAAAAAQANAAMAAgAAAAAAAQANAAIAAgAAAAAAAQANAAEAAgAAAAAAAQANAAAAAgAAAAAAAQANAP//AgAAAAAAAQANAP7/AgAAAAAAAQANAP3/AgAAAAAAAQANAPz/AgAAAAAAAQANAPv/AgAAAAAAAQAMAPv/AgAAAAAAAQALAPv/AgAAAAAAAQAKAPv/AgAAAAAAAQAJAPv/AgAAAAAAAQAIAPv/AgAAAAAAAQAHAPv/AgAAAAAAAQAGAPv/AgAAAAAAAQAFAPv/AgAAAAAAAQAEAPv/AgAAAAAAAQADAPv/AgAAAAAAAQACAPv/AgAAAAAAAQABAPv/AgAAAAAAAQAAAPv/AgAAAAAAAQD///v/AgAAAAAAAQD+//v/AgAAAAAAAQD+//z/AgAAAAAAAQD+//3/AgAAAAAAAQD+//7/AgAAAAAAAQD+////AgAAAAAAAQD+/wAAAgAAAAAAAQD+/wEAAgAAAAAAAQD+/wIAAgAAAAAAAQD+/wQAAgAAAAAAAQD//wEAAgAAAAAAAQAAAAEAAgAAAAAAAQABAAEAAgAAAAAAAQD//wAAAgAAAAAAAQD/////AgAAAAAAAQAAAP//AgAAAAAAAQABAP//AgAAAAAAAQAEAAAAAgAAAAAAAQAFAAAAAgAAAAAAAQAGAAAAAgAAAAAAAQAHAAAAAgAAAAAAAQAIAAAAAgAAAAAAAQAJAAAAAgAAAAAAAQAKAAAAAgAAAAAAAQALAAAAAgAAAAAAAQAMAAAAAgAAAAAAAQAMAP//AgAAAAAAAQALAP//AgAAAAAAAQAKAP//AgAAAAAAAQAKAAEAAgAAAAAAAQALAAEAAgAAAAAAAQAMAAEAAgAAAAAAAQAKAAIAAgAAAAAAAQAKAP7/AgAAAAAAAQAKAAQAAgAAAAAAAQAKAPz/AgAAAAAAAQABAP3/AgAAAAAAAQAAAP3/AQAAAAAAAQALAAMAAQAAAAAAAQABAPz/AQAAAAAAAgABAP7/AQAAAAAAAgACAP//AgAAAAAAAQACAAEAAgAAAAAAAQADAAAAAQAAAAAABwACAAIAAQAAAAAAAgACAAQAAQAAAAAAAgACAAMAAgAAAAAAAQAAAAQAAgAAAAAAAQAAAAIAAgAAAAAAAQD//wMAAwAAAAAAAQD+/wMAAgAAAAAAAQD//wIAAgAAAAAAAQD//wQAAgAAAAAAAQA=")
 tile_set = ExtResource("1_nda5f")
 script = ExtResource("2_jbkbv")
@@ -17,6 +19,7 @@ World = 1
 Level = 1
 LevelInfoResource = ExtResource("3_0baad")
 Background = NodePath("TileMapLayer")
+NodesToRest = [NodePath("DevBox"), NodePath("DevButton"), NodePath("DevButton2"), NodePath("DevButton3"), NodePath("DevGate"), NodePath("DevGate3"), NodePath("DevGate2"), NodePath("Spotlight3x3"), NodePath("Spotlight3x4"), NodePath("LevelMachenicHandler")]
 metadata/_custom_type_script = "uid://bb5r5ruwttbqc"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -48,10 +51,61 @@ position = Vector2(335, -81)
 
 [node name="Spotlight3x3" parent="." instance=ExtResource("7_dk8yw")]
 position = Vector2(47, -80)
+StartCollisionOff = true
 
 [node name="Spotlight3x4" parent="." instance=ExtResource("7_dk8yw")]
 position = Vector2(80, 113)
+StartCollisionOff = true
 
-[node name="LevelMachenicHandler" type="Node" parent="."]
+[node name="LevelMachenicHandler" type="Node" parent="." node_paths=PackedStringArray("TopButton", "MidButton", "ButButton", "TopRightGate", "BottomRightGrate", "EndGate", "Level")]
 script = ExtResource("8_o26kd")
+TopButton = NodePath("../DevButton2")
+MidButton = NodePath("../DevButton")
+ButButton = NodePath("../DevButton3")
+TopRightGate = NodePath("../DevGate2")
+BottomRightGrate = NodePath("../DevGate")
+EndGate = NodePath("../DevGate3")
+Level = NodePath("..")
 metadata/_custom_type_script = "uid://dyjq2yv88smfn"
+
+[node name="LMtwogroupHelper" type="Node" parent="LevelMachenicHandler" node_paths=PackedStringArray("LevelMachenic", "Group1", "Group2", "Obseerer")]
+script = ExtResource("9_dk8yw")
+LevelMachenic = NodePath("..")
+Group1 = NodePath("TileGroup")
+Group2 = NodePath("TileGroup2")
+ScratchTilePos = Vector2i(11, 3)
+Obseerer = NodePath("../../Spotlight3x3")
+metadata/_custom_type_script = "uid://bnyilj3lkbjwb"
+
+[node name="TileGroup" type="Node" parent="LevelMachenicHandler/LMtwogroupHelper" node_paths=PackedStringArray("Level")]
+script = ExtResource("10_o26kd")
+Level = NodePath("../../..")
+GroupPoss = Array[Vector2i]([Vector2i(1, -4)])
+metadata/_custom_type_script = "uid://dcyqayqit2yeq"
+
+[node name="TileGroup2" type="Node" parent="LevelMachenicHandler/LMtwogroupHelper" node_paths=PackedStringArray("Level")]
+script = ExtResource("10_o26kd")
+Level = NodePath("../../..")
+GroupPoss = Array[Vector2i]([Vector2i(1, -2)])
+metadata/_custom_type_script = "uid://dcyqayqit2yeq"
+
+[node name="LMtwogroupHelper2" type="Node" parent="LevelMachenicHandler" node_paths=PackedStringArray("LevelMachenic", "Group1", "Group2", "Obseerer")]
+script = ExtResource("9_dk8yw")
+LevelMachenic = NodePath("..")
+Group1 = NodePath("TileGroup")
+Group2 = NodePath("TileGroup2")
+ScratchTilePos = Vector2i(0, -3)
+Obseerer = NodePath("../../Spotlight3x4")
+metadata/_custom_type_script = "uid://bnyilj3lkbjwb"
+
+[node name="TileGroup" type="Node" parent="LevelMachenicHandler/LMtwogroupHelper2" node_paths=PackedStringArray("Level")]
+script = ExtResource("10_o26kd")
+Level = NodePath("../../..")
+GroupPoss = Array[Vector2i]([Vector2i(2, 2)])
+metadata/_custom_type_script = "uid://dcyqayqit2yeq"
+
+[node name="TileGroup2" type="Node" parent="LevelMachenicHandler/LMtwogroupHelper2" node_paths=PackedStringArray("Level")]
+script = ExtResource("10_o26kd")
+Level = NodePath("../../..")
+GroupPoss = Array[Vector2i]([Vector2i(2, 4)])
+metadata/_custom_type_script = "uid://dcyqayqit2yeq"
