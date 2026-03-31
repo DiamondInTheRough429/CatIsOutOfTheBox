@@ -10,6 +10,10 @@ class_name ButtonTileHandler
 var Pressed:bool = false : set=SetPress
 signal PressChange(Press:bool)
 
+
+@export var OnPlayer:AudioStreamPlayer2D
+@export var OffPlayer:AudioStreamPlayer2D
+
 func _ready() -> void:
 	super._ready()
 	SecondSprite.modulate = ButtonColor
@@ -57,10 +61,17 @@ func UpdatePressed() -> void:
 
 func SetPress(Set:bool) -> void:
 	Pressed = Set
+	PlayButtonSound()
 	PressChange.emit(Pressed)
 	var PlayAni:String = "Press" if Pressed else "Unpress"
 	Sprite.play(PlayAni)
 	SecondSprite.play(PlayAni)
+	
+func PlayButtonSound() -> void:
+	if Pressed:
+		OnPlayer.play()
+	else:
+		OffPlayer.play()
 
 func SetButtonBroken(Set:bool) -> void:
 	Broken = Set

@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsgaxrj5sntxr"]
+[gd_scene load_steps=11 format=3 uid="uid://dsgaxrj5sntxr"]
 
 [ext_resource type="Script" uid="uid://dm3frunvul27s" path="res://GameHandler/Observable/Tiles/Box/Button.gd" id="1_ht8po"]
 [ext_resource type="SpriteFrames" uid="uid://benl6bk0ffs84" path="res://Assets/TileSets/Individual Tiles/Button/Rail/RAILBoxButtonFrames.tres" id="2_ht8po"]
 [ext_resource type="Texture2D" uid="uid://bbx587yct8xuv" path="res://Assets/TileSets/Individual Tiles/Button/Rail/Rail_Switch_Down_Wrong.png" id="4_nssig"]
 [ext_resource type="Texture2D" uid="uid://dw3kkwkvl2t2r" path="res://Assets/TileSets/Individual Tiles/Button/Rail/Rail_Switch_Up.png" id="5_es7ia"]
 [ext_resource type="Texture2D" uid="uid://csyjjvcgd31o" path="res://Assets/TileSets/Individual Tiles/Button/Rail/Rail_Switch_Down.png" id="6_n6e6p"]
+[ext_resource type="AudioStream" uid="uid://baonupin48oy5" path="res://Assets/Audio/Switch/On.ogg" id="7_es7ia"]
 [ext_resource type="SpriteFrames" uid="uid://di5i14ntof0rn" path="res://Assets/TileSets/Individual Tiles/Button/Rail/RAILButtonFrames.tres" id="7_hhm0m"]
+[ext_resource type="AudioStream" uid="uid://bhtqis3e4n6m" path="res://Assets/Audio/Switch/Off.ogg" id="8_n6e6p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20ick"]
 size = Vector2(16, 16)
@@ -45,12 +47,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="DevButtonRail" type="Area2D" node_paths=PackedStringArray("SecondSprite", "Sprite")]
+[node name="DevButtonRail" type="Area2D" node_paths=PackedStringArray("SecondSprite", "OnPlayer", "OffPlayer", "Sprite")]
 script = ExtResource("1_ht8po")
 SecondSprite = NodePath("AnimatedSprite2D2")
 BoxOnlyFrames = ExtResource("2_ht8po")
 BothFrames = ExtResource("7_hhm0m")
 ButtonColor = Color(0.6117647, 0.23921569, 0.2509804, 1)
+OnPlayer = NodePath("SFX/On")
+OffPlayer = NodePath("SFX/Off")
 Sprite = NodePath("AnimatedSprite2D")
 metadata/_custom_type_script = "uid://dm3frunvul27s"
 
@@ -68,3 +72,11 @@ position = Vector2(0, -3)
 sprite_frames = ExtResource("7_hhm0m")
 animation = &"DefaultState"
 autoplay = "DefaultState"
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="On" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("7_es7ia")
+
+[node name="Off" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("8_n6e6p")
