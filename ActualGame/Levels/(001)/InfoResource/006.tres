@@ -8,4 +8,5 @@ World = 1
 Level = 6
 LevelUID = &"uid://b4bv6x4jlr8v2"
 NextLevelUID = &"uid://bj3h3uorm5cnr"
+TimeStarLimit = 20.0
 metadata/_custom_type_script = "uid://bibbt5260vm2b"
