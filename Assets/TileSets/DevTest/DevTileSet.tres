@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=27 format=3 uid="uid://dmdp0jyxbrl7f"]
+[gd_resource type="TileSet" load_steps=29 format=3 uid="uid://dmdp0jyxbrl7f"]
 
 [ext_resource type="Texture2D" uid="uid://uj2ke17q4xx6" path="res://Assets/TileSets/DevTest/Cardboard.png" id="1_6veef"]
 [ext_resource type="Texture2D" uid="uid://cf6wdqojuwva0" path="res://Assets/TileSets/RatStyledTileSets/Walls/Cardboard.png" id="1_25pkd"]
@@ -126,6 +126,11 @@ texture_region_size = Vector2i(32, 32)
 8:2/0/terrain = 0
 8:2/0/terrains_peering_bit/left_side = 0
 7:1/0 = 0
+7:1/0/terrain_set = 0
+7:1/0/terrain = 0
+7:1/0/terrains_peering_bit/right_side = 0
+7:1/0/terrains_peering_bit/bottom_side = 0
+7:1/0/terrains_peering_bit/left_side = 0
 0:4/0 = 0
 0:4/0/terrain_set = 0
 0:4/0/terrain = 0
