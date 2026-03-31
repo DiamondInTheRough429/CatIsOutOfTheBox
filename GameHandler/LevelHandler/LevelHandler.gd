@@ -101,6 +101,8 @@ func ChildEnter(Child:Node, Already:bool = false) -> void:
 			Child.ToggleCollsion(false, !Child.StartCollisionOff)
 	if "Open" in Child:
 		Child.set_meta("DefaultOpen", Child.Open)
+	if "Broken" in Child:
+		Child.set_meta("DefaultBroken", Child.Broken)
 	if Child is Observable:
 		PositionToTiles.set(local_to_map(Child.position), Child)
 	if Child is EndTileHandler:
@@ -172,6 +174,8 @@ func Reset() -> void:
 			Reseting.Pressed = Reseting.get_meta("DefaultPress")
 		if Reseting.has_meta("DefaultOpen"):
 			Reseting.Open = Reseting.get_meta("DefaultOpen")
+		if Reseting.has_meta("DefaultBroken"):
+			Reseting.Broken = Reseting.get_meta("DefaultBroken")
 		if "CanMove" in Reseting:
 			Reseting.CanMove = false
 	ReadyLevel.call_deferred()

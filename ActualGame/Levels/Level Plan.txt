@@ -1,14 +1,16 @@
 000 - Toturial
 
 Ideas needing levels
-	- MasterButton (Button that does everything, Needed sacrifice to complete level)
+	- MasterButton (Button that does everything)
+	-Needed sacrifice to complete level
+	-MAke one set of players, Kill one and allow other to progress to make another set
 
 001 - Piviot
 	001 - LevelName
 		Idea:
 		Ready:
 	002 - LevelName
-		Idea:
+		Idea: 
 		Ready:
 	003 - LevelName
 		Idea:

@@ -24,6 +24,7 @@ animations = [{
 }]
 
 [node name="DevBox" type="Area2D" node_paths=PackedStringArray("CheckRay", "Sprite")]
+z_index = 1
 script = ExtResource("1_b8p2c")
 OnTracks = false
 CheckRay = NodePath("RayCast2D")

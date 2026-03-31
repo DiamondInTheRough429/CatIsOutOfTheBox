@@ -5,6 +5,7 @@ class_name ButtonTileHandler
 @export var SecondSprite:AnimatedSprite2D
 @export var BoxOnlyFrames:SpriteFrames
 @export var BothFrames:SpriteFrames
+@export var Broken:bool : set = SetButtonBroken
 @export_color_no_alpha var ButtonColor:Color
 var Pressed:bool = false : set=SetPress
 signal PressChange(Press:bool)
@@ -39,19 +40,20 @@ func PlayerExit(_Player:PlayerHandler) -> void:
 		UpdatePressed()
 
 func UpdatePressed() -> void:
-	var HeldDown:bool = false
-	if monitoring:
-		for Area in get_overlapping_areas():
-			#player
-			if Area.get_collision_layer_value(3):
-				if PlayerInteracts:
+	if !Broken:
+		var HeldDown:bool = false
+		if monitoring:
+			for Area in get_overlapping_areas():
+				#player
+				if Area.get_collision_layer_value(3):
+					if PlayerInteracts:
+						HeldDown = true
+				#Box
+				if Area.get_collision_layer_value(5):
 					HeldDown = true
-			#Box
-			if Area.get_collision_layer_value(5):
-				HeldDown = true
-		
-		if Pressed != HeldDown:
-			Pressed = HeldDown
+			
+			if Pressed != HeldDown:
+				Pressed = HeldDown
 
 func SetPress(Set:bool) -> void:
 	Pressed = Set
@@ -59,3 +61,11 @@ func SetPress(Set:bool) -> void:
 	var PlayAni:String = "Press" if Pressed else "Unpress"
 	Sprite.play(PlayAni)
 	SecondSprite.play(PlayAni)
+
+func SetButtonBroken(Set:bool) -> void:
+	Broken = Set
+	if Broken:
+		Sprite.play("Broken")
+		SecondSprite.play("Broken")
+	else:
+		Pressed = Pressed
