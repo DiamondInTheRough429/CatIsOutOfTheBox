@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=2 format=3 uid="uid://dc5uljsfagm4k"]
+
+[ext_resource type="Script" uid="uid://bibbt5260vm2b" path="res://GameHandler/LevelHandler/LevelInfo.gd" id="1_gfelv"]
+
+[resource]
+script = ExtResource("1_gfelv")
+World = 1
+Level = 15
+LevelUID = &"uid://b1bm6rh0pdtv5"
+NextLevelUID = &"uid://eu6t881w023r"
+metadata/_custom_type_script = "uid://bibbt5260vm2b"
