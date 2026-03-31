@@ -1,9 +1,26 @@
 000 - Toturial
 
 001 - Basic Levels
+	1-5 - Basic mechanics
+	6-10 - pass
+	11-15 - pass
+	16-20 - pass
+	21-25 - pass
+	26-30 - Recap of everything with 30 being a big level of all the mechanics being flooded by poision createing a time presure
 
 002 - Tech Levels
-	-Burrons and boxes
+	-Buttons and boxes
+	1-5 - Basic mechanics
+	6-10 - Track
+	11-15 - pass
+	16-20 - MasterButton
+	21-25 - pass
+	26-30 - Recap of everything with 30 being a big level of all the mechanics being flooded by poision createing a time presure
 
 003 - Duplicate Levels
-	-2 Players
+	1-5 - Basic mechanics
+	6-10 - Two Places at once
+	11-15 - Box
+	16-20 - Sacrifice
+	21-25 - pass
+	26-30 - Recap of everything with 30 being a big level of all the mechanics being flooded by poision createing a time presure
