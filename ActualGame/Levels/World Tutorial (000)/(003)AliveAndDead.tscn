@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dcyqayqit2yeq" path="res://GameHandler/LevelHandler/TileConnectors/TileGroup.gd" id="4_ypics"]
 [ext_resource type="Shader" uid="uid://casy5vk58bldw" path="res://Assets/Outline.gdshader" id="5_6skgr"]
 [ext_resource type="Theme" uid="uid://bd4anyrq4cuqn" path="res://Assets/MenuThemes.tres" id="6_i16pn"]
-[ext_resource type="Script" uid="uid://b0k78lkamksyj" path="res://GameHandler/LevelHandler/Mechenic Handlers/World 000/LMH-001-003.gd" id="7_7vur3"]
+[ext_resource type="Script" uid="uid://b0k78lkamksyj" path="res://GameHandler/LevelHandler/Mechenic Handlers/World 000/LMH-000-003.gd" id="7_7vur3"]
 [ext_resource type="PackedScene" uid="uid://vpx201xhf8ob" path="res://ActualGame/Observers/TestObserver.tscn" id="8_712qi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i16pn"]

@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://bqqcr05aa3bdj"]
+
+[ext_resource type="Script" uid="uid://c5s5ujassfl6o" path="res://GameHandler/Observable/Tiles/PoisonTile.gd" id="1_msd2h"]
+[ext_resource type="Texture2D" uid="uid://caq0xo8dt8x7b" path="res://Assets/TileSets/TileSets/Obstacles/Poison.png" id="2_msd2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkkhi"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bamqb"]
+atlas = ExtResource("2_msd2h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm4s6"]
+atlas = ExtResource("2_msd2h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wokvt"]
+atlas = ExtResource("2_msd2h")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52ns3"]
+atlas = ExtResource("2_msd2h")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_38hgi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bamqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm4s6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wokvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52ns3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PoisonTile" type="Area2D" node_paths=PackedStringArray("Sprite")]
+script = ExtResource("1_msd2h")
+Sprite = NodePath("AnimatedSprite2D")
+metadata/_custom_type_script = "uid://c5s5ujassfl6o"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tkkhi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_38hgi")
+autoplay = "default"
+frame = 3
+frame_progress = 0.355462

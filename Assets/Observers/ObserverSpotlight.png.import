@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2jh11l1x70vl"
-path="res://.godot/imported/ObservingTestrans.png-b53c4eb9c4729375ff729b8f67f23ac5.ctex"
+uid="uid://doe3s3rk6ej2i"
+path="res://.godot/imported/ObserverSpotlight.png-224af944b189c09dc1109f66372c99fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ObservingTestrans.png"
-dest_files=["res://.godot/imported/ObservingTestrans.png-b53c4eb9c4729375ff729b8f67f23ac5.ctex"]
+source_file="res://Assets/Observers/ObserverSpotlight.png"
+dest_files=["res://.godot/imported/ObserverSpotlight.png-224af944b189c09dc1109f66372c99fe.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://vpx201xhf8ob"]
 
 [ext_resource type="Script" uid="uid://dycvrnukhgwgv" path="res://GameHandler/Observer/Observer.gd" id="1_fwevw"]
-[ext_resource type="Texture2D" uid="uid://2jh11l1x70vl" path="res://Assets/ObservingTestrans.png" id="2_l3f07"]
+[ext_resource type="Texture2D" uid="uid://2jh11l1x70vl" path="res://Assets/Observers/ObservingTestrans.png" id="2_l3f07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydi82"]
 size = Vector2(640, 64)
