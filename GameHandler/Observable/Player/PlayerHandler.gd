@@ -52,7 +52,8 @@ func _ready() -> void:
 	z_index = 5
 	CurrentMenu = PauseScreen
 	StoredObservedMat = ObservedMat
-	GroupMat = CurrentOutlineMat
+	if DuplicatedPlayer != null:
+		GroupMat = CurrentOutlineMat
 	if CosmeticToSprite.has(SettingsHandler.CurrentCosmetic):
 		var Frames:SpriteFrames = CosmeticToSprite.get(SettingsHandler.CurrentCosmetic)
 		Sprite.sprite_frames = Frames if Frames != null else Sprite.sprite_frames
