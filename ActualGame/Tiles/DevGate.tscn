@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfvdqawftbttw"]
+
+[ext_resource type="Script" uid="uid://ba5v2bn2awe6y" path="res://GameHandler/Observable/Tiles/Gate/GateTile.gd" id="1_qeubd"]
+[ext_resource type="Texture2D" uid="uid://diq43yyao2sqt" path="res://Assets/Lock.png" id="2_xftam"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7eoxq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xftam")
+}],
+"loop": false,
+"name": &"Close",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"Open",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmexy"]
+size = Vector2(16, 16)
+
+[node name="DevGate" type="Area2D"]
+script = ExtResource("1_qeubd")
+metadata/_custom_type_script = "uid://ba5v2bn2awe6y"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7eoxq")
+animation = &"Open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fmexy")

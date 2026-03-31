@@ -54,7 +54,6 @@ func UpdatePressed() -> void:
 			Pressed = HeldDown
 
 func SetPress(Set:bool) -> void:
-	print(Set)
 	Pressed = Set
 	PressChange.emit(Pressed)
 	var PlayAni:String = "Press" if Pressed else "Unpress"

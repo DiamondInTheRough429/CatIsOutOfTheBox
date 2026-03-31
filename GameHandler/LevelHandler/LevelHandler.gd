@@ -79,6 +79,8 @@ func _input(event: InputEvent) -> void:
 
 ##Handle Child Entering tree
 func ChildEnter(Child:Node, Already:bool = false) -> void:
+	if Child == null:
+		return
 	if Child.has_method("PrepColision"):
 		Child.PrepColision()
 		if "StartCollisionOff" not in Child:
@@ -97,6 +99,8 @@ func ChildEnter(Child:Node, Already:bool = false) -> void:
 		Child.set_meta("DefaultPress", Child.Pressed)
 	if "StartCollisionOff" in Child and Child.has_method("ToggleCollsion"):
 			Child.ToggleCollsion(false, !Child.StartCollisionOff)
+	if "Open" in Child:
+		Child.set_meta("DefaultOpen", Child.Open)
 	if Child is Observable:
 		PositionToTiles.set(local_to_map(Child.position), Child)
 	if Child is EndTileHandler:
@@ -166,6 +170,8 @@ func Reset() -> void:
 			Reseting.Observed = Reseting.get_meta("DefaultObserved")
 		if Reseting.has_meta("DefaultPress"):
 			Reseting.Pressed = Reseting.get_meta("DefaultPress")
+		if Reseting.has_meta("DefaultOpen"):
+			Reseting.Open = Reseting.get_meta("DefaultOpen")
 		if "CanMove" in Reseting:
 			Reseting.CanMove = false
 	ReadyLevel.call_deferred()

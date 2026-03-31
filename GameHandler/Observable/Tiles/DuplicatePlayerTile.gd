@@ -31,6 +31,7 @@ func Duplicate(Player:PlayerHandler) -> void:
 	DupedPlayer.set_meta("DefaultPosition", Player.get_meta("DefaultPosition"))
 	Player.CurrentPlayer = true
 	Sprite.play("Off")
+	set_collision_layer_value(4, true)
 	Player.Move(PlayerOutputOne)
 	DupedPlayer.Move(PlayerOutputTwo)
 	if !Player.Died.is_connected(PlayerDied):
@@ -40,3 +41,4 @@ func Duplicate(Player:PlayerHandler) -> void:
 
 func PlayerDied() -> void:
 	Sprite.play("On")
+	set_collision_layer_value(4, false)
