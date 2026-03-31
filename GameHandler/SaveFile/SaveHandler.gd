@@ -38,7 +38,16 @@ func GetLevelInfo(World:int, Level:int) -> LevelSaveInfo:
 	return null
 
 func CalculateWorldStars(World:int) -> int:
-	var Levels:int = 3 if World == 0 else 30
+	var Levels:int = 30 
+	match World:
+		0:
+			Levels = 3
+		1:
+			Levels = 10
+		2:
+			Levels = 20
+		_:
+			Levels = 30
 	var Stars:int = 0
 	for Level in Levels:
 		var CheckingInfo:LevelSaveInfo = GetLevelInfo(World, Level+1)
@@ -78,7 +87,16 @@ func HelpContinue() -> Vector2i:
 			if World == HighestComplete.x:
 				HighestComplete = Vector2i(World, HighLevel)
 			elif World > HighestComplete.x:
-				var NeededLevel:int = 3 if HighestComplete.x == 0 else 30
+				var NeededLevel:int
+				match HighestComplete.x:
+					0:
+						NeededLevel = 3
+					1:
+						NeededLevel = 10
+					2:
+						NeededLevel = 20
+					_:
+						NeededLevel = 30
 				if HighestComplete.y == NeededLevel:
 					HighestComplete = Vector2i(World, HighLevel)
 	return HighestComplete
