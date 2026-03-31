@@ -48,7 +48,7 @@ horizontal_alignment = 2
 layout_mode = 2
 size_flags_vertical = 2
 theme_type_variation = &"DLabel"
-text = "Game Design, Programming"
+text = "DIAMOND_TEXT"
 vertical_alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -56,6 +56,7 @@ layout_mode = 2
 
 [node name="Twitch" type="LinkButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"TwitchButton"
 text = "Twitch"
 underline = 1
 uri = "https://www.twitch.tv/diamondintherough429"
@@ -63,12 +64,14 @@ uri = "https://www.twitch.tv/diamondintherough429"
 [node name="Youtube" type="LinkButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_kwoi3")
+theme_type_variation = &"YoutubeButton"
 text = "Youtube"
 underline = 1
 uri = "https://www.youtube.com/@DiamondIntheRough-429"
 
 [node name="BlueSky" type="LinkButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueskyButton"
 text = "BlueSky"
 underline = 1
 uri = "https://bsky.app/profile/diamond1ntherough.bsky.social"
@@ -87,25 +90,28 @@ horizontal_alignment = 2
 layout_mode = 2
 size_flags_vertical = 2
 theme_type_variation = &"RLabel"
-text = "Game Artist"
+text = "RUBY_TEXT"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
 [node name="Twitch" type="LinkButton" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme_type_variation = &"TwitchButton"
 text = "Twitch"
 underline = 1
 uri = "https://www.twitch.tv/rubygamer1001"
 
 [node name="Youtube" type="LinkButton" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme_type_variation = &"YoutubeButton"
 text = "Youtube"
 underline = 1
 uri = "https://www.youtube.com/@White-Ruby-Games"
 
 [node name="BlueSky" type="LinkButton" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme_type_variation = &"BlueskyButton"
 text = "BlueSky"
 underline = 1
 uri = "https://bsky.app/profile/ruby-dev-101.bsky.social"
