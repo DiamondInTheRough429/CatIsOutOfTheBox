@@ -28,7 +28,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_jqjc1")
 script = ExtResource("2_j3v77")
-LocksPlayerMove = true
 ResetButton = NodePath("PanelContainer/VBoxContainer/HBoxContainer/Reset")
 GrabFirst = true
 FirstFocus = NodePath("PanelContainer/VBoxContainer/HBoxContainer/Reset")
