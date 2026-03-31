@@ -56,7 +56,7 @@ LevelMachenic = NodePath("..")
 Group1 = NodePath("TileGroup")
 Group2 = NodePath("TileGroup2")
 ScratchTilePos = Vector2i(5, 3)
-Obseerer = NodePath("../Spotlight3x4")
+Obseerer = NodePath("../Spotlight3x3")
 metadata/_custom_type_script = "uid://bnyilj3lkbjwb"
 
 [node name="TileGroup" type="Node" parent="LevelMachenicHandler/LMtwogroupHelper2" node_paths=PackedStringArray("Level")]

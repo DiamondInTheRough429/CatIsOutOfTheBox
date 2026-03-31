@@ -30,12 +30,13 @@ func LevelReady() -> void:
 			Scratch.PlayerEntered.connect(StartObserving)
 
 func StartObserving(_player:PlayerHandler) -> void:
-	print("Fuck me")
 	Obseerer.ToggleCollsion()
 
 func GroupChange(NewState:Observable.WhenObserved) -> void:
 	if !Determained and NewState == Observable.WhenObserved.Currently:
 		Determained = true
 		var UnLuckyGroup:TileGroup = Group1 if randi_range(0,1) == 1 else Group2
-		UnLuckyGroup.ToggleGroupCollsion(false, false)
+		var LuckyGroup:TileGroup = Group1 if UnLuckyGroup == Group2 else Group2
+		if LuckyGroup.Group.front().monitoring == UnLuckyGroup.Group.front().monitoring:
+			UnLuckyGroup.ToggleGroupCollsion(false, false)
 		Changed.emit()
