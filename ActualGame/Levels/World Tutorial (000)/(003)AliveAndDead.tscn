@@ -69,7 +69,6 @@ GroupObserveredShader = SubResource("ShaderMaterial_712qi")
 metadata/_custom_type_script = "uid://dcyqayqit2yeq"
 
 [node name="Label" type="RichTextLabel" parent="."]
-visible = false
 top_level = true
 z_index = 11
 offset_left = 5.0
