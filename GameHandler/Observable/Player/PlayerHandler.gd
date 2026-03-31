@@ -131,7 +131,10 @@ func Move(Direction:Directions) -> void:
 		MoveTween.tween_property(self, "position", NewPosition, MovementDuration)
 		await MoveTween.finished
 		CurrentlyMoving = false
-		Sprite.play("Idle")
+		
+		#only play idle if the player is in a state where they can move
+		if CanMove:
+			Sprite.play("Idle")
 
 ##Return true if wall that direction else flase
 func CheckWall(Direction:Directions) -> WallCheckPossible:
@@ -222,6 +225,8 @@ func AnimatePlayer(Ani:String, Freeze:bool = true) -> bool:
 		if Freeze:
 			CanMove = false
 			await Sprite.animation_finished
+			#start playing idle after the scratch animation is done
+			Sprite.play("Idle")
 			CanMove = true
 		return true
 	return false
