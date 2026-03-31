@@ -238,6 +238,7 @@ func AnimatePlayer(Ani:String, Freeze:bool = true) -> bool:
 	return false
 
 func RESET() -> void:
+	PlayDirectionalAnimation("Idle")
 	CurrentMenu = PauseScreen
 	PauseScreen.CurrentMenu = true
 
