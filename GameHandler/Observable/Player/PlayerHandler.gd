@@ -7,6 +7,8 @@ class_name PlayerHandler
 ##Level Player is in
 @export var Level:LevelHandler
 #region Moving Var
+#Duration of movement (orginal value was 0.1 if you wanna change it back)
+var MovementDuration:float = 0.3
 ##Posible directions for moving
 enum Directions{Up, Down, Left, Right, None}
 ##Tells if currently moving
@@ -108,6 +110,8 @@ func Move(Direction:Directions) -> void:
 		CurrentlyMoving = true
 		var NewPosition:Vector2 = position
 		Sprite.frame = 0
+		#reset the flip, since 3/4 animations do not need flip
+		Sprite.set_flip_h(false)
 		match Direction:
 			Directions.Up:
 				NewPosition.y -= 32
@@ -117,14 +121,17 @@ func Move(Direction:Directions) -> void:
 				Sprite.play("MoveDown")
 			Directions.Left:
 				NewPosition.x -= 32
-				Sprite.play("MoveLeft")
+				#flip and play move right
+				Sprite.set_flip_h(true)
+				Sprite.play("MoveRight")
 			Directions.Right:
 				NewPosition.x += 32
 				Sprite.play("MoveRight")
 		var MoveTween:Tween = create_tween()
-		MoveTween.tween_property(self, "position", NewPosition, .1)
+		MoveTween.tween_property(self, "position", NewPosition, MovementDuration)
 		await MoveTween.finished
 		CurrentlyMoving = false
+		Sprite.play("Idle")
 
 ##Return true if wall that direction else flase
 func CheckWall(Direction:Directions) -> WallCheckPossible:
