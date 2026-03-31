@@ -25,12 +25,12 @@ func LevelReady() -> void:
 	if !Group2.GroupChanged.is_connected(GroupChange):
 		Group2.GroupChanged.connect(GroupChange)
 	Scratch = LevelMachenic.Level.PositionToTiles.get(ScratchTilePos)
-	print(Scratch)
 	if Scratch != null:
 		if !Scratch.PlayerEntered.is_connected(StartObserving):
 			Scratch.PlayerEntered.connect(StartObserving)
 
 func StartObserving(_player:PlayerHandler) -> void:
+	print("Fuck me")
 	Obseerer.ToggleCollsion()
 
 func GroupChange(NewState:Observable.WhenObserved) -> void:
