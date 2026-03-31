@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caq0xo8dt8x7b"
-path="res://.godot/imported/posn.png-2254b8f432e33b13c0ffa28048c1b82f.ctex"
+uid="uid://650so8ts6ii5"
+path="res://.godot/imported/Cardboard.png-a9262933cf8d6831b6cc74e40bc105c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TileSets/posn.png"
-dest_files=["res://.godot/imported/posn.png-2254b8f432e33b13c0ffa28048c1b82f.ctex"]
+source_file="res://Assets/TileSets/TileSets/Walls/Cardboard.png"
+dest_files=["res://.godot/imported/Cardboard.png-a9262933cf8d6831b6cc74e40bc105c2.ctex"]
 
 [params]
 
