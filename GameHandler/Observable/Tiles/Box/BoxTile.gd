@@ -6,6 +6,8 @@ enum Directions{Up, Down, Left, Right, None}
 @export var OnTracks:bool = true
 @export var CheckRay:RayCast2D
 
+@export var PushPlayer:AudioStreamPlayer2D
+
 func _ready() -> void:
 	super._ready()
 
@@ -59,5 +61,5 @@ func Move(Direct:Directions) -> void:
 			NewPosition.x -= 32
 		Directions.Right:
 			NewPosition.x += 32
-	MoveTween.tween_property(self, "position", NewPosition, .1)
-	
+	MoveTween.tween_property(self, "position", NewPosition, 0.3)
+	PushPlayer.play()

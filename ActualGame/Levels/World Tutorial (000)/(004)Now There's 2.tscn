@@ -1,14 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://cfepuoyb3rqvh"]
+[gd_scene load_steps=11 format=4 uid="uid://ceh14i7w8pi27"]
 
 [ext_resource type="TileSet" uid="uid://dmdp0jyxbrl7f" path="res://Assets/TileSets/DevTest/DevTileSet.tres" id="1_0cv2s"]
 [ext_resource type="Script" uid="uid://bb5r5ruwttbqc" path="res://GameHandler/LevelHandler/LevelHandler.gd" id="2_rusmt"]
-[ext_resource type="Resource" uid="uid://bhw2m7vvhwjv2" path="res://ActualGame/Levels/World Tutorial (000)/InfoResource/004NowTheres2.tres" id="3_63j7g"]
+[ext_resource type="Resource" path="res://ActualGame/Levels/World Tutorial (000)/InfoResource/004NowTheres2.tres" id="3_63j7g"]
 [ext_resource type="Theme" uid="uid://bd4anyrq4cuqn" path="res://Assets/MenuThemes.tres" id="4_0deiu"]
 [ext_resource type="Script" uid="uid://dti8gvr8a4ha7" path="res://GameHandler/LevelHandler/Mechenic Handlers/World 000/LMH-000-004.gd" id="4_fp04p"]
 [ext_resource type="PackedScene" uid="uid://bkbunkuyil3tm" path="res://ActualGame/Tiles/Box/Dev Box.tscn" id="5_0deiu"]
 [ext_resource type="PackedScene" uid="uid://bphqqmx05ftb0" path="res://ActualGame/Tiles/Box/DevButton.tscn" id="6_fp04p"]
 [ext_resource type="PackedScene" uid="uid://dsgaxrj5sntxr" path="res://ActualGame/Tiles/Box/DevButtonRail.tscn" id="7_63j7g"]
-[ext_resource type="PackedScene" uid="uid://dfvdqawftbttw" path="res://ActualGame/Tiles/DevGate.tscn" id="9_63j7g"]
+[ext_resource type="PackedScene" path="res://ActualGame/Tiles/DevGate.tscn" id="9_63j7g"]
 
 [sub_resource type="GDScript" id="GDScript_ij2qx"]
 resource_name = "Tutorial 1 Label Handler"
@@ -56,6 +56,7 @@ script = SubResource("GDScript_ij2qx")
 metadata/_edit_use_anchors_ = true
 
 [node name="DevBox2" parent="." instance=ExtResource("5_0deiu")]
+z_index = 0
 position = Vector2(240, 240)
 OnTracks = true
 
