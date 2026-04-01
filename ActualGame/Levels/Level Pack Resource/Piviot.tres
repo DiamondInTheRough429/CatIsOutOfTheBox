@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MadeLevelPack" load_steps=18 format=3 uid="uid://by2uifdbr31bx"]
+[gd_resource type="Resource" script_class="MadeLevelPack" load_steps=13 format=3 uid="uid://by2uifdbr31bx"]
 
 [ext_resource type="Script" uid="uid://bibbt5260vm2b" path="res://GameHandler/LevelHandler/LevelInfo.gd" id="1_jp58s"]
 [ext_resource type="Script" uid="uid://cn1knei75pnhl" path="res://ActualGame/Levels/Level Pack Resource/MadeLevelPack.gd" id="2_rho3e"]
@@ -12,14 +12,9 @@
 [ext_resource type="Resource" uid="uid://diqk7d0n0qdob" path="res://ActualGame/Levels/PIVOT WORLD/InfoResource/1-8.tres" id="9_ruxvw"]
 [ext_resource type="Resource" uid="uid://dvh1y5bhumgog" path="res://ActualGame/Levels/PIVOT WORLD/InfoResource/1-9.tres" id="10_blxk3"]
 [ext_resource type="Resource" uid="uid://hk66st8dsxr" path="res://ActualGame/Levels/PIVOT WORLD/InfoResource/1-10.tres" id="11_i1ao0"]
-[ext_resource type="Resource" uid="uid://dfsbt3siqiudm" path="res://ActualGame/Levels/PIVOT WORLD/InfoResource/1-11.tres" id="12_sfans"]
-[ext_resource type="Resource" uid="uid://cspqjj8onqxs6" path="res://ActualGame/Levels/PIVOT WORLD/InfoResource/1-12.tres" id="13_84no6"]
-[ext_resource type="Resource" uid="uid://pvarexuocha8" path="res://ActualGame/Levels/PIVOT WORLD/InfoResource/1-13.tres" id="14_xxgyb"]
-[ext_resource type="Resource" uid="uid://ppb3oxakr085" path="res://ActualGame/Levels/PIVOT WORLD/InfoResource/1-14.tres" id="15_jy8mu"]
-[ext_resource type="Resource" uid="uid://dc5uljsfagm4k" path="res://ActualGame/Levels/PIVOT WORLD/InfoResource/1-15.tres" id="16_n7lxu"]
 
 [resource]
 script = ExtResource("2_rho3e")
 World = 1
-Levels = Array[ExtResource("1_jp58s")]([ExtResource("2_sp86x"), ExtResource("3_tdsld"), ExtResource("4_8cgx2"), ExtResource("5_fo8gg"), ExtResource("6_ae6ow"), ExtResource("7_8mvk1"), ExtResource("8_77idb"), ExtResource("9_ruxvw"), ExtResource("10_blxk3"), ExtResource("11_i1ao0"), ExtResource("12_sfans"), ExtResource("13_84no6"), ExtResource("14_xxgyb"), ExtResource("15_jy8mu"), ExtResource("16_n7lxu")])
+Levels = Array[ExtResource("1_jp58s")]([ExtResource("2_sp86x"), ExtResource("3_tdsld"), ExtResource("4_8cgx2"), ExtResource("5_fo8gg"), ExtResource("6_ae6ow"), ExtResource("7_8mvk1"), ExtResource("8_77idb"), ExtResource("9_ruxvw"), ExtResource("10_blxk3"), ExtResource("11_i1ao0")])
 metadata/_custom_type_script = "uid://cn1knei75pnhl"

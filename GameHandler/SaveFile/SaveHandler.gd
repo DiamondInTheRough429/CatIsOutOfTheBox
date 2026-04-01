@@ -43,7 +43,7 @@ func CalculateWorldStars(World:int) -> int:
 		0:
 			Levels = 4
 		1:
-			Levels = 15
+			Levels = 10
 		2:
 			Levels = 20
 		_:
@@ -92,7 +92,7 @@ func HelpContinue() -> Vector2i:
 					0:
 						NeededLevel = 4
 					1:
-						NeededLevel = 15
+						NeededLevel = 10
 					2:
 						NeededLevel = 20
 					_:

@@ -7,5 +7,6 @@ script = ExtResource("1_em6xs")
 World = 1
 Level = 10
 LevelUID = &"uid://diwjwnirp4g6h"
-NextLevelUID = &"uid://crs5hln6qmwcp"
+NextLevelUID = &"uid://eu6t881w023r"
+TimeStarLimit = 60.0
 metadata/_custom_type_script = "uid://bibbt5260vm2b"

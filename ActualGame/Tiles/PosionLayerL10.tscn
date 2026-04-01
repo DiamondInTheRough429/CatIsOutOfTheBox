@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=4 uid="uid://cbokglswxwvcl"]
+
+[ext_resource type="TileSet" uid="uid://dmdp0jyxbrl7f" path="res://Assets/TileSets/DevTest/DevTileSet.tres" id="1_wmuv3"]
+
+[node name="PosionLayer" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAADAAAAAQAAAAAABgACAAAAAQAAAAAABgABAAAAAQAAAAAABgD//wAAAQAAAAAABgD+/wAAAQAAAAAABgD9/wAAAQAAAAAABgA=")
+tile_set = ExtResource("1_wmuv3")
