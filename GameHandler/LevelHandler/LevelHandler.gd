@@ -101,8 +101,10 @@ func ChildEnter(Child:Node, Already:bool = false) -> void:
 			Child.ToggleCollsion(false, !Child.StartCollisionOff)
 	if "Open" in Child:
 		Child.set_meta("DefaultOpen", Child.Open)
+		Child.Open = Child.Open
 	if "Broken" in Child:
 		Child.set_meta("DefaultBroken", Child.Broken)
+		Child.Broken = Child.Broken
 	if Child is Observable:
 		PositionToTiles.set(local_to_map(Child.position), Child)
 	if Child is EndTileHandler:

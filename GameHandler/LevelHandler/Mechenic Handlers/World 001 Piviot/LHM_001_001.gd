@@ -11,12 +11,14 @@ extends LevelMachenicHandler
 var TotalPushed:int = 0
 
 func _ready() -> void:
+	super._ready()
 	TopButton.PressChange.connect(HandleAmount)
 	MidButton.PressChange.connect(HandleAmount)
 	ButButton.PressChange.connect(HandleButButton)
 
 func HandleButButton(Pressed:bool) -> void:
-	ButButton.Broken = true
+	if Pressed:
+		ButButton.Broken = true
 	HandleAmount(Pressed)
 
 func HandleAmount(_pressHold:bool) -> void:

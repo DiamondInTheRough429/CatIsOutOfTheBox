@@ -41,13 +41,13 @@ position = Vector2(399, 111)
 PlayerInteracts = true
 
 [node name="DevGate" parent="." instance=ExtResource("6_npjfa")]
-position = Vector2(335, 112)
+position = Vector2(336, 112)
 
 [node name="DevGate3" parent="." instance=ExtResource("6_npjfa")]
 position = Vector2(16, 112)
 
 [node name="DevGate2" parent="." instance=ExtResource("6_npjfa")]
-position = Vector2(335, -81)
+position = Vector2(336, -80)
 
 [node name="Spotlight3x3" parent="." instance=ExtResource("7_dk8yw")]
 position = Vector2(47, -80)

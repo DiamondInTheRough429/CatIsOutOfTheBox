@@ -1,34 +1,68 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfvdqawftbttw"]
+[gd_scene load_steps=9 format=3 uid="uid://dfvdqawftbttw"]
 
 [ext_resource type="Script" uid="uid://ba5v2bn2awe6y" path="res://GameHandler/Observable/Tiles/Gate/GateTile.gd" id="1_qeubd"]
-[ext_resource type="Texture2D" uid="uid://diq43yyao2sqt" path="res://Assets/Lock.png" id="2_xftam"]
+[ext_resource type="Texture2D" uid="uid://dqkmmqpxmv55s" path="res://Assets/TileSets/Individual Tiles/Gate/MetalDoor-Gate-Open.png" id="2_qt588"]
+[ext_resource type="Texture2D" uid="uid://8daeckkq47kr" path="res://Assets/TileSets/Individual Tiles/Gate/MetalDoor-Gate-MostOpenOpen.png" id="3_xuqsp"]
+[ext_resource type="Texture2D" uid="uid://ccwuhhkusxlhs" path="res://Assets/TileSets/Individual Tiles/Gate/MetalDoor-Gate-MidOpen.png" id="4_3uqj0"]
+[ext_resource type="Texture2D" uid="uid://ba4fhngs6ct2k" path="res://Assets/TileSets/Individual Tiles/Gate/MetalDoor-Gate-StartOpen.png" id="5_vnkl5"]
+[ext_resource type="Texture2D" uid="uid://cyhn5iawxwmsm" path="res://Assets/TileSets/Individual Tiles/Gate/MetalDoor-Gate-Closed.png" id="6_05nad"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7eoxq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_xftam")
-}],
-"loop": true,
-"name": &"Close",
-"speed": 5.0
+"texture": ExtResource("2_qt588")
 }, {
-"frames": [],
-"loop": true,
+"duration": 1.0,
+"texture": ExtResource("3_xuqsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3uqj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vnkl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_05nad")
+}],
+"loop": false,
+"name": &"Close",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_05nad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vnkl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3uqj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xuqsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qt588")
+}],
+"loop": false,
 "name": &"Open",
-"speed": 5.0
+"speed": 20.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmexy"]
 size = Vector2(16, 16)
 
-[node name="DevGate" type="Area2D"]
+[node name="DevGate" type="Area2D" node_paths=PackedStringArray("Sprite")]
 script = ExtResource("1_qeubd")
+Sprite = NodePath("AnimatedSprite2D")
 metadata/_custom_type_script = "uid://ba5v2bn2awe6y"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7eoxq")
-animation = &"Open"
+animation = &"Close"
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fmexy")
