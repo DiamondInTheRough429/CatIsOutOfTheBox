@@ -68,10 +68,13 @@ func SetPress(Set:bool) -> void:
 	SecondSprite.play(PlayAni)
 	
 func PlayButtonSound() -> void:
-	if Pressed:
-		OnPlayer.play()
-	else:
-		OffPlayer.play()
+	if is_inside_tree():
+		if Pressed:
+			if OnPlayer.is_inside_tree():
+				OnPlayer.play()
+		else:
+			if OffPlayer.is_inside_tree():
+				OffPlayer.play()
 
 func SetButtonBroken(Set:bool) -> void:
 	Broken = Set
