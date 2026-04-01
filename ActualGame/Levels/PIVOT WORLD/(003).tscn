@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://cpfr7nkakgho5"]
+[gd_scene load_steps=9 format=4 uid="uid://cpfr7nkakgho5"]
 
 [ext_resource type="TileSet" uid="uid://dmdp0jyxbrl7f" path="res://Assets/TileSets/DevTest/DevTileSet.tres" id="1_yhysx"]
 [ext_resource type="Script" uid="uid://bb5r5ruwttbqc" path="res://GameHandler/LevelHandler/LevelHandler.gd" id="2_jqj66"]
@@ -6,16 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://bkbunkuyil3tm" path="res://ActualGame/Tiles/Box/Dev Box.tscn" id="4_3plgb"]
 [ext_resource type="PackedScene" uid="uid://bphqqmx05ftb0" path="res://ActualGame/Tiles/Box/DevButton.tscn" id="5_wl6vs"]
 [ext_resource type="PackedScene" uid="uid://dfvdqawftbttw" path="res://ActualGame/Tiles/DevGate.tscn" id="6_wl6vs"]
+[ext_resource type="Script" uid="uid://b36nrkxyfsrpp" path="res://GameHandler/LevelHandler/Mechenic Handlers/World 001 Piviot/LHM_001_003.gd" id="7_e7olt"]
+[ext_resource type="PackedScene" uid="uid://djmjab3d2a6dr" path="res://ActualGame/Tiles/DEVDuplicatedPlayerTile.tscn" id="8_oku7j"]
 
 [node name="001-003" type="TileMapLayer" node_paths=PackedStringArray("Background", "NodesToRest")]
-tile_map_data = PackedByteArray("AAD//wEAAgAAAAAAAQABAAMAAgAAAAAAAQAAAAMAAgAAAAAAAQD//wMAAgAAAAAAAQD//wIAAgAAAAAAAQABAP//AgAAAAAAAQABAP7/AgAAAAAAAQABAP3/AgAAAAAAAQAAAP3/AgAAAAAAAQD///3/AgAAAAAAAQAAAAAAAQAAAAAABwABAAEAAgAAAAAAAQABAAAAAgAAAAAAAQD/////AgAAAAAAAQD//wAAAgAAAAAAAQD7//3/AQAAAAAAAgD7//7/AQAAAAAAAgD7////AQAAAAAAAgD+/wAAAgAAAAAAAQD9/wAAAgAAAAAAAQD8/wAAAgAAAAAAAQD7/wAAAgAAAAAAAQD6/wAAAgAAAAAAAQD6////AgAAAAAAAQD5////AgAAAAAAAQD5/wAAAgAAAAAAAQD5//3/AgAAAAAAAQD5//z/AgAAAAAAAQD6//z/AgAAAAAAAQD6//3/AgAAAAAAAQD7//z/AgAAAAAAAQD8//z/AgAAAAAAAQD9//z/AgAAAAAAAQD+//z/AgAAAAAAAQD///z/AgAAAAAAAQAAAPz/AgAAAAAAAQABAPz/AgAAAAAAAQD5//7/AgAAAAAAAQACAPz/AgAAAAAAAQADAPz/AgAAAAAAAQAEAPz/AgAAAAAAAQAFAPz/AgAAAAAAAQAGAPz/AgAAAAAAAQAHAPz/AgAAAAAAAQAIAPz/AgAAAAAAAQAJAP3/AgAAAAAAAQAJAPz/AgAAAAAAAQAJAP7/AgAAAAAAAQAJAP//AgAAAAAAAQAJAAAAAgAAAAAAAQAJAAEAAgAAAAAAAQAJAAIAAgAAAAAAAQAJAAMAAgAAAAAAAQAJAAQAAgAAAAAAAQAJAAUAAgAAAAAAAQAFAP7/AQAAAAAAAgAFAP//AQAAAAAAAgAFAAAAAQAAAAAAAgAFAAEAAQAAAAAAAgAFAAIAAQAAAAAAAgAFAAMAAQAAAAAAAgAFAAQAAQAAAAAAAgAFAAUAAQAAAAAAAgAFAP3/AQAAAAAABwAGAAQAAgAAAAAAAQAHAAQAAgAAAAAAAQAHAAMAAgAAAAAAAQABAAQAAgAAAAAAAQABAAUAAgAAAAAAAQABAAYAAgAAAAAAAQACAAYAAgAAAAAAAQADAAYAAgAAAAAAAQAEAAYAAgAAAAAAAQAFAAYAAgAAAAAAAQAGAAYAAgAAAAAAAQAHAAYAAgAAAAAAAQAHAAUAAgAAAAAAAQAJAAYAAgAAAAAAAQAIAAYAAgAAAAAAAQAIAAUAAwAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAD//wEAAgAAAAAAAQABAAMAAgAAAAAAAQAAAAMAAgAAAAAAAQD//wMAAgAAAAAAAQD//wIAAgAAAAAAAQABAP//AgAAAAAAAQABAP7/AgAAAAAAAQABAP3/AgAAAAAAAQAAAP3/AgAAAAAAAQD///3/AgAAAAAAAQAAAAAAAQAAAAAABwABAAEAAgAAAAAAAQABAAAAAgAAAAAAAQD/////AgAAAAAAAQD//wAAAgAAAAAAAQD7//3/AQAAAAAAAgD7//7/AQAAAAAAAgD7////AQAAAAAAAgD+/wAAAgAAAAAAAQD9/wAAAgAAAAAAAQD8/wAAAgAAAAAAAQD7/wAAAgAAAAAAAQD6/wAAAgAAAAAAAQD6////AgAAAAAAAQD5////AgAAAAAAAQD5/wAAAgAAAAAAAQD5//3/AgAAAAAAAQD5//z/AgAAAAAAAQD6//z/AgAAAAAAAQD6//3/AgAAAAAAAQD7//z/AgAAAAAAAQD8//z/AgAAAAAAAQD9//z/AgAAAAAAAQD+//z/AgAAAAAAAQD///z/AgAAAAAAAQAAAPz/AgAAAAAAAQABAPz/AgAAAAAAAQD5//7/AgAAAAAAAQACAPz/AgAAAAAAAQADAPz/AgAAAAAAAQAEAPz/AgAAAAAAAQAFAPz/AgAAAAAAAQAGAPz/AgAAAAAAAQAHAPz/AgAAAAAAAQAIAPz/AgAAAAAAAQAJAP3/AgAAAAAAAQAJAPz/AgAAAAAAAQAJAP7/AgAAAAAAAQAJAP//AgAAAAAAAQAJAAAAAgAAAAAAAQAJAAEAAgAAAAAAAQAJAAIAAgAAAAAAAQAJAAMAAgAAAAAAAQAJAAQAAgAAAAAAAQAJAAUAAgAAAAAAAQAFAP7/AQAAAAAAAgAFAP//AQAAAAAAAgAFAAAAAQAAAAAAAgAFAAEAAQAAAAAAAgAFAAIAAQAAAAAAAgAFAAMAAQAAAAAAAgAFAAQAAQAAAAAAAgAFAAUAAQAAAAAAAgAGAAQAAgAAAAAAAQAHAAQAAgAAAAAAAQAHAAMAAgAAAAAAAQABAAQAAgAAAAAAAQABAAUAAgAAAAAAAQABAAYAAgAAAAAAAQACAAYAAgAAAAAAAQADAAYAAgAAAAAAAQAEAAYAAgAAAAAAAQAFAAYAAgAAAAAAAQAGAAYAAgAAAAAAAQAHAAYAAgAAAAAAAQAHAAUAAgAAAAAAAQAJAAYAAgAAAAAAAQAIAAYAAgAAAAAAAQAIAAUAAwAAAAAAAQA=")
 tile_set = ExtResource("1_yhysx")
 script = ExtResource("2_jqj66")
 World = 1
 Level = 2
 LevelInfoResource = ExtResource("3_yhysx")
 Background = NodePath("TileMapLayer")
-NodesToRest = [NodePath("DevBox"), NodePath("DevButton"), NodePath("DevGate"), NodePath("DevBox2"), NodePath("DevBox3"), NodePath("DevBox4"), NodePath("DevButton2"), NodePath("DevButton3"), NodePath("DevButton4"), NodePath("DevGate2"), NodePath("DevButton5"), NodePath("DevGate3"), NodePath("DevGate4")]
+NodesToRest = [NodePath("DevBox"), NodePath("DevButton"), NodePath("DevGate"), NodePath("DevBox2"), NodePath("DevBox3"), NodePath("DevBox4"), NodePath("DevButton2"), NodePath("DevButton3"), NodePath("DevButton4"), NodePath("DevGate2"), NodePath("DevButton5"), NodePath("DevGate3"), NodePath("DevGate4"), NodePath("DevDuplicatedPlayerTile2")]
 metadata/_custom_type_script = "uid://bb5r5ruwttbqc"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -23,41 +25,61 @@ tile_map_data = PackedByteArray("AAAHAAMAAAAEAAAAAAAGAAQAAAAAAAIAAAAHAAQAAAAIAAA
 tile_set = ExtResource("1_yhysx")
 
 [node name="DevBox" parent="." instance=ExtResource("4_3plgb")]
-position = Vector2(-144, -48)
+position = Vector2(-144, -46)
 
 [node name="DevButton" parent="." instance=ExtResource("5_wl6vs")]
-position = Vector2(-175, -50)
+position = Vector2(-176, -46)
 
 [node name="DevGate" parent="." instance=ExtResource("6_wl6vs")]
-position = Vector2(47, 79)
+position = Vector2(48, 80)
 
 [node name="DevBox2" parent="." instance=ExtResource("4_3plgb")]
-position = Vector2(178, -14)
+position = Vector2(176, -15)
 
 [node name="DevBox3" parent="." instance=ExtResource("4_3plgb")]
-position = Vector2(176, 43)
+position = Vector2(176, 50)
 
 [node name="DevBox4" parent="." instance=ExtResource("4_3plgb")]
-position = Vector2(176, 107)
+position = Vector2(176, 114)
 
 [node name="DevButton2" parent="." instance=ExtResource("5_wl6vs")]
-position = Vector2(146, 39)
+position = Vector2(144, 50)
 
 [node name="DevButton3" parent="." instance=ExtResource("5_wl6vs")]
-position = Vector2(211, -18)
+position = Vector2(208, -15)
 
 [node name="DevButton4" parent="." instance=ExtResource("5_wl6vs")]
-position = Vector2(210, 178)
+position = Vector2(208, 178)
 
 [node name="DevGate2" parent="." instance=ExtResource("6_wl6vs")]
-position = Vector2(273, 142)
+position = Vector2(272, 144)
 
 [node name="DevButton5" parent="." instance=ExtResource("5_wl6vs")]
-position = Vector2(14, 81)
+position = Vector2(16, 82)
 PlayerInteracts = true
 
 [node name="DevGate3" parent="." instance=ExtResource("6_wl6vs")]
-position = Vector2(16, 46)
+position = Vector2(16, 48)
+Open = true
 
 [node name="DevGate4" parent="." instance=ExtResource("6_wl6vs")]
-position = Vector2(-15, -49)
+position = Vector2(-16, -48)
+
+[node name="LevelMachenicHandler" type="Node" parent="." node_paths=PackedStringArray("TopPlayerGate", "BottomPlayerGate", "EnterGate", "ExitGate", "PrepPlayerButton", "LetOutButton", "Puzzel1Button", "Puzzel2Button", "Puzzel3Button", "Level")]
+script = ExtResource("7_e7olt")
+TopPlayerGate = NodePath("../DevGate4")
+BottomPlayerGate = NodePath("../DevGate3")
+EnterGate = NodePath("../DevGate")
+ExitGate = NodePath("../DevGate2")
+PrepPlayerButton = NodePath("../DevButton5")
+LetOutButton = NodePath("../DevButton")
+Puzzel1Button = NodePath("../DevButton3")
+Puzzel2Button = NodePath("../DevButton2")
+Puzzel3Button = NodePath("../DevButton4")
+Level = NodePath("..")
+metadata/_custom_type_script = "uid://dyjq2yv88smfn"
+
+[node name="DevDuplicatedPlayerTile2" parent="." instance=ExtResource("8_oku7j")]
+position = Vector2(176, -80)
+PlayerOutputOne = 2
+PlayerOutputTwo = 3
