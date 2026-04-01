@@ -58,8 +58,9 @@ StartCollisionOff = true
 position = Vector2(271, 112)
 StartCollisionOff = true
 
-[node name="DevDuplicatedPlayerTile" parent="." instance=ExtResource("7_4mg4i")]
+[node name="DevDuplicatedPlayerTile" parent="." node_paths=PackedStringArray("Level") instance=ExtResource("7_4mg4i")]
 position = Vector2(16, 16)
+Level = NodePath("..")
 PlayerOutputOne = 2
 PlayerOutputTwo = 3
 

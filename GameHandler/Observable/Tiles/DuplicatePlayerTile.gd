@@ -1,6 +1,7 @@
 extends TileHanlder
 class_name DuplicatePlayerTile
 
+@export var Level:LevelHandler
 @export var PlayerScene:PackedScene
 @export var PlayerOutputOne:PlayerHandler.Directions = PlayerHandler.Directions.Up
 @export var PlayerOutputTwo:PlayerHandler.Directions = PlayerHandler.Directions.Down
@@ -11,6 +12,8 @@ func _ready() -> void:
 	super._ready()
 	z_index = 6
 	DupCamera.enabled = false
+	if Level != null:
+		Level.LevelReady.connect(LevelReady)
 
 func PlayerEnter(_Player:PlayerHandler) -> void:
 	if _Player.DuplicatedPlayer == null:
@@ -56,3 +59,6 @@ func PlayerDied() -> void:
 func RESET() -> void:
 	super.RESET()
 	set_collision_layer_value(4, false)
+
+func LevelReady() -> void:
+	PlayerEnter(Level.Player)

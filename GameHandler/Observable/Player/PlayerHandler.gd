@@ -250,4 +250,5 @@ func RESET() -> void:
 
 func LevelEnd() -> void:
 	CanMove = false
-	LevelEndScreen.MoveInOut()
+	if CurrentPlayer:
+		LevelEndScreen.MoveInOut()
